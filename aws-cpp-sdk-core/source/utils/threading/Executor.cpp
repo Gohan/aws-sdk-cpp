@@ -15,16 +15,28 @@
 
 #include <aws/core/utils/threading/Executor.h>
 #include <aws/core/utils/threading/ThreadTask.h>
+#include <aws/core/utils/logging/AWSLogging.h>
+#include <aws/core/utils/logging/LogLevel.h>
+#include <aws/core/utils/logging/LogSystemInterface.h>
 #include <thread>
 #include <cassert>
+#include <chrono>
+#include <cstdio>
 
 static const char* POOLED_CLASS_TAG = "PooledThreadExecutor";
 
 using namespace Aws::Utils::Threading;
 
-bool DefaultExecutor::SubmitToThread(std::function<void()>&&  fx)
+bool DefaultExecutor::SubmitToThread(std::chrono::time_point<std::chrono::high_resolution_clock> time, std::function<void()>&&  fx)
 {
-    auto main = [fx, this] { 
+	using namespace std::chrono;
+	using namespace std::chrono_literals;
+	using CLOCK = std::chrono::high_resolution_clock;
+	auto delay = duration_cast<milliseconds>(time - CLOCK::now());
+    auto main = [delay, fx, this] { 
+		if (delay > 0ms) {
+			std::this_thread::sleep_for(delay);
+		}
         fx(); 
         Detach(std::this_thread::get_id()); 
     };
@@ -106,33 +118,37 @@ PooledThreadExecutor::~PooledThreadExecutor()
         Aws::Delete(threadTask);
     }
 
-    while(m_tasks.size() > 0)
+    while(m_submitTasks.size() > 0)
     {
-        std::function<void()>* fn = m_tasks.front();
-        m_tasks.pop();
+		SubmitTask* task = m_submitTasks.top();
+		m_submitTasks.pop();
 
-        if(fn)
+        if(task)
         {
-            Aws::Delete(fn);
+			Aws::Delete(task->func);
+            Aws::Delete(task);
         }
     }
 
 }
 
-bool PooledThreadExecutor::SubmitToThread(std::function<void()>&& fn)
+bool PooledThreadExecutor::SubmitToThread(std::chrono::time_point<std::chrono::high_resolution_clock> time, std::function<void()>&& fn)
 {
     //avoid the need to do copies inside the lock. Instead lets do a pointer push.
-    std::function<void()>* fnCpy = Aws::New<std::function<void()>>(POOLED_CLASS_TAG, std::forward<std::function<void()>>(fn));
+	auto t = time;
+	SubmitTask* task = Aws::New<SubmitTask>(POOLED_CLASS_TAG);
+	task->func = Aws::New<std::function<void()>>(POOLED_CLASS_TAG, std::forward<std::function<void()>>(fn));
+	task->time = time;
 
     {
         std::lock_guard<std::mutex> locker(m_queueLock);
 
-        if (m_overflowPolicy == OverflowPolicy::REJECT_IMMEDIATELY && m_tasks.size() >= m_poolSize)
+        if (m_overflowPolicy == OverflowPolicy::REJECT_IMMEDIATELY && m_submitTasks.size() >= m_poolSize)
         {
             return false;
         }
 
-        m_tasks.push(fnCpy);
+		m_submitTasks.push(task);
     }
 
     m_sync.Release();
@@ -140,25 +156,49 @@ bool PooledThreadExecutor::SubmitToThread(std::function<void()>&& fn)
     return true;
 }
 
-std::function<void()>* PooledThreadExecutor::PopTask()
+SubmitTask* PooledThreadExecutor::PopTask()
 {
     std::lock_guard<std::mutex> locker(m_queueLock);
 
-    if (m_tasks.size() > 0)
+    if (m_submitTasks.size() > 0)
     {
-        std::function<void()>* fn = m_tasks.front();
-        if (fn)
+        auto task = m_submitTasks.top();
+        if (task)
         {           
-            m_tasks.pop();
-            return fn;
+			m_submitTasks.pop();
+            return task;
         }
     }
 
     return nullptr;
 }
 
+SubmitTask * Aws::Utils::Threading::PooledThreadExecutor::PeekTask()
+{
+    std::lock_guard<std::mutex> locker(m_queueLock);
+
+    if (m_submitTasks.size() > 0)
+    {
+        auto task = m_submitTasks.top();
+        if (task)
+        {           
+            return task;
+        }
+    }
+
+    return nullptr;
+}
+
+
 bool PooledThreadExecutor::HasTasks()
 {
     std::lock_guard<std::mutex> locker(m_queueLock);
-    return m_tasks.size() > 0;
+    return m_submitTasks.size() > 0;
+}
+
+bool Aws::Utils::Threading::operator<(const SubmitTask & task1, const SubmitTask & task2)
+{
+	// Aws::Utils::Logging::GetLogSystem()->Log(Aws::Utils::Logging::LogLevel::Info, "MAIN", "Compare");
+	// printf("SubmitTask compare: test\n");
+	return task1.time < task2.time;
 }

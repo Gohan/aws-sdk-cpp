@@ -15,6 +15,7 @@
 
 #include <aws/core/utils/threading/Semaphore.h>
 #include <algorithm>
+#include <chrono>
 
 using namespace Aws::Utils::Threading;
 
@@ -32,6 +33,21 @@ void Semaphore::WaitOne()
     }
     --m_count;
 }
+
+bool Semaphore::WaitOneTimeout(std::chrono::milliseconds timeout) {
+    std::unique_lock<std::mutex> locker(m_mutex);
+    if(0 == m_count)
+    {
+		using namespace std::chrono_literals;
+        bool succ = m_syncPoint.wait_for(locker, timeout, [this] { return m_count > 0; });
+		if (!succ) {
+			return false;
+		}
+    }
+    --m_count;
+	return true;
+}
+
 
 void Semaphore::Release()
 {

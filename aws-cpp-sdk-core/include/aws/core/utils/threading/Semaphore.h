@@ -36,6 +36,7 @@ namespace Aws
                      * Blocks the current thread until it receives a signal.
                      */
                     void WaitOne();
+					bool WaitOneTimeout(std::chrono::milliseconds timeout);
                     /**
                      * Exits the semaphore once.
                      */

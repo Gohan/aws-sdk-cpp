@@ -15,6 +15,7 @@
 
 #include <aws/core/utils/threading/ThreadTask.h>
 #include <aws/core/utils/threading/Executor.h>
+#include <chrono>
 
 using namespace Aws::Utils;
 using namespace Aws::Utils::Threading;
@@ -31,15 +32,25 @@ ThreadTask::~ThreadTask()
 
 void ThreadTask::MainTaskRunner()
 {
+	using namespace std::chrono_literals;
+	using CLOCK = std::chrono::high_resolution_clock;
     while (m_continue)
     {        
         while (m_continue && m_executor.HasTasks())
         {      
-            auto fn = m_executor.PopTask();
-            if(fn)
+            auto task = m_executor.PeekTask();
+            if (task)// && CLOCK::now() >= task->time)
             {
-                (*fn)();
-                Aws::Delete(fn);               
+				auto delay = std::chrono::duration_cast<std::chrono::milliseconds>(task->time - CLOCK::now());
+				if (delay <= 0ms) {
+					task = m_executor.PopTask();
+					(*(task->func))();
+					Aws::Delete(task->func);               
+					Aws::Delete(task);               
+					continue;
+				}
+
+				m_executor.m_sync.WaitOneTimeout(delay);
             }
         }
      

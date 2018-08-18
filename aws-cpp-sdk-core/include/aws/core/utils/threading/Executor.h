@@ -24,6 +24,7 @@
 #include <future>
 #include <mutex>
 #include <atomic>
+#include <chrono>
 
 namespace Aws
 {
@@ -48,15 +49,25 @@ namespace Aws
                 template<class Fn, class ... Args>
                 bool Submit(Fn&& fn, Args&& ... args)
                 {
+					using CLOCK = std::chrono::high_resolution_clock;
+					auto now = CLOCK::now();
                     std::function<void()> callable{ std::bind(std::forward<Fn>(fn), std::forward<Args>(args)...) };
-                    return SubmitToThread(std::move(callable));
+                    return SubmitToThread(now, std::move(callable));
                 }
+
+                template<class Fn, class ... Args>
+				bool SubmitDelay(std::chrono::milliseconds delay, Fn&& fn, Args&& ... args) {
+					using CLOCK = std::chrono::high_resolution_clock;
+					auto now = CLOCK::now();
+                    std::function<void()> callable{ std::bind(std::forward<Fn>(fn), std::forward<Args>(args)...) };
+                    return SubmitToThread(now+delay, std::move(callable));
+				}
 
             protected:
                 /**
                 * To implement your own executor implementation, then simply subclass Executor and implement this method.
                 */
-                virtual bool SubmitToThread(std::function<void()>&&) = 0;
+                virtual bool SubmitToThread(std::chrono::time_point<std::chrono::high_resolution_clock>, std::function<void()>&&) = 0;
             };
 
 
@@ -73,7 +84,7 @@ namespace Aws
                 {
                     Free, Locked, Shutdown
                 };
-                bool SubmitToThread(std::function<void()>&&) override;
+                bool SubmitToThread(std::chrono::time_point<std::chrono::high_resolution_clock>, std::function<void()>&&) override;
                 void Detach(std::thread::id id);
                 std::atomic<State> m_state;
                 Aws::UnorderedMap<std::thread::id, std::thread> m_threads;
@@ -85,6 +96,17 @@ namespace Aws
                 REJECT_IMMEDIATELY
             };
 
+			struct SubmitTask {
+				std::function<void()>* func;
+				std::chrono::time_point<std::chrono::high_resolution_clock> time;
+			};
+			template<typename Type, typename Compare = std::less<Type> >
+			struct PointerLess : public std::binary_function<Type *, Type *, bool> {
+				bool operator()(const Type *x, const Type *y) const
+				{
+					return Compare()(*x, *y);
+				}
+			};
             /**
             * Thread Pool Executor implementation.
             */
@@ -104,10 +126,11 @@ namespace Aws
                 PooledThreadExecutor& operator =(PooledThreadExecutor&&) = delete;
 
             protected:
-                bool SubmitToThread(std::function<void()>&&) override;
+                bool SubmitToThread(std::chrono::time_point<std::chrono::high_resolution_clock>, std::function<void()>&&) override;
 
             private:
-                Aws::Queue<std::function<void()>*> m_tasks;
+                // Aws::Queue<std::function<void()>*> m_tasks;
+                Aws::PriorityQueue<SubmitTask*, Vector<SubmitTask*>, PointerLess<SubmitTask>> m_submitTasks;
                 std::mutex m_queueLock;
                 Aws::Utils::Threading::Semaphore m_sync;
                 Aws::Vector<ThreadTask*> m_threadTaskHandles;
@@ -117,13 +140,14 @@ namespace Aws
                 /**
                  * Once you call this, you are responsible for freeing the memory pointed to by task.
                  */
-                std::function<void()>* PopTask();
+                // std::function<void()>* PopTask();
+				SubmitTask* PeekTask();
+				SubmitTask* PopTask();
                 bool HasTasks();
 
                 friend class ThreadTask;
             };
-
-
+			inline bool operator < (const SubmitTask& task1, const SubmitTask& task2);
         } // namespace Threading
     } // namespace Utils
 } // namespace Aws

@@ -19,13 +19,16 @@
 
 #include <aws/core/utils/memory/stl/AWSAllocator.h>
 #include <aws/core/utils/memory/stl/AWSDeque.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
 
 #include <deque>
 #include <queue>
+#include <functional>
 
 namespace Aws
 {
 
 template< typename T > using Queue = std::queue< T, Deque< T > >;
+template< typename T, class Container = Vector<T>, class Compare = std::less<typename Container::value_type> > using PriorityQueue = std::priority_queue<T, Container, Compare>;
 
 } // namespace Aws
