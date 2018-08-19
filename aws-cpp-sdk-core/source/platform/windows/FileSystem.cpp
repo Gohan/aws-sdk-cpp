@@ -17,6 +17,8 @@
 #include <aws/core/platform/Environment.h>
 #include <aws/core/utils/logging/LogMacros.h>
 #include <aws/core/utils/StringUtils.h>
+#include <locale>
+#include <codecvt>
 #include <cassert>
 #include <iostream>
 #include <Userenv.h>
@@ -226,7 +228,8 @@ bool CreateDirectoryIfNotExists(const char* path, bool createParentDirs)
             {
                 directoryName[i] = '\0';
             }
-            if (CreateDirectoryW(ToLongPath(StringUtils::ToWString(directoryName.c_str())).c_str(), nullptr))
+			Aws::WString dirPath = ToLongPath(StringUtils::ToWString(directoryName.c_str())).c_str();
+            if (CreateDirectoryW(dirPath.c_str(), nullptr))
             {
                 AWS_LOGSTREAM_DEBUG(FILE_SYSTEM_UTILS_LOG_TAG, "Creation of directory " << directoryName.c_str() << " succeeded.");
             }
@@ -235,8 +238,13 @@ bool CreateDirectoryIfNotExists(const char* path, bool createParentDirs)
                 DWORD errorCode = GetLastError();
                 if (errorCode != ERROR_ALREADY_EXISTS && errorCode != NO_ERROR) // in vs2013 the errorCode is NO_ERROR
                 {
-                    AWS_LOGSTREAM_ERROR(FILE_SYSTEM_UTILS_LOG_TAG, " Creation of directory " << directoryName.c_str() << " returned code: " << errorCode);
-                    return false;
+					DWORD dwAttrib = GetFileAttributesW(dirPath.c_str());
+					if ((dwAttrib & FILE_ATTRIBUTE_DIRECTORY) == 0) 
+					{
+						SetLastError(errorCode);
+						AWS_LOGSTREAM_ERROR(FILE_SYSTEM_UTILS_LOG_TAG, " Creation of directory " << directoryName.c_str() << " returned code: " << errorCode);
+						return false;
+					}
                 }
                 AWS_LOGSTREAM_DEBUG(FILE_SYSTEM_UTILS_LOG_TAG, " Creation of directory " << directoryName.c_str() << " returned code: " << errorCode);
             }
