@@ -25,6 +25,7 @@
 #include <aws/iotanalytics/model/CancelPipelineReprocessingResult.h>
 #include <aws/iotanalytics/model/CreateChannelResult.h>
 #include <aws/iotanalytics/model/CreateDatasetResult.h>
+#include <aws/iotanalytics/model/CreateDatasetContentResult.h>
 #include <aws/iotanalytics/model/CreateDatastoreResult.h>
 #include <aws/iotanalytics/model/CreatePipelineResult.h>
 #include <aws/iotanalytics/model/DescribeChannelResult.h>
@@ -34,6 +35,7 @@
 #include <aws/iotanalytics/model/DescribePipelineResult.h>
 #include <aws/iotanalytics/model/GetDatasetContentResult.h>
 #include <aws/iotanalytics/model/ListChannelsResult.h>
+#include <aws/iotanalytics/model/ListDatasetContentsResult.h>
 #include <aws/iotanalytics/model/ListDatasetsResult.h>
 #include <aws/iotanalytics/model/ListDatastoresResult.h>
 #include <aws/iotanalytics/model/ListPipelinesResult.h>
@@ -103,6 +105,7 @@ namespace Model
         class DescribePipelineRequest;
         class GetDatasetContentRequest;
         class ListChannelsRequest;
+        class ListDatasetContentsRequest;
         class ListDatasetsRequest;
         class ListDatastoresRequest;
         class ListPipelinesRequest;
@@ -122,7 +125,7 @@ namespace Model
         typedef Aws::Utils::Outcome<CancelPipelineReprocessingResult, Aws::Client::AWSError<IoTAnalyticsErrors>> CancelPipelineReprocessingOutcome;
         typedef Aws::Utils::Outcome<CreateChannelResult, Aws::Client::AWSError<IoTAnalyticsErrors>> CreateChannelOutcome;
         typedef Aws::Utils::Outcome<CreateDatasetResult, Aws::Client::AWSError<IoTAnalyticsErrors>> CreateDatasetOutcome;
-        typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<IoTAnalyticsErrors>> CreateDatasetContentOutcome;
+        typedef Aws::Utils::Outcome<CreateDatasetContentResult, Aws::Client::AWSError<IoTAnalyticsErrors>> CreateDatasetContentOutcome;
         typedef Aws::Utils::Outcome<CreateDatastoreResult, Aws::Client::AWSError<IoTAnalyticsErrors>> CreateDatastoreOutcome;
         typedef Aws::Utils::Outcome<CreatePipelineResult, Aws::Client::AWSError<IoTAnalyticsErrors>> CreatePipelineOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<IoTAnalyticsErrors>> DeleteChannelOutcome;
@@ -137,6 +140,7 @@ namespace Model
         typedef Aws::Utils::Outcome<DescribePipelineResult, Aws::Client::AWSError<IoTAnalyticsErrors>> DescribePipelineOutcome;
         typedef Aws::Utils::Outcome<GetDatasetContentResult, Aws::Client::AWSError<IoTAnalyticsErrors>> GetDatasetContentOutcome;
         typedef Aws::Utils::Outcome<ListChannelsResult, Aws::Client::AWSError<IoTAnalyticsErrors>> ListChannelsOutcome;
+        typedef Aws::Utils::Outcome<ListDatasetContentsResult, Aws::Client::AWSError<IoTAnalyticsErrors>> ListDatasetContentsOutcome;
         typedef Aws::Utils::Outcome<ListDatasetsResult, Aws::Client::AWSError<IoTAnalyticsErrors>> ListDatasetsOutcome;
         typedef Aws::Utils::Outcome<ListDatastoresResult, Aws::Client::AWSError<IoTAnalyticsErrors>> ListDatastoresOutcome;
         typedef Aws::Utils::Outcome<ListPipelinesResult, Aws::Client::AWSError<IoTAnalyticsErrors>> ListPipelinesOutcome;
@@ -171,6 +175,7 @@ namespace Model
         typedef std::future<DescribePipelineOutcome> DescribePipelineOutcomeCallable;
         typedef std::future<GetDatasetContentOutcome> GetDatasetContentOutcomeCallable;
         typedef std::future<ListChannelsOutcome> ListChannelsOutcomeCallable;
+        typedef std::future<ListDatasetContentsOutcome> ListDatasetContentsOutcomeCallable;
         typedef std::future<ListDatasetsOutcome> ListDatasetsOutcomeCallable;
         typedef std::future<ListDatastoresOutcome> ListDatastoresOutcomeCallable;
         typedef std::future<ListPipelinesOutcome> ListPipelinesOutcomeCallable;
@@ -208,6 +213,7 @@ namespace Model
     typedef std::function<void(const IoTAnalyticsClient*, const Model::DescribePipelineRequest&, const Model::DescribePipelineOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribePipelineResponseReceivedHandler;
     typedef std::function<void(const IoTAnalyticsClient*, const Model::GetDatasetContentRequest&, const Model::GetDatasetContentOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetDatasetContentResponseReceivedHandler;
     typedef std::function<void(const IoTAnalyticsClient*, const Model::ListChannelsRequest&, const Model::ListChannelsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListChannelsResponseReceivedHandler;
+    typedef std::function<void(const IoTAnalyticsClient*, const Model::ListDatasetContentsRequest&, const Model::ListDatasetContentsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListDatasetContentsResponseReceivedHandler;
     typedef std::function<void(const IoTAnalyticsClient*, const Model::ListDatasetsRequest&, const Model::ListDatasetsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListDatasetsResponseReceivedHandler;
     typedef std::function<void(const IoTAnalyticsClient*, const Model::ListDatastoresRequest&, const Model::ListDatastoresOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListDatastoresResponseReceivedHandler;
     typedef std::function<void(const IoTAnalyticsClient*, const Model::ListPipelinesRequest&, const Model::ListPipelinesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListPipelinesResponseReceivedHandler;
@@ -272,7 +278,7 @@ namespace Model
 
         virtual ~IoTAnalyticsClient();
 
-        inline virtual const char* GetServiceClientName() const override { return "iotanalytics"; }
+        inline virtual const char* GetServiceClientName() const override { return "IoTAnalytics"; }
 
 
         /**
@@ -361,9 +367,11 @@ namespace Model
 
         /**
          * <p>Creates a data set. A data set stores data retrieved from a data store by
-         * applying an SQL action.</p> <note> <p>This operation creates the skeleton of a
-         * data set. To populate the data set, call "CreateDatasetContent".</p>
-         * </note><p><h3>See Also:</h3>   <a
+         * applying a "queryAction" (a SQL query) or a "containerAction" (executing a
+         * containerized application). This operation creates the skeleton of a data set.
+         * The data set can be populated manually by calling "CreateDatasetContent" or
+         * automatically according to a "trigger" you specify.</p><p><h3>See Also:</h3>  
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/CreateDataset">AWS
          * API Reference</a></p>
          */
@@ -371,9 +379,11 @@ namespace Model
 
         /**
          * <p>Creates a data set. A data set stores data retrieved from a data store by
-         * applying an SQL action.</p> <note> <p>This operation creates the skeleton of a
-         * data set. To populate the data set, call "CreateDatasetContent".</p>
-         * </note><p><h3>See Also:</h3>   <a
+         * applying a "queryAction" (a SQL query) or a "containerAction" (executing a
+         * containerized application). This operation creates the skeleton of a data set.
+         * The data set can be populated manually by calling "CreateDatasetContent" or
+         * automatically according to a "trigger" you specify.</p><p><h3>See Also:</h3>  
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/CreateDataset">AWS
          * API Reference</a></p>
          *
@@ -383,9 +393,11 @@ namespace Model
 
         /**
          * <p>Creates a data set. A data set stores data retrieved from a data store by
-         * applying an SQL action.</p> <note> <p>This operation creates the skeleton of a
-         * data set. To populate the data set, call "CreateDatasetContent".</p>
-         * </note><p><h3>See Also:</h3>   <a
+         * applying a "queryAction" (a SQL query) or a "containerAction" (executing a
+         * containerized application). This operation creates the skeleton of a data set.
+         * The data set can be populated manually by calling "CreateDatasetContent" or
+         * automatically according to a "trigger" you specify.</p><p><h3>See Also:</h3>  
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/CreateDataset">AWS
          * API Reference</a></p>
          *
@@ -394,7 +406,7 @@ namespace Model
         virtual void CreateDatasetAsync(const Model::CreateDatasetRequest& request, const CreateDatasetResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Creates the content of a data set by applying an SQL action.</p><p><h3>See
+         * <p>Creates the content of a data set by applying a SQL action.</p><p><h3>See
          * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/CreateDatasetContent">AWS
          * API Reference</a></p>
@@ -402,7 +414,7 @@ namespace Model
         virtual Model::CreateDatasetContentOutcome CreateDatasetContent(const Model::CreateDatasetContentRequest& request) const;
 
         /**
-         * <p>Creates the content of a data set by applying an SQL action.</p><p><h3>See
+         * <p>Creates the content of a data set by applying a SQL action.</p><p><h3>See
          * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/CreateDatasetContent">AWS
          * API Reference</a></p>
@@ -412,7 +424,7 @@ namespace Model
         virtual Model::CreateDatasetContentOutcomeCallable CreateDatasetContentCallable(const Model::CreateDatasetContentRequest& request) const;
 
         /**
-         * <p>Creates the content of a data set by applying an SQL action.</p><p><h3>See
+         * <p>Creates the content of a data set by applying a SQL action.</p><p><h3>See
          * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/CreateDatasetContent">AWS
          * API Reference</a></p>
@@ -788,6 +800,34 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void ListChannelsAsync(const Model::ListChannelsRequest& request, const ListChannelsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Lists information about data set contents that have been
+         * created.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/ListDatasetContents">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::ListDatasetContentsOutcome ListDatasetContents(const Model::ListDatasetContentsRequest& request) const;
+
+        /**
+         * <p>Lists information about data set contents that have been
+         * created.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/ListDatasetContents">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ListDatasetContentsOutcomeCallable ListDatasetContentsCallable(const Model::ListDatasetContentsRequest& request) const;
+
+        /**
+         * <p>Lists information about data set contents that have been
+         * created.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/ListDatasetContents">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ListDatasetContentsAsync(const Model::ListDatasetContentsRequest& request, const ListDatasetContentsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Retrieves information about data sets.</p><p><h3>See Also:</h3>   <a
@@ -1199,6 +1239,7 @@ namespace Model
         void DescribePipelineAsyncHelper(const Model::DescribePipelineRequest& request, const DescribePipelineResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetDatasetContentAsyncHelper(const Model::GetDatasetContentRequest& request, const GetDatasetContentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListChannelsAsyncHelper(const Model::ListChannelsRequest& request, const ListChannelsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ListDatasetContentsAsyncHelper(const Model::ListDatasetContentsRequest& request, const ListDatasetContentsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListDatasetsAsyncHelper(const Model::ListDatasetsRequest& request, const ListDatasetsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListDatastoresAsyncHelper(const Model::ListDatastoresRequest& request, const ListDatastoresResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListPipelinesAsyncHelper(const Model::ListPipelinesRequest& request, const ListPipelinesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

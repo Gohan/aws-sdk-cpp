@@ -97,6 +97,8 @@ public class C2jModelToGeneratorModelTransformer {
         metadata.setApiVersion(c2jMetadata.getApiVersion());
         metadata.setConcatAPIVersion(c2jMetadata.getApiVersion().replace("-", ""));
         metadata.setSigningName(c2jMetadata.getSigningName() != null ? c2jMetadata.getSigningName() : c2jMetadata.getEndpointPrefix());
+        metadata.setServiceId(c2jMetadata.getServiceId() != null ? c2jMetadata.getServiceId() : c2jMetadata.getEndpointPrefix());
+
         metadata.setJsonVersion(c2jMetadata.getJsonVersion());
         if("api-gateway".equalsIgnoreCase(c2jMetadata.getProtocol())) {
             metadata.setEndpointPrefix(c2jMetadata.getEndpointPrefix() + ".execute-api");
@@ -415,11 +417,14 @@ public class C2jModelToGeneratorModelTransformer {
             switch(name) {
                 case "CopyObjectResult":
                     newName = "CopyObjectResultDetails";
+                    renameShapeMember(shape, name, newName);
+                    break;
+                case "BatchUpdateScheduleResult":
+                    shapes.remove(name);                    
                     break;
                 default:
                     throw new RuntimeException("Unhandled shape name conflict: " + name);
             }
-            renameShapeMember(shape, name, newName);
         }
 
         Shape cloned = cloneShape(shape);

@@ -19,6 +19,8 @@
 #include <aws/core/utils/StringUtils.h>
 #include <aws/core/utils/logging/LogMacros.h>
 #include <aws/core/utils/ratelimiter/RateLimiterInterface.h>
+#include <aws/core/utils/DateTime.h>
+#include <aws/core/monitoring/HttpClientMetrics.h>
 #include <cassert>
 #include <algorithm>
 
@@ -28,6 +30,7 @@ using namespace Aws::Http;
 using namespace Aws::Http::Standard;
 using namespace Aws::Utils;
 using namespace Aws::Utils::Logging;
+using namespace Aws::Monitoring;
 
 #ifdef AWS_CUSTOM_MEMORY_MANAGEMENT
 
@@ -294,7 +297,9 @@ CurlHttpClient::CurlHttpClient(const ClientConfiguration& clientConfig) :
     m_isUsingProxy(!clientConfig.proxyHost.empty()), m_proxyUserName(clientConfig.proxyUserName),
     m_proxyPassword(clientConfig.proxyPassword), m_proxyScheme(SchemeMapper::ToString(clientConfig.proxyScheme)), m_proxyHost(clientConfig.proxyHost),
     m_proxyPort(clientConfig.proxyPort), m_verifySSL(clientConfig.verifySSL), m_caPath(clientConfig.caPath),
-    m_caFile(clientConfig.caFile), m_allowRedirects(clientConfig.followRedirects)
+    m_caFile(clientConfig.caFile), 
+    m_disableExpectHeader(clientConfig.disableExpectHeader),
+    m_allowRedirects(clientConfig.followRedirects)
 {
 }
 
@@ -337,6 +342,12 @@ void CurlHttpClient::MakeRequestInternal(HttpRequest& request,
     if (!request.HasHeader(Http::CONTENT_TYPE_HEADER))
     {
         headers = curl_slist_append(headers, "content-type:");
+    }
+
+    // Discard Expect header so as to avoid using multiple payloads to send a http request (header + body)
+    if (m_disableExpectHeader)
+    {
+        headers = curl_slist_append(headers, "Expect:");
     }
 
     CURL* connectionHandle = m_curlHandleContainer.AcquireCurlHandle();
@@ -425,7 +436,7 @@ void CurlHttpClient::MakeRequestInternal(HttpRequest& request,
             curl_easy_setopt(connectionHandle, CURLOPT_SEEKFUNCTION, &CurlHttpClient::SeekBody);
             curl_easy_setopt(connectionHandle, CURLOPT_SEEKDATA, &readContext);
         }
-
+        Aws::Utils::DateTime startTransmissionTime = Aws::Utils::DateTime::Now();
         CURLcode curlResponseCode = curl_easy_perform(connectionHandle);
         bool shouldContinueRequest = ContinueRequest(request);
         if (curlResponseCode != CURLE_OK && shouldContinueRequest)
@@ -470,12 +481,32 @@ void CurlHttpClient::MakeRequestInternal(HttpRequest& request,
             AWS_LOGSTREAM_DEBUG(CURL_HTTP_CLIENT_TAG, "Releasing curl handle " << connectionHandle);
         }
 
+        double timep;
+        CURLcode ret = curl_easy_getinfo(connectionHandle, CURLINFO_NAMELOOKUP_TIME, &timep); // DNS Resolve Latency, seconds.
+        if (ret == CURLE_OK)
+        {
+            request.AddRequestMetric(GetHttpClientMetricNameByType(HttpClientMetricsType::DnsLatency), static_cast<int64_t>(timep * 1000));// to milliseconds
+        }
+
+        ret = curl_easy_getinfo(connectionHandle, CURLINFO_STARTTRANSFER_TIME, &timep); // Connect Latency 
+        if (ret == CURLE_OK)
+        {
+            request.AddRequestMetric(GetHttpClientMetricNameByType(HttpClientMetricsType::ConnectLatency), static_cast<int64_t>(timep * 1000));
+        }
+
+        ret = curl_easy_getinfo(connectionHandle, CURLINFO_APPCONNECT_TIME, &timep); // Ssl Latency
+        if (ret == CURLE_OK)
+        {
+            request.AddRequestMetric(GetHttpClientMetricNameByType(HttpClientMetricsType::SslLatency), static_cast<int64_t>(timep * 1000));
+        }
+
         m_curlHandleContainer.ReleaseCurlHandle(connectionHandle);
         //go ahead and flush the response body stream
         if(response)
         {
             response->GetResponseBody().flush();
         }
+        request.AddRequestMetric(GetHttpClientMetricNameByType(HttpClientMetricsType::RequestLatency), (DateTime::Now() - startTransmissionTime).count());
     }
 
     if (headers)
@@ -483,6 +514,7 @@ void CurlHttpClient::MakeRequestInternal(HttpRequest& request,
         curl_slist_free_all(headers);
     }
 }
+
 std::shared_ptr<HttpResponse> CurlHttpClient::MakeRequest(HttpRequest& request, 
         Aws::Utils::RateLimits::RateLimiterInterface* readLimiter,
         Aws::Utils::RateLimits::RateLimiterInterface* writeLimiter) const

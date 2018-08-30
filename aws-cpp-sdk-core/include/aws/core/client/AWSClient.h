@@ -165,9 +165,9 @@ namespace Aws
              * or encounters and error that is not retryable.
              */
             HttpResponseOutcome AttemptExhaustively(const Aws::Http::URI& uri,
-                const Aws::AmazonWebServiceRequest& request,
-                Http::HttpMethod httpMethod,
-                const char* signerName) const;
+                    const Aws::AmazonWebServiceRequest& request,
+                    Http::HttpMethod httpMethod,
+                    const char* signerName) const;
 
             /**
              * Calls AttemptOnRequest until it either, succeeds, runs out of retries from the retry strategy,
@@ -179,20 +179,18 @@ namespace Aws
                     const char* requestName = nullptr) const;
 
             /**
-             * Constructs and Http Request from the uri and AmazonWebServiceRequest object. Signs the request, sends it accross the wire
+             * Build an Http Request from the AmazonWebServiceRequest object. Signs the request, sends it accross the wire
              * then reports the http response.
              */
-            HttpResponseOutcome AttemptOneRequest(const Aws::Http::URI& uri,
-                const Aws::AmazonWebServiceRequest& request,
-                Http::HttpMethod httpMethod,
-                const char* signerName) const;
+            HttpResponseOutcome AttemptOneRequest(const std::shared_ptr<Http::HttpRequest>& httpRequest,
+                    const Aws::AmazonWebServiceRequest& request,
+                    const char* signerName) const;
 
             /**
-            * Constructs and Http Request from the uri and AmazonWebServiceRequest object. Signs the request, sends it accross the wire
-            * then reports the http response. This method is for payloadless requests e.g. GET, DELETE, HEAD
-            */
-            HttpResponseOutcome AttemptOneRequest(const Aws::Http::URI& uri, 
-                    Http::HttpMethod httpMethod,
+             * Signs an Http Request, sends it accross the wire
+             * then reports the http response. This method is for payloadless requests e.g. GET, DELETE, HEAD
+             */
+            HttpResponseOutcome AttemptOneRequest(const std::shared_ptr<Http::HttpRequest>& httpRequest,
                     const char* signerName,
                     const char* requestName = nullptr) const;
 
@@ -201,9 +199,9 @@ namespace Aws
              * return transfers ownership of the underlying stream for the http response to the caller.
              */
             StreamOutcome MakeRequestWithUnparsedResponse(const Aws::Http::URI& uri,
-                const Aws::AmazonWebServiceRequest& request,
-                Http::HttpMethod method = Http::HttpMethod::HTTP_POST,
-                const char* signerName = Aws::Auth::SIGV4_SIGNER) const;
+                    const Aws::AmazonWebServiceRequest& request,
+                    Http::HttpMethod method = Http::HttpMethod::HTTP_POST,
+                    const char* signerName = Aws::Auth::SIGV4_SIGNER) const;
 
             /**
              * This is used for structureless response payloads (file streams, binary data etc...). It calls AttemptExhaustively, but upon
@@ -223,7 +221,7 @@ namespace Aws
              * Transforms the AmazonWebServicesResult object into an HttpRequest.
              */
             virtual void BuildHttpRequest(const Aws::AmazonWebServiceRequest& request,
-                const std::shared_ptr<Aws::Http::HttpRequest>& httpRequest) const;
+                    const std::shared_ptr<Aws::Http::HttpRequest>& httpRequest) const;
 
             /**
              *  Gets the underlying ErrorMarshaller for subclasses to use.
@@ -239,6 +237,11 @@ namespace Aws
             Aws::Client::AWSAuthSigner* GetSignerByName(const char* name) const;
 
         private:
+            /**
+             * Try to adjust signer's clock
+             * return true if signer's clock is adjusted, false otherwise.
+             */
+            bool AdjustClockSkew(HttpResponseOutcome& outcome, const char* signerName) const;
             void AddHeadersToRequest(const std::shared_ptr<Aws::Http::HttpRequest>& httpRequest, const Http::HeaderValueCollection& headerValues) const;
             void AddContentBodyToRequest(const std::shared_ptr<Aws::Http::HttpRequest>& httpRequest,
                                          const std::shared_ptr<Aws::IOStream>& body, bool needsContentMd5 = false) const;

@@ -19,6 +19,8 @@
 #include <aws/core/utils/logging/DefaultLogSystem.h>
 #include <aws/core/Globals.h>
 #include <aws/core/external/cjson/cJSON.h>
+#include <aws/core/monitoring/MonitoringManager.h>
+#include <aws/core/net/Net.h>
 
 namespace Aws
 {
@@ -104,10 +106,14 @@ namespace Aws
         hooks.malloc_fn = [](size_t sz) { return Aws::Malloc("cJSON_Tag", sz); };
         hooks.free_fn = Aws::Free;
         cJSON_InitHooks(&hooks);
+        Aws::Net::InitNetwork();
+        Aws::Monitoring::InitMonitoring(options.monitoringOptions.customizedMonitoringFactory_create_fn);
     }
 
     void ShutdownAPI(const SDKOptions& options)
     {
+        Aws::Monitoring::CleanupMonitoring();
+        Aws::Net::CleanupNetwork();
         Aws::CleanupEnumOverflowContainer();
         Aws::Http::CleanupHttp();
         Aws::Utils::Crypto::CleanupCrypto();
