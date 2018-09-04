@@ -145,7 +145,7 @@ bool PooledThreadExecutor::SubmitToThread(std::chrono::time_point<std::chrono::h
 
         if (m_overflowPolicy == OverflowPolicy::REJECT_IMMEDIATELY && m_submitTasks.size() >= m_poolSize)
         {
-            Aws::Delete(fnCpy);
+            Aws::Delete(task);
             return false;
         }
 
