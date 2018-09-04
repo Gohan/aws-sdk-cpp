@@ -226,9 +226,18 @@ bool WinHttpSyncHttpClient::DoQueryHeaders(void* hHttpRequest, std::shared_ptr<H
     return queryResult == TRUE;
 }
 
-bool WinHttpSyncHttpClient::DoSendRequest(void* hHttpRequest) const
+bool WinHttpSyncHttpClient::DoSendRequest(const HttpRequest& request, void* hHttpRequest) const
 {
-    return (WinHttpSendRequest(hHttpRequest, NULL, NULL, 0, 0, 0, NULL) != 0);
+    auto oss = request.GetContentBody();
+    oss->seekg(0, std::ios::end);
+    int size = (int)oss->tellg();
+    oss->seekg(0, std::ios::beg);
+
+    if (size == 0) {
+        return (WinHttpSendRequest(hHttpRequest, NULL, NULL, 0, 0, 0, NULL) != 0);
+    }
+
+    return (WinHttpSendRequest(hHttpRequest, NULL, 0, NULL, NULL, size, NULL) != 0);
 }
 
 bool WinHttpSyncHttpClient::DoReadData(void* hHttpRequest, char* body, uint64_t size, uint64_t& read) const

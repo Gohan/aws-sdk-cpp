@@ -296,7 +296,7 @@ void WinSyncHttpClient::MakeRequestInternal(HttpRequest& request,
         hHttpRequest = AllocateWindowsHttpRequest(request, connection);
 
         AddHeadersToRequest(request, hHttpRequest);
-        if (DoSendRequest(hHttpRequest) && StreamPayloadToRequest(request, hHttpRequest, writeLimiter))
+        if (DoSendRequest(request, hHttpRequest) && StreamPayloadToRequest(request, hHttpRequest, writeLimiter))
         {
             success = true;
             BuildSuccessResponse(request, response, hHttpRequest, readLimiter);

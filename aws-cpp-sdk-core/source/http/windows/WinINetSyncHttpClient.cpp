@@ -187,8 +187,9 @@ bool WinINetSyncHttpClient::DoQueryHeaders(void* hHttpRequest, std::shared_ptr<H
     return (read != 0);
 }
 
-bool WinINetSyncHttpClient::DoSendRequest(void* hHttpRequest) const
+bool WinINetSyncHttpClient::DoSendRequest(const HttpRequest& request, void* hHttpRequest) const
 {
+    request;
     return (HttpSendRequestEx(hHttpRequest, NULL, NULL, 0, 0) != 0);
 }
 

@@ -100,7 +100,7 @@ namespace Aws
             virtual uint64_t DoWriteData(void* hHttpRequest, char* streamBuffer, uint64_t bytesRead) const = 0;
             virtual bool DoReceiveResponse(void* hHttpRequest) const = 0;
             virtual bool DoQueryHeaders(void* hHttpRequest, std::shared_ptr<Aws::Http::HttpResponse>& response, Aws::StringStream& ss, uint64_t& read) const = 0;
-            virtual bool DoSendRequest(void* hHttpRequest) const = 0;
+            virtual bool DoSendRequest(const HttpRequest& request, void* hHttpRequest) const = 0;
             virtual bool DoReadData(void* hHttpRequest, char* body, uint64_t size, uint64_t& read) const = 0;
             virtual void* GetClientModule() const = 0;
 
