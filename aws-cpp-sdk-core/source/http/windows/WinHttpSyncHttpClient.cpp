@@ -229,9 +229,12 @@ bool WinHttpSyncHttpClient::DoQueryHeaders(void* hHttpRequest, std::shared_ptr<H
 bool WinHttpSyncHttpClient::DoSendRequest(const HttpRequest& request, void* hHttpRequest) const
 {
     auto oss = request.GetContentBody();
-    oss->seekg(0, std::ios::end);
-    int size = (int)oss->tellg();
-    oss->seekg(0, std::ios::beg);
+    int size = 0;
+    if (oss) {
+        oss->seekg(0, std::ios::end);
+        size = (int)oss->tellg();
+        oss->seekg(0, std::ios::beg);
+    }
 
     if (size == 0) {
         return (WinHttpSendRequest(hHttpRequest, NULL, NULL, 0, 0, 0, NULL) != 0);

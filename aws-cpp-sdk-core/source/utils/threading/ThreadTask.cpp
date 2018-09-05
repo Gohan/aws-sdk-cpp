@@ -38,17 +38,18 @@ void ThreadTask::MainTaskRunner()
     {        
         while (m_continue && m_executor.HasTasks())
         {      
-            auto task = m_executor.PeekTask();
+            auto task = m_executor.PopTask();
             if (task)// && CLOCK::now() >= task->time)
             {
 				auto delay = std::chrono::duration_cast<std::chrono::milliseconds>(task->time - CLOCK::now());
 				if (delay <= 0ms) {
-					task = m_executor.PopTask();
 					(*(task->func))();
 					Aws::Delete(task->func);               
 					Aws::Delete(task);               
 					continue;
-				}
+                } else {
+                    m_executor.AddTaskBack(task);
+                }
 
 				m_executor.m_sync.WaitOneTimeout(delay);
             }

@@ -143,6 +143,7 @@ namespace Aws
                 // std::function<void()>* PopTask();
 				SubmitTask* PeekTask();
 				SubmitTask* PopTask();
+                void AddTaskBack(SubmitTask* task);
                 bool HasTasks();
 
                 friend class ThreadTask;

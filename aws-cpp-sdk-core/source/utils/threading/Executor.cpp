@@ -145,6 +145,7 @@ bool PooledThreadExecutor::SubmitToThread(std::chrono::time_point<std::chrono::h
 
         if (m_overflowPolicy == OverflowPolicy::REJECT_IMMEDIATELY && m_submitTasks.size() >= m_poolSize)
         {
+            Aws::Delete(task->func);
             Aws::Delete(task);
             return false;
         }
@@ -188,6 +189,12 @@ SubmitTask * Aws::Utils::Threading::PooledThreadExecutor::PeekTask()
     }
 
     return nullptr;
+}
+
+void Aws::Utils::Threading::PooledThreadExecutor::AddTaskBack(SubmitTask* task)
+{
+    std::lock_guard<std::mutex> locker(m_queueLock);
+    m_submitTasks.push(task);
 }
 
 
