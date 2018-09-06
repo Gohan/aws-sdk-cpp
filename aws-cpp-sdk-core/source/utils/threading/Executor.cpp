@@ -208,5 +208,5 @@ bool Aws::Utils::Threading::operator<(const SubmitTask & task1, const SubmitTask
 {
 	// Aws::Utils::Logging::GetLogSystem()->Log(Aws::Utils::Logging::LogLevel::Info, "MAIN", "Compare");
 	// printf("SubmitTask compare: test\n");
-	return task1.time < task2.time;
+	return task1.time > task2.time;
 }
