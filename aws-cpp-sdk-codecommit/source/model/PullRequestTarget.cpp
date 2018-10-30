@@ -34,6 +34,7 @@ PullRequestTarget::PullRequestTarget() :
     m_destinationReferenceHasBeenSet(false),
     m_destinationCommitHasBeenSet(false),
     m_sourceCommitHasBeenSet(false),
+    m_mergeBaseHasBeenSet(false),
     m_mergeMetadataHasBeenSet(false)
 {
 }
@@ -44,6 +45,7 @@ PullRequestTarget::PullRequestTarget(JsonView jsonValue) :
     m_destinationReferenceHasBeenSet(false),
     m_destinationCommitHasBeenSet(false),
     m_sourceCommitHasBeenSet(false),
+    m_mergeBaseHasBeenSet(false),
     m_mergeMetadataHasBeenSet(false)
 {
   *this = jsonValue;
@@ -84,6 +86,13 @@ PullRequestTarget& PullRequestTarget::operator =(JsonView jsonValue)
     m_sourceCommit = jsonValue.GetString("sourceCommit");
 
     m_sourceCommitHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("mergeBase"))
+  {
+    m_mergeBase = jsonValue.GetString("mergeBase");
+
+    m_mergeBaseHasBeenSet = true;
   }
 
   if(jsonValue.ValueExists("mergeMetadata"))
@@ -127,6 +136,12 @@ JsonValue PullRequestTarget::Jsonize() const
   if(m_sourceCommitHasBeenSet)
   {
    payload.WithString("sourceCommit", m_sourceCommit);
+
+  }
+
+  if(m_mergeBaseHasBeenSet)
+  {
+   payload.WithString("mergeBase", m_mergeBase);
 
   }
 

@@ -26,7 +26,9 @@ CreateProjectRequest::CreateProjectRequest() :
     m_nameHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_sourceHasBeenSet(false),
+    m_secondarySourcesHasBeenSet(false),
     m_artifactsHasBeenSet(false),
+    m_secondaryArtifactsHasBeenSet(false),
     m_cacheHasBeenSet(false),
     m_environmentHasBeenSet(false),
     m_serviceRoleHasBeenSet(false),
@@ -36,7 +38,8 @@ CreateProjectRequest::CreateProjectRequest() :
     m_tagsHasBeenSet(false),
     m_vpcConfigHasBeenSet(false),
     m_badgeEnabled(false),
-    m_badgeEnabledHasBeenSet(false)
+    m_badgeEnabledHasBeenSet(false),
+    m_logsConfigHasBeenSet(false)
 {
 }
 
@@ -62,9 +65,31 @@ Aws::String CreateProjectRequest::SerializePayload() const
 
   }
 
+  if(m_secondarySourcesHasBeenSet)
+  {
+   Array<JsonValue> secondarySourcesJsonList(m_secondarySources.size());
+   for(unsigned secondarySourcesIndex = 0; secondarySourcesIndex < secondarySourcesJsonList.GetLength(); ++secondarySourcesIndex)
+   {
+     secondarySourcesJsonList[secondarySourcesIndex].AsObject(m_secondarySources[secondarySourcesIndex].Jsonize());
+   }
+   payload.WithArray("secondarySources", std::move(secondarySourcesJsonList));
+
+  }
+
   if(m_artifactsHasBeenSet)
   {
    payload.WithObject("artifacts", m_artifacts.Jsonize());
+
+  }
+
+  if(m_secondaryArtifactsHasBeenSet)
+  {
+   Array<JsonValue> secondaryArtifactsJsonList(m_secondaryArtifacts.size());
+   for(unsigned secondaryArtifactsIndex = 0; secondaryArtifactsIndex < secondaryArtifactsJsonList.GetLength(); ++secondaryArtifactsIndex)
+   {
+     secondaryArtifactsJsonList[secondaryArtifactsIndex].AsObject(m_secondaryArtifacts[secondaryArtifactsIndex].Jsonize());
+   }
+   payload.WithArray("secondaryArtifacts", std::move(secondaryArtifactsJsonList));
 
   }
 
@@ -118,6 +143,12 @@ Aws::String CreateProjectRequest::SerializePayload() const
   if(m_badgeEnabledHasBeenSet)
   {
    payload.WithBool("badgeEnabled", m_badgeEnabled);
+
+  }
+
+  if(m_logsConfigHasBeenSet)
+  {
+   payload.WithObject("logsConfig", m_logsConfig.Jsonize());
 
   }
 

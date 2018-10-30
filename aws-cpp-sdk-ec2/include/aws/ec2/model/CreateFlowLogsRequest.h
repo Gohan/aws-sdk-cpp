@@ -31,9 +31,6 @@ namespace Model
 {
 
   /**
-   * <p>Contains the parameters for CreateFlowLogs.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateFlowLogsRequest">AWS
-   * API Reference</a></p>
    */
   class AWS_EC2_API CreateFlowLogsRequest : public EC2Request
   {
@@ -365,7 +362,8 @@ namespace Model
      * bucket. To specify a subfolder in the bucket, use the following ARN format:
      * <code>bucket_ARN/subfolder_name/</code>. For example, to specify a subfolder
      * named <code>my-logs</code> in a bucket named <code>my-bucket</code>, use the
-     * following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>.</p>
+     * following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>. You cannot use
+     * <code>AWSLogs</code> as a subfolder name. This is a reserved term.</p>
      */
     inline const Aws::String& GetLogDestination() const{ return m_logDestination; }
 
@@ -380,7 +378,8 @@ namespace Model
      * bucket. To specify a subfolder in the bucket, use the following ARN format:
      * <code>bucket_ARN/subfolder_name/</code>. For example, to specify a subfolder
      * named <code>my-logs</code> in a bucket named <code>my-bucket</code>, use the
-     * following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>.</p>
+     * following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>. You cannot use
+     * <code>AWSLogs</code> as a subfolder name. This is a reserved term.</p>
      */
     inline void SetLogDestination(const Aws::String& value) { m_logDestinationHasBeenSet = true; m_logDestination = value; }
 
@@ -395,7 +394,8 @@ namespace Model
      * bucket. To specify a subfolder in the bucket, use the following ARN format:
      * <code>bucket_ARN/subfolder_name/</code>. For example, to specify a subfolder
      * named <code>my-logs</code> in a bucket named <code>my-bucket</code>, use the
-     * following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>.</p>
+     * following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>. You cannot use
+     * <code>AWSLogs</code> as a subfolder name. This is a reserved term.</p>
      */
     inline void SetLogDestination(Aws::String&& value) { m_logDestinationHasBeenSet = true; m_logDestination = std::move(value); }
 
@@ -410,7 +410,8 @@ namespace Model
      * bucket. To specify a subfolder in the bucket, use the following ARN format:
      * <code>bucket_ARN/subfolder_name/</code>. For example, to specify a subfolder
      * named <code>my-logs</code> in a bucket named <code>my-bucket</code>, use the
-     * following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>.</p>
+     * following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>. You cannot use
+     * <code>AWSLogs</code> as a subfolder name. This is a reserved term.</p>
      */
     inline void SetLogDestination(const char* value) { m_logDestinationHasBeenSet = true; m_logDestination.assign(value); }
 
@@ -425,7 +426,8 @@ namespace Model
      * bucket. To specify a subfolder in the bucket, use the following ARN format:
      * <code>bucket_ARN/subfolder_name/</code>. For example, to specify a subfolder
      * named <code>my-logs</code> in a bucket named <code>my-bucket</code>, use the
-     * following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>.</p>
+     * following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>. You cannot use
+     * <code>AWSLogs</code> as a subfolder name. This is a reserved term.</p>
      */
     inline CreateFlowLogsRequest& WithLogDestination(const Aws::String& value) { SetLogDestination(value); return *this;}
 
@@ -440,7 +442,8 @@ namespace Model
      * bucket. To specify a subfolder in the bucket, use the following ARN format:
      * <code>bucket_ARN/subfolder_name/</code>. For example, to specify a subfolder
      * named <code>my-logs</code> in a bucket named <code>my-bucket</code>, use the
-     * following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>.</p>
+     * following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>. You cannot use
+     * <code>AWSLogs</code> as a subfolder name. This is a reserved term.</p>
      */
     inline CreateFlowLogsRequest& WithLogDestination(Aws::String&& value) { SetLogDestination(std::move(value)); return *this;}
 
@@ -455,7 +458,8 @@ namespace Model
      * bucket. To specify a subfolder in the bucket, use the following ARN format:
      * <code>bucket_ARN/subfolder_name/</code>. For example, to specify a subfolder
      * named <code>my-logs</code> in a bucket named <code>my-bucket</code>, use the
-     * following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>.</p>
+     * following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>. You cannot use
+     * <code>AWSLogs</code> as a subfolder name. This is a reserved term.</p>
      */
     inline CreateFlowLogsRequest& WithLogDestination(const char* value) { SetLogDestination(value); return *this;}
 

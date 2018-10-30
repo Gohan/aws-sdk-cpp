@@ -44,7 +44,7 @@ namespace Model
   /**
    * <p>Represents a unique identifier for a version of a deployed <a>RestApi</a>
    * that is callable by users.</p> <div class="seeAlso"> <a
-   * href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html">Deploy
+   * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html">Deploy
    * an API</a> </div><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/Stage">AWS
    * API Reference</a></p>
@@ -539,6 +539,25 @@ namespace Model
 
 
     /**
+     * <p>Specifies whether active tracing with X-ray is enabled for the
+     * <a>Stage</a>.</p>
+     */
+    inline bool GetTracingEnabled() const{ return m_tracingEnabled; }
+
+    /**
+     * <p>Specifies whether active tracing with X-ray is enabled for the
+     * <a>Stage</a>.</p>
+     */
+    inline void SetTracingEnabled(bool value) { m_tracingEnabled = value; }
+
+    /**
+     * <p>Specifies whether active tracing with X-ray is enabled for the
+     * <a>Stage</a>.</p>
+     */
+    inline UpdateStageResult& WithTracingEnabled(bool value) { SetTracingEnabled(value); return *this;}
+
+
+    /**
      * <p>The collection of tags. Each tag element is associated with a given
      * resource.</p>
      */
@@ -687,6 +706,8 @@ namespace Model
     AccessLogSettings m_accessLogSettings;
 
     CanarySettings m_canarySettings;
+
+    bool m_tracingEnabled;
 
     Aws::Map<Aws::String, Aws::String> m_tags;
 

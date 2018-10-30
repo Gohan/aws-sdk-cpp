@@ -272,6 +272,49 @@ namespace Model
 
 
     /**
+     * <p>The commit ID of the most recent commit that the source branch and the
+     * destination branch have in common.</p>
+     */
+    inline const Aws::String& GetMergeBase() const{ return m_mergeBase; }
+
+    /**
+     * <p>The commit ID of the most recent commit that the source branch and the
+     * destination branch have in common.</p>
+     */
+    inline void SetMergeBase(const Aws::String& value) { m_mergeBaseHasBeenSet = true; m_mergeBase = value; }
+
+    /**
+     * <p>The commit ID of the most recent commit that the source branch and the
+     * destination branch have in common.</p>
+     */
+    inline void SetMergeBase(Aws::String&& value) { m_mergeBaseHasBeenSet = true; m_mergeBase = std::move(value); }
+
+    /**
+     * <p>The commit ID of the most recent commit that the source branch and the
+     * destination branch have in common.</p>
+     */
+    inline void SetMergeBase(const char* value) { m_mergeBaseHasBeenSet = true; m_mergeBase.assign(value); }
+
+    /**
+     * <p>The commit ID of the most recent commit that the source branch and the
+     * destination branch have in common.</p>
+     */
+    inline PullRequestTarget& WithMergeBase(const Aws::String& value) { SetMergeBase(value); return *this;}
+
+    /**
+     * <p>The commit ID of the most recent commit that the source branch and the
+     * destination branch have in common.</p>
+     */
+    inline PullRequestTarget& WithMergeBase(Aws::String&& value) { SetMergeBase(std::move(value)); return *this;}
+
+    /**
+     * <p>The commit ID of the most recent commit that the source branch and the
+     * destination branch have in common.</p>
+     */
+    inline PullRequestTarget& WithMergeBase(const char* value) { SetMergeBase(value); return *this;}
+
+
+    /**
      * <p>Returns metadata about the state of the merge, including whether the merge
      * has been made.</p>
      */
@@ -317,6 +360,9 @@ namespace Model
 
     Aws::String m_sourceCommit;
     bool m_sourceCommitHasBeenSet;
+
+    Aws::String m_mergeBase;
+    bool m_mergeBaseHasBeenSet;
 
     MergeMetadata m_mergeMetadata;
     bool m_mergeMetadataHasBeenSet;

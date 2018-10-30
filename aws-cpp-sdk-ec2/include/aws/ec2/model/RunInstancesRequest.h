@@ -27,6 +27,7 @@
 #include <aws/ec2/model/InstanceMarketOptionsRequest.h>
 #include <aws/ec2/model/CreditSpecificationRequest.h>
 #include <aws/ec2/model/CpuOptionsRequest.h>
+#include <aws/ec2/model/CapacityReservationSpecification.h>
 #include <aws/ec2/model/BlockDeviceMapping.h>
 #include <aws/ec2/model/InstanceIpv6Address.h>
 #include <aws/ec2/model/InstanceNetworkInterfaceSpecification.h>
@@ -1372,9 +1373,10 @@ namespace Model
      * <code>standard</code> and <code>unlimited</code>. To change this attribute after
      * launch, use <a>ModifyInstanceCreditSpecification</a>. For more information, see
      * <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-instances.html">T2
-     * Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-     * <p>Default: <code>standard</code> </p>
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+     * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or
+     * <code>unlimited</code> (T3 instances)</p>
      */
     inline const CreditSpecificationRequest& GetCreditSpecification() const{ return m_creditSpecification; }
 
@@ -1383,9 +1385,10 @@ namespace Model
      * <code>standard</code> and <code>unlimited</code>. To change this attribute after
      * launch, use <a>ModifyInstanceCreditSpecification</a>. For more information, see
      * <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-instances.html">T2
-     * Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-     * <p>Default: <code>standard</code> </p>
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+     * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or
+     * <code>unlimited</code> (T3 instances)</p>
      */
     inline void SetCreditSpecification(const CreditSpecificationRequest& value) { m_creditSpecificationHasBeenSet = true; m_creditSpecification = value; }
 
@@ -1394,9 +1397,10 @@ namespace Model
      * <code>standard</code> and <code>unlimited</code>. To change this attribute after
      * launch, use <a>ModifyInstanceCreditSpecification</a>. For more information, see
      * <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-instances.html">T2
-     * Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-     * <p>Default: <code>standard</code> </p>
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+     * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or
+     * <code>unlimited</code> (T3 instances)</p>
      */
     inline void SetCreditSpecification(CreditSpecificationRequest&& value) { m_creditSpecificationHasBeenSet = true; m_creditSpecification = std::move(value); }
 
@@ -1405,9 +1409,10 @@ namespace Model
      * <code>standard</code> and <code>unlimited</code>. To change this attribute after
      * launch, use <a>ModifyInstanceCreditSpecification</a>. For more information, see
      * <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-instances.html">T2
-     * Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-     * <p>Default: <code>standard</code> </p>
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+     * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or
+     * <code>unlimited</code> (T3 instances)</p>
      */
     inline RunInstancesRequest& WithCreditSpecification(const CreditSpecificationRequest& value) { SetCreditSpecification(value); return *this;}
 
@@ -1416,9 +1421,10 @@ namespace Model
      * <code>standard</code> and <code>unlimited</code>. To change this attribute after
      * launch, use <a>ModifyInstanceCreditSpecification</a>. For more information, see
      * <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-instances.html">T2
-     * Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-     * <p>Default: <code>standard</code> </p>
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+     * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or
+     * <code>unlimited</code> (T3 instances)</p>
      */
     inline RunInstancesRequest& WithCreditSpecification(CreditSpecificationRequest&& value) { SetCreditSpecification(std::move(value)); return *this;}
 
@@ -1457,6 +1463,32 @@ namespace Model
      * CPU Options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
     inline RunInstancesRequest& WithCpuOptions(CpuOptionsRequest&& value) { SetCpuOptions(std::move(value)); return *this;}
+
+
+    /**
+     * <p>Information about the Capacity Reservation targeting option.</p>
+     */
+    inline const CapacityReservationSpecification& GetCapacityReservationSpecification() const{ return m_capacityReservationSpecification; }
+
+    /**
+     * <p>Information about the Capacity Reservation targeting option.</p>
+     */
+    inline void SetCapacityReservationSpecification(const CapacityReservationSpecification& value) { m_capacityReservationSpecificationHasBeenSet = true; m_capacityReservationSpecification = value; }
+
+    /**
+     * <p>Information about the Capacity Reservation targeting option.</p>
+     */
+    inline void SetCapacityReservationSpecification(CapacityReservationSpecification&& value) { m_capacityReservationSpecificationHasBeenSet = true; m_capacityReservationSpecification = std::move(value); }
+
+    /**
+     * <p>Information about the Capacity Reservation targeting option.</p>
+     */
+    inline RunInstancesRequest& WithCapacityReservationSpecification(const CapacityReservationSpecification& value) { SetCapacityReservationSpecification(value); return *this;}
+
+    /**
+     * <p>Information about the Capacity Reservation targeting option.</p>
+     */
+    inline RunInstancesRequest& WithCapacityReservationSpecification(CapacityReservationSpecification&& value) { SetCapacityReservationSpecification(std::move(value)); return *this;}
 
   private:
 
@@ -1552,6 +1584,9 @@ namespace Model
 
     CpuOptionsRequest m_cpuOptions;
     bool m_cpuOptionsHasBeenSet;
+
+    CapacityReservationSpecification m_capacityReservationSpecification;
+    bool m_capacityReservationSpecificationHasBeenSet;
   };
 
 } // namespace Model

@@ -202,7 +202,7 @@ namespace Model
      * <p>The name of the DB cluster to create from the source data in the Amazon S3
      * bucket. This parameter is isn't case-sensitive.</p> <p>Constraints:</p> <ul>
      * <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li>
-     * <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen
+     * <p>First character must be a letter.</p> </li> <li> <p>Can't end with a hyphen
      * or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>my-cluster1</code> </p>
      */
@@ -212,7 +212,7 @@ namespace Model
      * <p>The name of the DB cluster to create from the source data in the Amazon S3
      * bucket. This parameter is isn't case-sensitive.</p> <p>Constraints:</p> <ul>
      * <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li>
-     * <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen
+     * <p>First character must be a letter.</p> </li> <li> <p>Can't end with a hyphen
      * or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>my-cluster1</code> </p>
      */
@@ -222,7 +222,7 @@ namespace Model
      * <p>The name of the DB cluster to create from the source data in the Amazon S3
      * bucket. This parameter is isn't case-sensitive.</p> <p>Constraints:</p> <ul>
      * <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li>
-     * <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen
+     * <p>First character must be a letter.</p> </li> <li> <p>Can't end with a hyphen
      * or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>my-cluster1</code> </p>
      */
@@ -232,7 +232,7 @@ namespace Model
      * <p>The name of the DB cluster to create from the source data in the Amazon S3
      * bucket. This parameter is isn't case-sensitive.</p> <p>Constraints:</p> <ul>
      * <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li>
-     * <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen
+     * <p>First character must be a letter.</p> </li> <li> <p>Can't end with a hyphen
      * or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>my-cluster1</code> </p>
      */
@@ -242,7 +242,7 @@ namespace Model
      * <p>The name of the DB cluster to create from the source data in the Amazon S3
      * bucket. This parameter is isn't case-sensitive.</p> <p>Constraints:</p> <ul>
      * <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li>
-     * <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen
+     * <p>First character must be a letter.</p> </li> <li> <p>Can't end with a hyphen
      * or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>my-cluster1</code> </p>
      */
@@ -252,7 +252,7 @@ namespace Model
      * <p>The name of the DB cluster to create from the source data in the Amazon S3
      * bucket. This parameter is isn't case-sensitive.</p> <p>Constraints:</p> <ul>
      * <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li>
-     * <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen
+     * <p>First character must be a letter.</p> </li> <li> <p>Can't end with a hyphen
      * or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>my-cluster1</code> </p>
      */
@@ -262,7 +262,7 @@ namespace Model
      * <p>The name of the DB cluster to create from the source data in the Amazon S3
      * bucket. This parameter is isn't case-sensitive.</p> <p>Constraints:</p> <ul>
      * <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li>
-     * <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen
+     * <p>First character must be a letter.</p> </li> <li> <p>Can't end with a hyphen
      * or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>my-cluster1</code> </p>
      */
@@ -540,7 +540,7 @@ namespace Model
     /**
      * <p>The name of the master user for the restored DB cluster.</p>
      * <p>Constraints:</p> <ul> <li> <p>Must be 1 to 16 letters or numbers.</p> </li>
-     * <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot be a reserved
+     * <li> <p>First character must be a letter.</p> </li> <li> <p>Can't be a reserved
      * word for the chosen database engine.</p> </li> </ul>
      */
     inline const Aws::String& GetMasterUsername() const{ return m_masterUsername; }
@@ -548,7 +548,7 @@ namespace Model
     /**
      * <p>The name of the master user for the restored DB cluster.</p>
      * <p>Constraints:</p> <ul> <li> <p>Must be 1 to 16 letters or numbers.</p> </li>
-     * <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot be a reserved
+     * <li> <p>First character must be a letter.</p> </li> <li> <p>Can't be a reserved
      * word for the chosen database engine.</p> </li> </ul>
      */
     inline void SetMasterUsername(const Aws::String& value) { m_masterUsernameHasBeenSet = true; m_masterUsername = value; }
@@ -556,7 +556,7 @@ namespace Model
     /**
      * <p>The name of the master user for the restored DB cluster.</p>
      * <p>Constraints:</p> <ul> <li> <p>Must be 1 to 16 letters or numbers.</p> </li>
-     * <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot be a reserved
+     * <li> <p>First character must be a letter.</p> </li> <li> <p>Can't be a reserved
      * word for the chosen database engine.</p> </li> </ul>
      */
     inline void SetMasterUsername(Aws::String&& value) { m_masterUsernameHasBeenSet = true; m_masterUsername = std::move(value); }
@@ -564,7 +564,7 @@ namespace Model
     /**
      * <p>The name of the master user for the restored DB cluster.</p>
      * <p>Constraints:</p> <ul> <li> <p>Must be 1 to 16 letters or numbers.</p> </li>
-     * <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot be a reserved
+     * <li> <p>First character must be a letter.</p> </li> <li> <p>Can't be a reserved
      * word for the chosen database engine.</p> </li> </ul>
      */
     inline void SetMasterUsername(const char* value) { m_masterUsernameHasBeenSet = true; m_masterUsername.assign(value); }
@@ -572,7 +572,7 @@ namespace Model
     /**
      * <p>The name of the master user for the restored DB cluster.</p>
      * <p>Constraints:</p> <ul> <li> <p>Must be 1 to 16 letters or numbers.</p> </li>
-     * <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot be a reserved
+     * <li> <p>First character must be a letter.</p> </li> <li> <p>Can't be a reserved
      * word for the chosen database engine.</p> </li> </ul>
      */
     inline RestoreDBClusterFromS3Request& WithMasterUsername(const Aws::String& value) { SetMasterUsername(value); return *this;}
@@ -580,7 +580,7 @@ namespace Model
     /**
      * <p>The name of the master user for the restored DB cluster.</p>
      * <p>Constraints:</p> <ul> <li> <p>Must be 1 to 16 letters or numbers.</p> </li>
-     * <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot be a reserved
+     * <li> <p>First character must be a letter.</p> </li> <li> <p>Can't be a reserved
      * word for the chosen database engine.</p> </li> </ul>
      */
     inline RestoreDBClusterFromS3Request& WithMasterUsername(Aws::String&& value) { SetMasterUsername(std::move(value)); return *this;}
@@ -588,7 +588,7 @@ namespace Model
     /**
      * <p>The name of the master user for the restored DB cluster.</p>
      * <p>Constraints:</p> <ul> <li> <p>Must be 1 to 16 letters or numbers.</p> </li>
-     * <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot be a reserved
+     * <li> <p>First character must be a letter.</p> </li> <li> <p>Can't be a reserved
      * word for the chosen database engine.</p> </li> </ul>
      */
     inline RestoreDBClusterFromS3Request& WithMasterUsername(const char* value) { SetMasterUsername(value); return *this;}
@@ -706,8 +706,8 @@ namespace Model
      * backups are enabled using the <code>BackupRetentionPeriod</code> parameter. </p>
      * <p>The default is a 30-minute window selected at random from an 8-hour block of
      * time for each AWS Region. To see the time blocks available, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User
      * Guide.</i> </p> <p>Constraints:</p> <ul> <li> <p>Must be in the format
      * <code>hh24:mi-hh24:mi</code>.</p> </li> <li> <p>Must be in Universal Coordinated
      * Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred maintenance
@@ -720,8 +720,8 @@ namespace Model
      * backups are enabled using the <code>BackupRetentionPeriod</code> parameter. </p>
      * <p>The default is a 30-minute window selected at random from an 8-hour block of
      * time for each AWS Region. To see the time blocks available, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User
      * Guide.</i> </p> <p>Constraints:</p> <ul> <li> <p>Must be in the format
      * <code>hh24:mi-hh24:mi</code>.</p> </li> <li> <p>Must be in Universal Coordinated
      * Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred maintenance
@@ -734,8 +734,8 @@ namespace Model
      * backups are enabled using the <code>BackupRetentionPeriod</code> parameter. </p>
      * <p>The default is a 30-minute window selected at random from an 8-hour block of
      * time for each AWS Region. To see the time blocks available, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User
      * Guide.</i> </p> <p>Constraints:</p> <ul> <li> <p>Must be in the format
      * <code>hh24:mi-hh24:mi</code>.</p> </li> <li> <p>Must be in Universal Coordinated
      * Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred maintenance
@@ -748,8 +748,8 @@ namespace Model
      * backups are enabled using the <code>BackupRetentionPeriod</code> parameter. </p>
      * <p>The default is a 30-minute window selected at random from an 8-hour block of
      * time for each AWS Region. To see the time blocks available, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User
      * Guide.</i> </p> <p>Constraints:</p> <ul> <li> <p>Must be in the format
      * <code>hh24:mi-hh24:mi</code>.</p> </li> <li> <p>Must be in Universal Coordinated
      * Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred maintenance
@@ -762,8 +762,8 @@ namespace Model
      * backups are enabled using the <code>BackupRetentionPeriod</code> parameter. </p>
      * <p>The default is a 30-minute window selected at random from an 8-hour block of
      * time for each AWS Region. To see the time blocks available, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User
      * Guide.</i> </p> <p>Constraints:</p> <ul> <li> <p>Must be in the format
      * <code>hh24:mi-hh24:mi</code>.</p> </li> <li> <p>Must be in Universal Coordinated
      * Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred maintenance
@@ -776,8 +776,8 @@ namespace Model
      * backups are enabled using the <code>BackupRetentionPeriod</code> parameter. </p>
      * <p>The default is a 30-minute window selected at random from an 8-hour block of
      * time for each AWS Region. To see the time blocks available, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User
      * Guide.</i> </p> <p>Constraints:</p> <ul> <li> <p>Must be in the format
      * <code>hh24:mi-hh24:mi</code>.</p> </li> <li> <p>Must be in Universal Coordinated
      * Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred maintenance
@@ -790,8 +790,8 @@ namespace Model
      * backups are enabled using the <code>BackupRetentionPeriod</code> parameter. </p>
      * <p>The default is a 30-minute window selected at random from an 8-hour block of
      * time for each AWS Region. To see the time blocks available, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User
      * Guide.</i> </p> <p>Constraints:</p> <ul> <li> <p>Must be in the format
      * <code>hh24:mi-hh24:mi</code>.</p> </li> <li> <p>Must be in Universal Coordinated
      * Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred maintenance
@@ -806,8 +806,8 @@ namespace Model
      * <p>The default is a 30-minute window selected at random from an 8-hour block of
      * time for each AWS Region, occurring on a random day of the week. To see the time
      * blocks available, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User
      * Guide.</i> </p> <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
      * <p>Constraints: Minimum 30-minute window.</p>
      */
@@ -819,8 +819,8 @@ namespace Model
      * <p>The default is a 30-minute window selected at random from an 8-hour block of
      * time for each AWS Region, occurring on a random day of the week. To see the time
      * blocks available, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User
      * Guide.</i> </p> <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
      * <p>Constraints: Minimum 30-minute window.</p>
      */
@@ -832,8 +832,8 @@ namespace Model
      * <p>The default is a 30-minute window selected at random from an 8-hour block of
      * time for each AWS Region, occurring on a random day of the week. To see the time
      * blocks available, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User
      * Guide.</i> </p> <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
      * <p>Constraints: Minimum 30-minute window.</p>
      */
@@ -845,8 +845,8 @@ namespace Model
      * <p>The default is a 30-minute window selected at random from an 8-hour block of
      * time for each AWS Region, occurring on a random day of the week. To see the time
      * blocks available, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User
      * Guide.</i> </p> <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
      * <p>Constraints: Minimum 30-minute window.</p>
      */
@@ -858,8 +858,8 @@ namespace Model
      * <p>The default is a 30-minute window selected at random from an 8-hour block of
      * time for each AWS Region, occurring on a random day of the week. To see the time
      * blocks available, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User
      * Guide.</i> </p> <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
      * <p>Constraints: Minimum 30-minute window.</p>
      */
@@ -871,8 +871,8 @@ namespace Model
      * <p>The default is a 30-minute window selected at random from an 8-hour block of
      * time for each AWS Region, occurring on a random day of the week. To see the time
      * blocks available, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User
      * Guide.</i> </p> <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
      * <p>Constraints: Minimum 30-minute window.</p>
      */
@@ -884,8 +884,8 @@ namespace Model
      * <p>The default is a 30-minute window selected at random from an 8-hour block of
      * time for each AWS Region, occurring on a random day of the week. To see the time
      * blocks available, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+     * Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User
      * Guide.</i> </p> <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
      * <p>Constraints: Minimum 30-minute window.</p>
      */
@@ -1313,9 +1313,9 @@ namespace Model
      * <p>The list of logs that the restored DB cluster is to export to CloudWatch
      * Logs. The values in the list depend on the DB engine being used. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-     * Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational
-     * Database Service User Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+     * Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline const Aws::Vector<Aws::String>& GetEnableCloudwatchLogsExports() const{ return m_enableCloudwatchLogsExports; }
 
@@ -1323,9 +1323,9 @@ namespace Model
      * <p>The list of logs that the restored DB cluster is to export to CloudWatch
      * Logs. The values in the list depend on the DB engine being used. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-     * Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational
-     * Database Service User Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+     * Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline void SetEnableCloudwatchLogsExports(const Aws::Vector<Aws::String>& value) { m_enableCloudwatchLogsExportsHasBeenSet = true; m_enableCloudwatchLogsExports = value; }
 
@@ -1333,9 +1333,9 @@ namespace Model
      * <p>The list of logs that the restored DB cluster is to export to CloudWatch
      * Logs. The values in the list depend on the DB engine being used. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-     * Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational
-     * Database Service User Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+     * Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline void SetEnableCloudwatchLogsExports(Aws::Vector<Aws::String>&& value) { m_enableCloudwatchLogsExportsHasBeenSet = true; m_enableCloudwatchLogsExports = std::move(value); }
 
@@ -1343,9 +1343,9 @@ namespace Model
      * <p>The list of logs that the restored DB cluster is to export to CloudWatch
      * Logs. The values in the list depend on the DB engine being used. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-     * Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational
-     * Database Service User Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+     * Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline RestoreDBClusterFromS3Request& WithEnableCloudwatchLogsExports(const Aws::Vector<Aws::String>& value) { SetEnableCloudwatchLogsExports(value); return *this;}
 
@@ -1353,9 +1353,9 @@ namespace Model
      * <p>The list of logs that the restored DB cluster is to export to CloudWatch
      * Logs. The values in the list depend on the DB engine being used. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-     * Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational
-     * Database Service User Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+     * Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline RestoreDBClusterFromS3Request& WithEnableCloudwatchLogsExports(Aws::Vector<Aws::String>&& value) { SetEnableCloudwatchLogsExports(std::move(value)); return *this;}
 
@@ -1363,9 +1363,9 @@ namespace Model
      * <p>The list of logs that the restored DB cluster is to export to CloudWatch
      * Logs. The values in the list depend on the DB engine being used. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-     * Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational
-     * Database Service User Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+     * Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline RestoreDBClusterFromS3Request& AddEnableCloudwatchLogsExports(const Aws::String& value) { m_enableCloudwatchLogsExportsHasBeenSet = true; m_enableCloudwatchLogsExports.push_back(value); return *this; }
 
@@ -1373,9 +1373,9 @@ namespace Model
      * <p>The list of logs that the restored DB cluster is to export to CloudWatch
      * Logs. The values in the list depend on the DB engine being used. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-     * Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational
-     * Database Service User Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+     * Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline RestoreDBClusterFromS3Request& AddEnableCloudwatchLogsExports(Aws::String&& value) { m_enableCloudwatchLogsExportsHasBeenSet = true; m_enableCloudwatchLogsExports.push_back(std::move(value)); return *this; }
 
@@ -1383,11 +1383,33 @@ namespace Model
      * <p>The list of logs that the restored DB cluster is to export to CloudWatch
      * Logs. The values in the list depend on the DB engine being used. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-     * Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational
-     * Database Service User Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+     * Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline RestoreDBClusterFromS3Request& AddEnableCloudwatchLogsExports(const char* value) { m_enableCloudwatchLogsExportsHasBeenSet = true; m_enableCloudwatchLogsExports.push_back(value); return *this; }
+
+
+    /**
+     * <p>Indicates if the DB cluster should have deletion protection enabled. The
+     * database can't be deleted when this value is set to true. The default is false.
+     * </p>
+     */
+    inline bool GetDeletionProtection() const{ return m_deletionProtection; }
+
+    /**
+     * <p>Indicates if the DB cluster should have deletion protection enabled. The
+     * database can't be deleted when this value is set to true. The default is false.
+     * </p>
+     */
+    inline void SetDeletionProtection(bool value) { m_deletionProtectionHasBeenSet = true; m_deletionProtection = value; }
+
+    /**
+     * <p>Indicates if the DB cluster should have deletion protection enabled. The
+     * database can't be deleted when this value is set to true. The default is false.
+     * </p>
+     */
+    inline RestoreDBClusterFromS3Request& WithDeletionProtection(bool value) { SetDeletionProtection(value); return *this;}
 
   private:
 
@@ -1471,6 +1493,9 @@ namespace Model
 
     Aws::Vector<Aws::String> m_enableCloudwatchLogsExports;
     bool m_enableCloudwatchLogsExportsHasBeenSet;
+
+    bool m_deletionProtection;
+    bool m_deletionProtectionHasBeenSet;
   };
 
 } // namespace Model

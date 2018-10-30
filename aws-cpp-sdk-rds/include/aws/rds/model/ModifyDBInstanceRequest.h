@@ -238,11 +238,11 @@ namespace Model
      * you can also use this parameter to move your DB instance into a VPC. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
-     * the VPC for a DB Instance</a>. </p> <p>Changing the subnet group causes an
-     * outage during the change. The change is applied during the next maintenance
-     * window, unless you specify <code>true</code> for the
-     * <code>ApplyImmediately</code> parameter. </p> <p>Constraints: If supplied, must
-     * match the name of an existing DBSubnetGroup.</p> <p>Example:
+     * the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * <p>Changing the subnet group causes an outage during the change. The change is
+     * applied during the next maintenance window, unless you specify <code>true</code>
+     * for the <code>ApplyImmediately</code> parameter. </p> <p>Constraints: If
+     * supplied, must match the name of an existing DBSubnetGroup.</p> <p>Example:
      * <code>mySubnetGroup</code> </p>
      */
     inline const Aws::String& GetDBSubnetGroupName() const{ return m_dBSubnetGroupName; }
@@ -253,11 +253,11 @@ namespace Model
      * you can also use this parameter to move your DB instance into a VPC. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
-     * the VPC for a DB Instance</a>. </p> <p>Changing the subnet group causes an
-     * outage during the change. The change is applied during the next maintenance
-     * window, unless you specify <code>true</code> for the
-     * <code>ApplyImmediately</code> parameter. </p> <p>Constraints: If supplied, must
-     * match the name of an existing DBSubnetGroup.</p> <p>Example:
+     * the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * <p>Changing the subnet group causes an outage during the change. The change is
+     * applied during the next maintenance window, unless you specify <code>true</code>
+     * for the <code>ApplyImmediately</code> parameter. </p> <p>Constraints: If
+     * supplied, must match the name of an existing DBSubnetGroup.</p> <p>Example:
      * <code>mySubnetGroup</code> </p>
      */
     inline void SetDBSubnetGroupName(const Aws::String& value) { m_dBSubnetGroupNameHasBeenSet = true; m_dBSubnetGroupName = value; }
@@ -268,11 +268,11 @@ namespace Model
      * you can also use this parameter to move your DB instance into a VPC. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
-     * the VPC for a DB Instance</a>. </p> <p>Changing the subnet group causes an
-     * outage during the change. The change is applied during the next maintenance
-     * window, unless you specify <code>true</code> for the
-     * <code>ApplyImmediately</code> parameter. </p> <p>Constraints: If supplied, must
-     * match the name of an existing DBSubnetGroup.</p> <p>Example:
+     * the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * <p>Changing the subnet group causes an outage during the change. The change is
+     * applied during the next maintenance window, unless you specify <code>true</code>
+     * for the <code>ApplyImmediately</code> parameter. </p> <p>Constraints: If
+     * supplied, must match the name of an existing DBSubnetGroup.</p> <p>Example:
      * <code>mySubnetGroup</code> </p>
      */
     inline void SetDBSubnetGroupName(Aws::String&& value) { m_dBSubnetGroupNameHasBeenSet = true; m_dBSubnetGroupName = std::move(value); }
@@ -283,11 +283,11 @@ namespace Model
      * you can also use this parameter to move your DB instance into a VPC. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
-     * the VPC for a DB Instance</a>. </p> <p>Changing the subnet group causes an
-     * outage during the change. The change is applied during the next maintenance
-     * window, unless you specify <code>true</code> for the
-     * <code>ApplyImmediately</code> parameter. </p> <p>Constraints: If supplied, must
-     * match the name of an existing DBSubnetGroup.</p> <p>Example:
+     * the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * <p>Changing the subnet group causes an outage during the change. The change is
+     * applied during the next maintenance window, unless you specify <code>true</code>
+     * for the <code>ApplyImmediately</code> parameter. </p> <p>Constraints: If
+     * supplied, must match the name of an existing DBSubnetGroup.</p> <p>Example:
      * <code>mySubnetGroup</code> </p>
      */
     inline void SetDBSubnetGroupName(const char* value) { m_dBSubnetGroupNameHasBeenSet = true; m_dBSubnetGroupName.assign(value); }
@@ -298,11 +298,11 @@ namespace Model
      * you can also use this parameter to move your DB instance into a VPC. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
-     * the VPC for a DB Instance</a>. </p> <p>Changing the subnet group causes an
-     * outage during the change. The change is applied during the next maintenance
-     * window, unless you specify <code>true</code> for the
-     * <code>ApplyImmediately</code> parameter. </p> <p>Constraints: If supplied, must
-     * match the name of an existing DBSubnetGroup.</p> <p>Example:
+     * the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * <p>Changing the subnet group causes an outage during the change. The change is
+     * applied during the next maintenance window, unless you specify <code>true</code>
+     * for the <code>ApplyImmediately</code> parameter. </p> <p>Constraints: If
+     * supplied, must match the name of an existing DBSubnetGroup.</p> <p>Example:
      * <code>mySubnetGroup</code> </p>
      */
     inline ModifyDBInstanceRequest& WithDBSubnetGroupName(const Aws::String& value) { SetDBSubnetGroupName(value); return *this;}
@@ -313,11 +313,11 @@ namespace Model
      * you can also use this parameter to move your DB instance into a VPC. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
-     * the VPC for a DB Instance</a>. </p> <p>Changing the subnet group causes an
-     * outage during the change. The change is applied during the next maintenance
-     * window, unless you specify <code>true</code> for the
-     * <code>ApplyImmediately</code> parameter. </p> <p>Constraints: If supplied, must
-     * match the name of an existing DBSubnetGroup.</p> <p>Example:
+     * the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * <p>Changing the subnet group causes an outage during the change. The change is
+     * applied during the next maintenance window, unless you specify <code>true</code>
+     * for the <code>ApplyImmediately</code> parameter. </p> <p>Constraints: If
+     * supplied, must match the name of an existing DBSubnetGroup.</p> <p>Example:
      * <code>mySubnetGroup</code> </p>
      */
     inline ModifyDBInstanceRequest& WithDBSubnetGroupName(Aws::String&& value) { SetDBSubnetGroupName(std::move(value)); return *this;}
@@ -328,11 +328,11 @@ namespace Model
      * you can also use this parameter to move your DB instance into a VPC. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
-     * the VPC for a DB Instance</a>. </p> <p>Changing the subnet group causes an
-     * outage during the change. The change is applied during the next maintenance
-     * window, unless you specify <code>true</code> for the
-     * <code>ApplyImmediately</code> parameter. </p> <p>Constraints: If supplied, must
-     * match the name of an existing DBSubnetGroup.</p> <p>Example:
+     * the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * <p>Changing the subnet group causes an outage during the change. The change is
+     * applied during the next maintenance window, unless you specify <code>true</code>
+     * for the <code>ApplyImmediately</code> parameter. </p> <p>Constraints: If
+     * supplied, must match the name of an existing DBSubnetGroup.</p> <p>Example:
      * <code>mySubnetGroup</code> </p>
      */
     inline ModifyDBInstanceRequest& WithDBSubnetGroupName(const char* value) { SetDBSubnetGroupName(value); return *this;}
@@ -493,10 +493,10 @@ namespace Model
      * outage and are applied on the next call to <a>RebootDBInstance</a>, or the next
      * failure reboot. Review the table of parameters in <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying
-     * a DB Instance and Using the Apply Immediately Parameter</a> to see the impact
-     * that setting <code>ApplyImmediately</code> to <code>true</code> or
-     * <code>false</code> has for each modified parameter and to determine when the
-     * changes are applied. </p> <p>Default: <code>false</code> </p>
+     * a DB Instance and Using the Apply Immediately Parameter</a> in the <i>Amazon RDS
+     * User Guide.</i> to see the impact that setting <code>ApplyImmediately</code> to
+     * <code>true</code> or <code>false</code> has for each modified parameter and to
+     * determine when the changes are applied. </p> <p>Default: <code>false</code> </p>
      */
     inline bool GetApplyImmediately() const{ return m_applyImmediately; }
 
@@ -509,10 +509,10 @@ namespace Model
      * outage and are applied on the next call to <a>RebootDBInstance</a>, or the next
      * failure reboot. Review the table of parameters in <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying
-     * a DB Instance and Using the Apply Immediately Parameter</a> to see the impact
-     * that setting <code>ApplyImmediately</code> to <code>true</code> or
-     * <code>false</code> has for each modified parameter and to determine when the
-     * changes are applied. </p> <p>Default: <code>false</code> </p>
+     * a DB Instance and Using the Apply Immediately Parameter</a> in the <i>Amazon RDS
+     * User Guide.</i> to see the impact that setting <code>ApplyImmediately</code> to
+     * <code>true</code> or <code>false</code> has for each modified parameter and to
+     * determine when the changes are applied. </p> <p>Default: <code>false</code> </p>
      */
     inline void SetApplyImmediately(bool value) { m_applyImmediatelyHasBeenSet = true; m_applyImmediately = value; }
 
@@ -525,10 +525,10 @@ namespace Model
      * outage and are applied on the next call to <a>RebootDBInstance</a>, or the next
      * failure reboot. Review the table of parameters in <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying
-     * a DB Instance and Using the Apply Immediately Parameter</a> to see the impact
-     * that setting <code>ApplyImmediately</code> to <code>true</code> or
-     * <code>false</code> has for each modified parameter and to determine when the
-     * changes are applied. </p> <p>Default: <code>false</code> </p>
+     * a DB Instance and Using the Apply Immediately Parameter</a> in the <i>Amazon RDS
+     * User Guide.</i> to see the impact that setting <code>ApplyImmediately</code> to
+     * <code>true</code> or <code>false</code> has for each modified parameter and to
+     * determine when the changes are applied. </p> <p>Default: <code>false</code> </p>
      */
     inline ModifyDBInstanceRequest& WithApplyImmediately(bool value) { SetApplyImmediately(value); return *this;}
 
@@ -788,8 +788,8 @@ namespace Model
      * <p>Constraints:</p> <ul> <li> <p>Must be a value from 0 to 35</p> </li> <li>
      * <p>Can be specified for a MySQL Read Replica only if the source is running MySQL
      * 5.6</p> </li> <li> <p>Can be specified for a PostgreSQL Read Replica only if the
-     * source is running PostgreSQL 9.3.5</p> </li> <li> <p>Cannot be set to 0 if the
-     * DB instance is a source to Read Replicas</p> </li> </ul>
+     * source is running PostgreSQL 9.3.5</p> </li> <li> <p>Can't be set to 0 if the DB
+     * instance is a source to Read Replicas</p> </li> </ul>
      */
     inline int GetBackupRetentionPeriod() const{ return m_backupRetentionPeriod; }
 
@@ -808,8 +808,8 @@ namespace Model
      * <p>Constraints:</p> <ul> <li> <p>Must be a value from 0 to 35</p> </li> <li>
      * <p>Can be specified for a MySQL Read Replica only if the source is running MySQL
      * 5.6</p> </li> <li> <p>Can be specified for a PostgreSQL Read Replica only if the
-     * source is running PostgreSQL 9.3.5</p> </li> <li> <p>Cannot be set to 0 if the
-     * DB instance is a source to Read Replicas</p> </li> </ul>
+     * source is running PostgreSQL 9.3.5</p> </li> <li> <p>Can't be set to 0 if the DB
+     * instance is a source to Read Replicas</p> </li> </ul>
      */
     inline void SetBackupRetentionPeriod(int value) { m_backupRetentionPeriodHasBeenSet = true; m_backupRetentionPeriod = value; }
 
@@ -828,8 +828,8 @@ namespace Model
      * <p>Constraints:</p> <ul> <li> <p>Must be a value from 0 to 35</p> </li> <li>
      * <p>Can be specified for a MySQL Read Replica only if the source is running MySQL
      * 5.6</p> </li> <li> <p>Can be specified for a PostgreSQL Read Replica only if the
-     * source is running PostgreSQL 9.3.5</p> </li> <li> <p>Cannot be set to 0 if the
-     * DB instance is a source to Read Replicas</p> </li> </ul>
+     * source is running PostgreSQL 9.3.5</p> </li> <li> <p>Can't be set to 0 if the DB
+     * instance is a source to Read Replicas</p> </li> </ul>
      */
     inline ModifyDBInstanceRequest& WithBackupRetentionPeriod(int value) { SetBackupRetentionPeriod(value); return *this;}
 
@@ -1453,7 +1453,7 @@ namespace Model
      * occur during the next maintenance window if <code>Apply Immediately</code> to
      * false. This value is stored as a lowercase string. </p> <p>Constraints:</p> <ul>
      * <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li>
-     * <p>The first character must be a letter.</p> </li> <li> <p>Cannot end with a
+     * <p>The first character must be a letter.</p> </li> <li> <p>Can't end with a
      * hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>mydbinstance</code> </p>
      */
@@ -1466,7 +1466,7 @@ namespace Model
      * occur during the next maintenance window if <code>Apply Immediately</code> to
      * false. This value is stored as a lowercase string. </p> <p>Constraints:</p> <ul>
      * <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li>
-     * <p>The first character must be a letter.</p> </li> <li> <p>Cannot end with a
+     * <p>The first character must be a letter.</p> </li> <li> <p>Can't end with a
      * hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>mydbinstance</code> </p>
      */
@@ -1479,7 +1479,7 @@ namespace Model
      * occur during the next maintenance window if <code>Apply Immediately</code> to
      * false. This value is stored as a lowercase string. </p> <p>Constraints:</p> <ul>
      * <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li>
-     * <p>The first character must be a letter.</p> </li> <li> <p>Cannot end with a
+     * <p>The first character must be a letter.</p> </li> <li> <p>Can't end with a
      * hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>mydbinstance</code> </p>
      */
@@ -1492,7 +1492,7 @@ namespace Model
      * occur during the next maintenance window if <code>Apply Immediately</code> to
      * false. This value is stored as a lowercase string. </p> <p>Constraints:</p> <ul>
      * <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li>
-     * <p>The first character must be a letter.</p> </li> <li> <p>Cannot end with a
+     * <p>The first character must be a letter.</p> </li> <li> <p>Can't end with a
      * hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>mydbinstance</code> </p>
      */
@@ -1505,7 +1505,7 @@ namespace Model
      * occur during the next maintenance window if <code>Apply Immediately</code> to
      * false. This value is stored as a lowercase string. </p> <p>Constraints:</p> <ul>
      * <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li>
-     * <p>The first character must be a letter.</p> </li> <li> <p>Cannot end with a
+     * <p>The first character must be a letter.</p> </li> <li> <p>Can't end with a
      * hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>mydbinstance</code> </p>
      */
@@ -1518,7 +1518,7 @@ namespace Model
      * occur during the next maintenance window if <code>Apply Immediately</code> to
      * false. This value is stored as a lowercase string. </p> <p>Constraints:</p> <ul>
      * <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li>
-     * <p>The first character must be a letter.</p> </li> <li> <p>Cannot end with a
+     * <p>The first character must be a letter.</p> </li> <li> <p>Can't end with a
      * hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>mydbinstance</code> </p>
      */
@@ -1531,7 +1531,7 @@ namespace Model
      * occur during the next maintenance window if <code>Apply Immediately</code> to
      * false. This value is stored as a lowercase string. </p> <p>Constraints:</p> <ul>
      * <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li>
-     * <p>The first character must be a letter.</p> </li> <li> <p>Cannot end with a
+     * <p>The first character must be a letter.</p> </li> <li> <p>Can't end with a
      * hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>mydbinstance</code> </p>
      */
@@ -2022,9 +2022,9 @@ namespace Model
      * <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating
      * a monitoring role, go to <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-     * create an IAM role for Amazon RDS Enhanced Monitoring</a>.</p> <p>If
-     * <code>MonitoringInterval</code> is set to a value other than 0, then you must
-     * supply a <code>MonitoringRoleArn</code> value.</p>
+     * create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS
+     * User Guide.</i> </p> <p>If <code>MonitoringInterval</code> is set to a value
+     * other than 0, then you must supply a <code>MonitoringRoleArn</code> value.</p>
      */
     inline const Aws::String& GetMonitoringRoleArn() const{ return m_monitoringRoleArn; }
 
@@ -2034,9 +2034,9 @@ namespace Model
      * <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating
      * a monitoring role, go to <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-     * create an IAM role for Amazon RDS Enhanced Monitoring</a>.</p> <p>If
-     * <code>MonitoringInterval</code> is set to a value other than 0, then you must
-     * supply a <code>MonitoringRoleArn</code> value.</p>
+     * create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS
+     * User Guide.</i> </p> <p>If <code>MonitoringInterval</code> is set to a value
+     * other than 0, then you must supply a <code>MonitoringRoleArn</code> value.</p>
      */
     inline void SetMonitoringRoleArn(const Aws::String& value) { m_monitoringRoleArnHasBeenSet = true; m_monitoringRoleArn = value; }
 
@@ -2046,9 +2046,9 @@ namespace Model
      * <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating
      * a monitoring role, go to <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-     * create an IAM role for Amazon RDS Enhanced Monitoring</a>.</p> <p>If
-     * <code>MonitoringInterval</code> is set to a value other than 0, then you must
-     * supply a <code>MonitoringRoleArn</code> value.</p>
+     * create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS
+     * User Guide.</i> </p> <p>If <code>MonitoringInterval</code> is set to a value
+     * other than 0, then you must supply a <code>MonitoringRoleArn</code> value.</p>
      */
     inline void SetMonitoringRoleArn(Aws::String&& value) { m_monitoringRoleArnHasBeenSet = true; m_monitoringRoleArn = std::move(value); }
 
@@ -2058,9 +2058,9 @@ namespace Model
      * <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating
      * a monitoring role, go to <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-     * create an IAM role for Amazon RDS Enhanced Monitoring</a>.</p> <p>If
-     * <code>MonitoringInterval</code> is set to a value other than 0, then you must
-     * supply a <code>MonitoringRoleArn</code> value.</p>
+     * create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS
+     * User Guide.</i> </p> <p>If <code>MonitoringInterval</code> is set to a value
+     * other than 0, then you must supply a <code>MonitoringRoleArn</code> value.</p>
      */
     inline void SetMonitoringRoleArn(const char* value) { m_monitoringRoleArnHasBeenSet = true; m_monitoringRoleArn.assign(value); }
 
@@ -2070,9 +2070,9 @@ namespace Model
      * <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating
      * a monitoring role, go to <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-     * create an IAM role for Amazon RDS Enhanced Monitoring</a>.</p> <p>If
-     * <code>MonitoringInterval</code> is set to a value other than 0, then you must
-     * supply a <code>MonitoringRoleArn</code> value.</p>
+     * create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS
+     * User Guide.</i> </p> <p>If <code>MonitoringInterval</code> is set to a value
+     * other than 0, then you must supply a <code>MonitoringRoleArn</code> value.</p>
      */
     inline ModifyDBInstanceRequest& WithMonitoringRoleArn(const Aws::String& value) { SetMonitoringRoleArn(value); return *this;}
 
@@ -2082,9 +2082,9 @@ namespace Model
      * <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating
      * a monitoring role, go to <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-     * create an IAM role for Amazon RDS Enhanced Monitoring</a>.</p> <p>If
-     * <code>MonitoringInterval</code> is set to a value other than 0, then you must
-     * supply a <code>MonitoringRoleArn</code> value.</p>
+     * create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS
+     * User Guide.</i> </p> <p>If <code>MonitoringInterval</code> is set to a value
+     * other than 0, then you must supply a <code>MonitoringRoleArn</code> value.</p>
      */
     inline ModifyDBInstanceRequest& WithMonitoringRoleArn(Aws::String&& value) { SetMonitoringRoleArn(std::move(value)); return *this;}
 
@@ -2094,9 +2094,9 @@ namespace Model
      * <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating
      * a monitoring role, go to <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-     * create an IAM role for Amazon RDS Enhanced Monitoring</a>.</p> <p>If
-     * <code>MonitoringInterval</code> is set to a value other than 0, then you must
-     * supply a <code>MonitoringRoleArn</code> value.</p>
+     * create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS
+     * User Guide.</i> </p> <p>If <code>MonitoringInterval</code> is set to a value
+     * other than 0, then you must supply a <code>MonitoringRoleArn</code> value.</p>
      */
     inline ModifyDBInstanceRequest& WithMonitoringRoleArn(const char* value) { SetMonitoringRoleArn(value); return *this;}
 
@@ -2148,9 +2148,9 @@ namespace Model
      * <p>A value that specifies the order in which an Aurora Replica is promoted to
      * the primary instance after a failure of the existing primary instance. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance">
-     * Fault Tolerance for an Aurora DB Cluster</a>. </p> <p>Default: 1</p> <p>Valid
-     * Values: 0 - 15</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance">
+     * Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p> <p>Default: 1</p> <p>Valid Values: 0 - 15</p>
      */
     inline int GetPromotionTier() const{ return m_promotionTier; }
 
@@ -2158,9 +2158,9 @@ namespace Model
      * <p>A value that specifies the order in which an Aurora Replica is promoted to
      * the primary instance after a failure of the existing primary instance. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance">
-     * Fault Tolerance for an Aurora DB Cluster</a>. </p> <p>Default: 1</p> <p>Valid
-     * Values: 0 - 15</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance">
+     * Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p> <p>Default: 1</p> <p>Valid Values: 0 - 15</p>
      */
     inline void SetPromotionTier(int value) { m_promotionTierHasBeenSet = true; m_promotionTier = value; }
 
@@ -2168,9 +2168,9 @@ namespace Model
      * <p>A value that specifies the order in which an Aurora Replica is promoted to
      * the primary instance after a failure of the existing primary instance. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance">
-     * Fault Tolerance for an Aurora DB Cluster</a>. </p> <p>Default: 1</p> <p>Valid
-     * Values: 0 - 15</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance">
+     * Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p> <p>Default: 1</p> <p>Valid Values: 0 - 15</p>
      */
     inline ModifyDBInstanceRequest& WithPromotionTier(int value) { SetPromotionTier(value); return *this;}
 
@@ -2401,6 +2401,31 @@ namespace Model
      */
     inline ModifyDBInstanceRequest& WithUseDefaultProcessorFeatures(bool value) { SetUseDefaultProcessorFeatures(value); return *this;}
 
+
+    /**
+     * <p>Indicates if the DB instance has deletion protection enabled. The database
+     * can't be deleted when this value is set to true. For more information, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+     * Deleting a DB Instance</a>. </p>
+     */
+    inline bool GetDeletionProtection() const{ return m_deletionProtection; }
+
+    /**
+     * <p>Indicates if the DB instance has deletion protection enabled. The database
+     * can't be deleted when this value is set to true. For more information, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+     * Deleting a DB Instance</a>. </p>
+     */
+    inline void SetDeletionProtection(bool value) { m_deletionProtectionHasBeenSet = true; m_deletionProtection = value; }
+
+    /**
+     * <p>Indicates if the DB instance has deletion protection enabled. The database
+     * can't be deleted when this value is set to true. For more information, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+     * Deleting a DB Instance</a>. </p>
+     */
+    inline ModifyDBInstanceRequest& WithDeletionProtection(bool value) { SetDeletionProtection(value); return *this;}
+
   private:
 
     Aws::String m_dBInstanceIdentifier;
@@ -2519,6 +2544,9 @@ namespace Model
 
     bool m_useDefaultProcessorFeatures;
     bool m_useDefaultProcessorFeaturesHasBeenSet;
+
+    bool m_deletionProtection;
+    bool m_deletionProtectionHasBeenSet;
   };
 
 } // namespace Model

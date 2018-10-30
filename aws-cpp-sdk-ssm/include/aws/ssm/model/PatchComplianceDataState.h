@@ -28,6 +28,7 @@ namespace Model
     NOT_SET,
     INSTALLED,
     INSTALLED_OTHER,
+    INSTALLED_REJECTED,
     MISSING,
     NOT_APPLICABLE,
     FAILED

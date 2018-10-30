@@ -32,13 +32,16 @@
 #include <aws/connect/model/DescribeUserRequest.h>
 #include <aws/connect/model/DescribeUserHierarchyGroupRequest.h>
 #include <aws/connect/model/DescribeUserHierarchyStructureRequest.h>
+#include <aws/connect/model/GetCurrentMetricDataRequest.h>
 #include <aws/connect/model/GetFederationTokenRequest.h>
+#include <aws/connect/model/GetMetricDataRequest.h>
 #include <aws/connect/model/ListRoutingProfilesRequest.h>
 #include <aws/connect/model/ListSecurityProfilesRequest.h>
 #include <aws/connect/model/ListUserHierarchyGroupsRequest.h>
 #include <aws/connect/model/ListUsersRequest.h>
 #include <aws/connect/model/StartOutboundVoiceContactRequest.h>
 #include <aws/connect/model/StopContactRequest.h>
+#include <aws/connect/model/UpdateContactAttributesRequest.h>
 #include <aws/connect/model/UpdateUserHierarchyRequest.h>
 #include <aws/connect/model/UpdateUserIdentityInfoRequest.h>
 #include <aws/connect/model/UpdateUserPhoneConfigRequest.h>
@@ -295,6 +298,42 @@ void ConnectClient::DescribeUserHierarchyStructureAsyncHelper(const DescribeUser
   handler(this, request, DescribeUserHierarchyStructure(request), context);
 }
 
+GetCurrentMetricDataOutcome ConnectClient::GetCurrentMetricData(const GetCurrentMetricDataRequest& request) const
+{
+  Aws::StringStream ss;
+  Aws::Http::URI uri = m_uri;
+  ss << "/metrics/current/";
+  ss << request.GetInstanceId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetCurrentMetricDataOutcome(GetCurrentMetricDataResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetCurrentMetricDataOutcome(outcome.GetError());
+  }
+}
+
+GetCurrentMetricDataOutcomeCallable ConnectClient::GetCurrentMetricDataCallable(const GetCurrentMetricDataRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetCurrentMetricDataOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetCurrentMetricData(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ConnectClient::GetCurrentMetricDataAsync(const GetCurrentMetricDataRequest& request, const GetCurrentMetricDataResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetCurrentMetricDataAsyncHelper( request, handler, context ); } );
+}
+
+void ConnectClient::GetCurrentMetricDataAsyncHelper(const GetCurrentMetricDataRequest& request, const GetCurrentMetricDataResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetCurrentMetricData(request), context);
+}
+
 GetFederationTokenOutcome ConnectClient::GetFederationToken(const GetFederationTokenRequest& request) const
 {
   Aws::StringStream ss;
@@ -329,6 +368,42 @@ void ConnectClient::GetFederationTokenAsync(const GetFederationTokenRequest& req
 void ConnectClient::GetFederationTokenAsyncHelper(const GetFederationTokenRequest& request, const GetFederationTokenResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
   handler(this, request, GetFederationToken(request), context);
+}
+
+GetMetricDataOutcome ConnectClient::GetMetricData(const GetMetricDataRequest& request) const
+{
+  Aws::StringStream ss;
+  Aws::Http::URI uri = m_uri;
+  ss << "/metrics/historical/";
+  ss << request.GetInstanceId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetMetricDataOutcome(GetMetricDataResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetMetricDataOutcome(outcome.GetError());
+  }
+}
+
+GetMetricDataOutcomeCallable ConnectClient::GetMetricDataCallable(const GetMetricDataRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetMetricDataOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetMetricData(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ConnectClient::GetMetricDataAsync(const GetMetricDataRequest& request, const GetMetricDataResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetMetricDataAsyncHelper( request, handler, context ); } );
+}
+
+void ConnectClient::GetMetricDataAsyncHelper(const GetMetricDataRequest& request, const GetMetricDataResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetMetricData(request), context);
 }
 
 ListRoutingProfilesOutcome ConnectClient::ListRoutingProfiles(const ListRoutingProfilesRequest& request) const
@@ -543,6 +618,41 @@ void ConnectClient::StopContactAsync(const StopContactRequest& request, const St
 void ConnectClient::StopContactAsyncHelper(const StopContactRequest& request, const StopContactResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
   handler(this, request, StopContact(request), context);
+}
+
+UpdateContactAttributesOutcome ConnectClient::UpdateContactAttributes(const UpdateContactAttributesRequest& request) const
+{
+  Aws::StringStream ss;
+  Aws::Http::URI uri = m_uri;
+  ss << "/contact/attributes";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateContactAttributesOutcome(UpdateContactAttributesResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateContactAttributesOutcome(outcome.GetError());
+  }
+}
+
+UpdateContactAttributesOutcomeCallable ConnectClient::UpdateContactAttributesCallable(const UpdateContactAttributesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateContactAttributesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateContactAttributes(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ConnectClient::UpdateContactAttributesAsync(const UpdateContactAttributesRequest& request, const UpdateContactAttributesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateContactAttributesAsyncHelper( request, handler, context ); } );
+}
+
+void ConnectClient::UpdateContactAttributesAsyncHelper(const UpdateContactAttributesRequest& request, const UpdateContactAttributesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateContactAttributes(request), context);
 }
 
 UpdateUserHierarchyOutcome ConnectClient::UpdateUserHierarchy(const UpdateUserHierarchyRequest& request) const

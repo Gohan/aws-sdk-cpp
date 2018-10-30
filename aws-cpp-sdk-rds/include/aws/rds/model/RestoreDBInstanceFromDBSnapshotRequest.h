@@ -56,7 +56,7 @@ namespace Model
      * <p>Name of the DB instance to create from the DB snapshot. This parameter isn't
      * case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63
      * numbers, letters, or hyphens</p> </li> <li> <p>First character must be a
-     * letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-snapshot-id</code> </p>
      */
     inline const Aws::String& GetDBInstanceIdentifier() const{ return m_dBInstanceIdentifier; }
@@ -65,7 +65,7 @@ namespace Model
      * <p>Name of the DB instance to create from the DB snapshot. This parameter isn't
      * case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63
      * numbers, letters, or hyphens</p> </li> <li> <p>First character must be a
-     * letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-snapshot-id</code> </p>
      */
     inline void SetDBInstanceIdentifier(const Aws::String& value) { m_dBInstanceIdentifierHasBeenSet = true; m_dBInstanceIdentifier = value; }
@@ -74,7 +74,7 @@ namespace Model
      * <p>Name of the DB instance to create from the DB snapshot. This parameter isn't
      * case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63
      * numbers, letters, or hyphens</p> </li> <li> <p>First character must be a
-     * letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-snapshot-id</code> </p>
      */
     inline void SetDBInstanceIdentifier(Aws::String&& value) { m_dBInstanceIdentifierHasBeenSet = true; m_dBInstanceIdentifier = std::move(value); }
@@ -83,7 +83,7 @@ namespace Model
      * <p>Name of the DB instance to create from the DB snapshot. This parameter isn't
      * case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63
      * numbers, letters, or hyphens</p> </li> <li> <p>First character must be a
-     * letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-snapshot-id</code> </p>
      */
     inline void SetDBInstanceIdentifier(const char* value) { m_dBInstanceIdentifierHasBeenSet = true; m_dBInstanceIdentifier.assign(value); }
@@ -92,7 +92,7 @@ namespace Model
      * <p>Name of the DB instance to create from the DB snapshot. This parameter isn't
      * case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63
      * numbers, letters, or hyphens</p> </li> <li> <p>First character must be a
-     * letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-snapshot-id</code> </p>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& WithDBInstanceIdentifier(const Aws::String& value) { SetDBInstanceIdentifier(value); return *this;}
@@ -101,7 +101,7 @@ namespace Model
      * <p>Name of the DB instance to create from the DB snapshot. This parameter isn't
      * case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63
      * numbers, letters, or hyphens</p> </li> <li> <p>First character must be a
-     * letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-snapshot-id</code> </p>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& WithDBInstanceIdentifier(Aws::String&& value) { SetDBInstanceIdentifier(std::move(value)); return *this;}
@@ -110,7 +110,7 @@ namespace Model
      * <p>Name of the DB instance to create from the DB snapshot. This parameter isn't
      * case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63
      * numbers, letters, or hyphens</p> </li> <li> <p>First character must be a
-     * letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-snapshot-id</code> </p>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& WithDBInstanceIdentifier(const char* value) { SetDBInstanceIdentifier(value); return *this;}
@@ -664,8 +664,8 @@ namespace Model
      * <p>The provisioned IOPS value must follow the requirements for your database
      * engine. For more information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
-     * RDS Provisioned IOPS Storage to Improve Performance</a>. </p> <p>Constraints:
-     * Must be an integer greater than 1000.</p>
+     * RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS
+     * User Guide.</i> </p> <p>Constraints: Must be an integer greater than 1000.</p>
      */
     inline int GetIops() const{ return m_iops; }
 
@@ -678,8 +678,8 @@ namespace Model
      * <p>The provisioned IOPS value must follow the requirements for your database
      * engine. For more information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
-     * RDS Provisioned IOPS Storage to Improve Performance</a>. </p> <p>Constraints:
-     * Must be an integer greater than 1000.</p>
+     * RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS
+     * User Guide.</i> </p> <p>Constraints: Must be an integer greater than 1000.</p>
      */
     inline void SetIops(int value) { m_iopsHasBeenSet = true; m_iops = value; }
 
@@ -692,8 +692,8 @@ namespace Model
      * <p>The provisioned IOPS value must follow the requirements for your database
      * engine. For more information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
-     * RDS Provisioned IOPS Storage to Improve Performance</a>. </p> <p>Constraints:
-     * Must be an integer greater than 1000.</p>
+     * RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS
+     * User Guide.</i> </p> <p>Constraints: Must be an integer greater than 1000.</p>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& WithIops(int value) { SetIops(value); return *this;}
 
@@ -1057,9 +1057,9 @@ namespace Model
      * <p>The list of logs that the restored DB instance is to export to CloudWatch
      * Logs. The values in the list depend on the DB engine being used. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-     * Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational
-     * Database Service User Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+     * Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline const Aws::Vector<Aws::String>& GetEnableCloudwatchLogsExports() const{ return m_enableCloudwatchLogsExports; }
 
@@ -1067,9 +1067,9 @@ namespace Model
      * <p>The list of logs that the restored DB instance is to export to CloudWatch
      * Logs. The values in the list depend on the DB engine being used. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-     * Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational
-     * Database Service User Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+     * Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline void SetEnableCloudwatchLogsExports(const Aws::Vector<Aws::String>& value) { m_enableCloudwatchLogsExportsHasBeenSet = true; m_enableCloudwatchLogsExports = value; }
 
@@ -1077,9 +1077,9 @@ namespace Model
      * <p>The list of logs that the restored DB instance is to export to CloudWatch
      * Logs. The values in the list depend on the DB engine being used. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-     * Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational
-     * Database Service User Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+     * Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline void SetEnableCloudwatchLogsExports(Aws::Vector<Aws::String>&& value) { m_enableCloudwatchLogsExportsHasBeenSet = true; m_enableCloudwatchLogsExports = std::move(value); }
 
@@ -1087,9 +1087,9 @@ namespace Model
      * <p>The list of logs that the restored DB instance is to export to CloudWatch
      * Logs. The values in the list depend on the DB engine being used. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-     * Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational
-     * Database Service User Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+     * Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& WithEnableCloudwatchLogsExports(const Aws::Vector<Aws::String>& value) { SetEnableCloudwatchLogsExports(value); return *this;}
 
@@ -1097,9 +1097,9 @@ namespace Model
      * <p>The list of logs that the restored DB instance is to export to CloudWatch
      * Logs. The values in the list depend on the DB engine being used. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-     * Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational
-     * Database Service User Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+     * Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& WithEnableCloudwatchLogsExports(Aws::Vector<Aws::String>&& value) { SetEnableCloudwatchLogsExports(std::move(value)); return *this;}
 
@@ -1107,9 +1107,9 @@ namespace Model
      * <p>The list of logs that the restored DB instance is to export to CloudWatch
      * Logs. The values in the list depend on the DB engine being used. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-     * Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational
-     * Database Service User Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+     * Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& AddEnableCloudwatchLogsExports(const Aws::String& value) { m_enableCloudwatchLogsExportsHasBeenSet = true; m_enableCloudwatchLogsExports.push_back(value); return *this; }
 
@@ -1117,9 +1117,9 @@ namespace Model
      * <p>The list of logs that the restored DB instance is to export to CloudWatch
      * Logs. The values in the list depend on the DB engine being used. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-     * Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational
-     * Database Service User Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+     * Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& AddEnableCloudwatchLogsExports(Aws::String&& value) { m_enableCloudwatchLogsExportsHasBeenSet = true; m_enableCloudwatchLogsExports.push_back(std::move(value)); return *this; }
 
@@ -1127,9 +1127,9 @@ namespace Model
      * <p>The list of logs that the restored DB instance is to export to CloudWatch
      * Logs. The values in the list depend on the DB engine being used. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-     * Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational
-     * Database Service User Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+     * Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& AddEnableCloudwatchLogsExports(const char* value) { m_enableCloudwatchLogsExportsHasBeenSet = true; m_enableCloudwatchLogsExports.push_back(value); return *this; }
 
@@ -1194,6 +1194,112 @@ namespace Model
      * default processor features.</p>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& WithUseDefaultProcessorFeatures(bool value) { SetUseDefaultProcessorFeatures(value); return *this;}
+
+
+    /**
+     * <p>The name of the DB parameter group to associate with this DB instance. If
+     * this argument is omitted, the default DBParameterGroup for the specified engine
+     * is used.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
+     * of an existing DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters,
+     * numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p>
+     * </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+     * </li> </ul>
+     */
+    inline const Aws::String& GetDBParameterGroupName() const{ return m_dBParameterGroupName; }
+
+    /**
+     * <p>The name of the DB parameter group to associate with this DB instance. If
+     * this argument is omitted, the default DBParameterGroup for the specified engine
+     * is used.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
+     * of an existing DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters,
+     * numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p>
+     * </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+     * </li> </ul>
+     */
+    inline void SetDBParameterGroupName(const Aws::String& value) { m_dBParameterGroupNameHasBeenSet = true; m_dBParameterGroupName = value; }
+
+    /**
+     * <p>The name of the DB parameter group to associate with this DB instance. If
+     * this argument is omitted, the default DBParameterGroup for the specified engine
+     * is used.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
+     * of an existing DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters,
+     * numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p>
+     * </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+     * </li> </ul>
+     */
+    inline void SetDBParameterGroupName(Aws::String&& value) { m_dBParameterGroupNameHasBeenSet = true; m_dBParameterGroupName = std::move(value); }
+
+    /**
+     * <p>The name of the DB parameter group to associate with this DB instance. If
+     * this argument is omitted, the default DBParameterGroup for the specified engine
+     * is used.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
+     * of an existing DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters,
+     * numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p>
+     * </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+     * </li> </ul>
+     */
+    inline void SetDBParameterGroupName(const char* value) { m_dBParameterGroupNameHasBeenSet = true; m_dBParameterGroupName.assign(value); }
+
+    /**
+     * <p>The name of the DB parameter group to associate with this DB instance. If
+     * this argument is omitted, the default DBParameterGroup for the specified engine
+     * is used.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
+     * of an existing DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters,
+     * numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p>
+     * </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+     * </li> </ul>
+     */
+    inline RestoreDBInstanceFromDBSnapshotRequest& WithDBParameterGroupName(const Aws::String& value) { SetDBParameterGroupName(value); return *this;}
+
+    /**
+     * <p>The name of the DB parameter group to associate with this DB instance. If
+     * this argument is omitted, the default DBParameterGroup for the specified engine
+     * is used.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
+     * of an existing DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters,
+     * numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p>
+     * </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+     * </li> </ul>
+     */
+    inline RestoreDBInstanceFromDBSnapshotRequest& WithDBParameterGroupName(Aws::String&& value) { SetDBParameterGroupName(std::move(value)); return *this;}
+
+    /**
+     * <p>The name of the DB parameter group to associate with this DB instance. If
+     * this argument is omitted, the default DBParameterGroup for the specified engine
+     * is used.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
+     * of an existing DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters,
+     * numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p>
+     * </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+     * </li> </ul>
+     */
+    inline RestoreDBInstanceFromDBSnapshotRequest& WithDBParameterGroupName(const char* value) { SetDBParameterGroupName(value); return *this;}
+
+
+    /**
+     * <p>Indicates if the DB instance should have deletion protection enabled. The
+     * database can't be deleted when this value is set to true. The default is false.
+     * For more information, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+     * Deleting a DB Instance</a>. </p>
+     */
+    inline bool GetDeletionProtection() const{ return m_deletionProtection; }
+
+    /**
+     * <p>Indicates if the DB instance should have deletion protection enabled. The
+     * database can't be deleted when this value is set to true. The default is false.
+     * For more information, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+     * Deleting a DB Instance</a>. </p>
+     */
+    inline void SetDeletionProtection(bool value) { m_deletionProtectionHasBeenSet = true; m_deletionProtection = value; }
+
+    /**
+     * <p>Indicates if the DB instance should have deletion protection enabled. The
+     * database can't be deleted when this value is set to true. The default is false.
+     * For more information, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+     * Deleting a DB Instance</a>. </p>
+     */
+    inline RestoreDBInstanceFromDBSnapshotRequest& WithDeletionProtection(bool value) { SetDeletionProtection(value); return *this;}
 
   private:
 
@@ -1271,6 +1377,12 @@ namespace Model
 
     bool m_useDefaultProcessorFeatures;
     bool m_useDefaultProcessorFeaturesHasBeenSet;
+
+    Aws::String m_dBParameterGroupName;
+    bool m_dBParameterGroupNameHasBeenSet;
+
+    bool m_deletionProtection;
+    bool m_deletionProtectionHasBeenSet;
   };
 
 } // namespace Model

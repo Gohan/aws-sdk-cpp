@@ -140,6 +140,7 @@ namespace Model
     g3_4xlarge,
     g3_8xlarge,
     g3_16xlarge,
+    g3s_xlarge,
     cg1_4xlarge,
     p2_xlarge,
     p2_8xlarge,
@@ -152,6 +153,7 @@ namespace Model
     d2_4xlarge,
     d2_8xlarge,
     f1_2xlarge,
+    f1_4xlarge,
     f1_16xlarge,
     m5_large,
     m5_xlarge,
@@ -174,7 +176,10 @@ namespace Model
     z1d_2xlarge,
     z1d_3xlarge,
     z1d_6xlarge,
-    z1d_12xlarge
+    z1d_12xlarge,
+    u_6tb1_metal,
+    u_9tb1_metal,
+    u_12tb1_metal
   };
 
 namespace InstanceTypeMapper

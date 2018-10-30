@@ -293,7 +293,8 @@ int CurlDebugCallback(CURL *handle, curl_infotype type, char *data, size_t size,
 
 CurlHttpClient::CurlHttpClient(const ClientConfiguration& clientConfig) :
     Base(),   
-    m_curlHandleContainer(clientConfig.maxConnections, clientConfig.requestTimeoutMs, clientConfig.connectTimeoutMs),
+    m_curlHandleContainer(clientConfig.maxConnections, clientConfig.requestTimeoutMs, clientConfig.connectTimeoutMs,
+                          clientConfig.enableTcpKeepAlive, clientConfig.tcpKeepAliveIntervalMs, clientConfig.lowSpeedLimit),
     m_isUsingProxy(!clientConfig.proxyHost.empty()), m_proxyUserName(clientConfig.proxyUserName),
     m_proxyPassword(clientConfig.proxyPassword), m_proxyScheme(SchemeMapper::ToString(clientConfig.proxyScheme)), m_proxyHost(clientConfig.proxyHost),
     m_proxyPort(clientConfig.proxyPort), m_verifySSL(clientConfig.verifySSL), m_caPath(clientConfig.caPath),
@@ -442,7 +443,8 @@ void CurlHttpClient::MakeRequestInternal(HttpRequest& request,
         if (curlResponseCode != CURLE_OK && shouldContinueRequest)
         {
             response = nullptr;
-            AWS_LOGSTREAM_ERROR(CURL_HTTP_CLIENT_TAG, "Curl returned error code " << curlResponseCode);
+            AWS_LOGSTREAM_ERROR(CURL_HTTP_CLIENT_TAG, "Curl returned error code " << curlResponseCode
+                    << " - " << curl_easy_strerror(curlResponseCode));
         }
         else if(!shouldContinueRequest)
         {
@@ -600,7 +602,7 @@ size_t CurlHttpClient::ReadBody(char* ptr, size_t size, size_t nmemb, void* user
     }
 
     HttpRequest* request = context->m_request;
-    std::shared_ptr<Aws::IOStream> ioStream = request->GetContentBody();
+    const std::shared_ptr<Aws::IOStream>& ioStream = request->GetContentBody();
 
     const size_t amountToRead = size * nmemb;
     if (ioStream != nullptr && amountToRead > 0)
@@ -639,7 +641,7 @@ size_t CurlHttpClient::SeekBody(void* userdata, curl_off_t offset, int origin)
     }
 
     HttpRequest* request = context->m_request;
-    std::shared_ptr<Aws::IOStream> ioStream = request->GetContentBody();
+    const std::shared_ptr<Aws::IOStream>& ioStream = request->GetContentBody();
 
     std::ios_base::seekdir dir;
     switch(origin)

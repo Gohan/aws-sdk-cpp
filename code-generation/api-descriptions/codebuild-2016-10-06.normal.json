@@ -364,6 +364,10 @@
           "shape":"NonEmptyString",
           "documentation":"<p>Any version identifier for the version of the source code to be built.</p>"
         },
+        "resolvedSourceVersion":{
+          "shape":"NonEmptyString",
+          "documentation":"<p> An identifier for the version of this build's source code. </p> <ul> <li> <p> For AWS CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID. </p> </li> <li> <p> For AWS CodePipeline, the source revision provided by AWS CodePipeline. </p> </li> <li> <p> For Amazon Simple Storage Service (Amazon S3), this does not apply. </p> </li> </ul>"
+        },
         "projectName":{
           "shape":"NonEmptyString",
           "documentation":"<p>The name of the AWS CodeBuild project.</p>"
@@ -376,9 +380,21 @@
           "shape":"ProjectSource",
           "documentation":"<p>Information about the source code to be built.</p>"
         },
+        "secondarySources":{
+          "shape":"ProjectSources",
+          "documentation":"<p> An array of <code>ProjectSource</code> objects. </p>"
+        },
+        "secondarySourceVersions":{
+          "shape":"ProjectSecondarySourceVersions",
+          "documentation":"<p> An array of <code>ProjectSourceVersion</code> objects. Each <code>ProjectSourceVersion</code> must be one of: </p> <ul> <li> <p>For AWS CodeCommit: the commit ID to use.</p> </li> <li> <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.</p> </li> <li> <p>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.</p> </li> <li> <p>For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use.</p> </li> </ul>"
+        },
         "artifacts":{
           "shape":"BuildArtifacts",
           "documentation":"<p>Information about the output artifacts for the build.</p>"
+        },
+        "secondaryArtifacts":{
+          "shape":"BuildArtifactsList",
+          "documentation":"<p> An array of <code>ProjectArtifacts</code> objects. </p>"
         },
         "cache":{
           "shape":"ProjectCache",
@@ -445,9 +461,19 @@
         "encryptionDisabled":{
           "shape":"WrapperBoolean",
           "documentation":"<p> Information that tells you if encryption for build artifacts is disabled. </p>"
+        },
+        "artifactIdentifier":{
+          "shape":"String",
+          "documentation":"<p> An identifier for this artifact definition. </p>"
         }
       },
       "documentation":"<p>Information about build output artifacts.</p>"
+    },
+    "BuildArtifactsList":{
+      "type":"list",
+      "member":{"shape":"BuildArtifacts"},
+      "max":12,
+      "min":0
     },
     "BuildIds":{
       "type":"list",
@@ -533,6 +559,25 @@
         "S3"
       ]
     },
+    "CloudWatchLogsConfig":{
+      "type":"structure",
+      "required":["status"],
+      "members":{
+        "status":{
+          "shape":"LogsConfigStatusType",
+          "documentation":"<p>The current status of the Amazon CloudWatch Logs for a build project. Valid values are:</p> <ul> <li> <p> <code>ENABLED</code>: Amazon CloudWatch Logs are enabled for this build project.</p> </li> <li> <p> <code>DISABLED</code>: Amazon CloudWatch Logs are not enabled for this build project.</p> </li> </ul>"
+        },
+        "groupName":{
+          "shape":"String",
+          "documentation":"<p> The group name of the Amazon CloudWatch Logs. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html\">Working with Log Groups and Log Streams</a> </p>"
+        },
+        "streamName":{
+          "shape":"String",
+          "documentation":"<p> The prefix of the stream name of the Amazon CloudWatch Logs. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html\">Working with Log Groups and Log Streams</a> </p>"
+        }
+      },
+      "documentation":"<p> Information about Amazon CloudWatch Logs for a build project. </p>"
+    },
     "ComputeType":{
       "type":"string",
       "enum":[
@@ -563,9 +608,17 @@
           "shape":"ProjectSource",
           "documentation":"<p>Information about the build input source code for the build project.</p>"
         },
+        "secondarySources":{
+          "shape":"ProjectSources",
+          "documentation":"<p> An array of <code>ProjectSource</code> objects. </p>"
+        },
         "artifacts":{
           "shape":"ProjectArtifacts",
           "documentation":"<p>Information about the build output artifacts for the build project.</p>"
+        },
+        "secondaryArtifacts":{
+          "shape":"ProjectArtifactsList",
+          "documentation":"<p> An array of <code>ProjectArtifacts</code> objects. </p>"
         },
         "cache":{
           "shape":"ProjectCache",
@@ -598,6 +651,10 @@
         "badgeEnabled":{
           "shape":"WrapperBoolean",
           "documentation":"<p>Set this to true to generate a publicly-accessible URL for your project's build badge.</p>"
+        },
+        "logsConfig":{
+          "shape":"LogsConfig",
+          "documentation":"<p> Information about logs for the build project. Logs can be Amazon CloudWatch Logs, uploaded to a specified S3 bucket, or both. </p>"
         }
       }
     },
@@ -912,6 +969,27 @@
         }
       }
     },
+    "LogsConfig":{
+      "type":"structure",
+      "members":{
+        "cloudWatchLogs":{
+          "shape":"CloudWatchLogsConfig",
+          "documentation":"<p> Information about Amazon CloudWatch Logs for a build project. Amazon CloudWatch Logs are enabled by default. </p>"
+        },
+        "s3Logs":{
+          "shape":"S3LogsConfig",
+          "documentation":"<p> Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default. </p>"
+        }
+      },
+      "documentation":"<p> Information about logs for a build project. Logs can be Amazon CloudWatch Logs, built in a specified S3 bucket, or both. </p>"
+    },
+    "LogsConfigStatusType":{
+      "type":"string",
+      "enum":[
+        "ENABLED",
+        "DISABLED"
+      ]
+    },
     "LogsLocation":{
       "type":"structure",
       "members":{
@@ -926,6 +1004,18 @@
         "deepLink":{
           "shape":"String",
           "documentation":"<p>The URL to an individual build log in Amazon CloudWatch Logs.</p>"
+        },
+        "s3DeepLink":{
+          "shape":"String",
+          "documentation":"<p> The URL to an individual build log in an S3 bucket. </p>"
+        },
+        "cloudWatchLogs":{
+          "shape":"CloudWatchLogsConfig",
+          "documentation":"<p> Information about Amazon CloudWatch Logs for a build project. </p>"
+        },
+        "s3Logs":{
+          "shape":"S3LogsConfig",
+          "documentation":"<p> Information about S3 logs for a build project. </p>"
         }
       },
       "documentation":"<p>Information about build logs in Amazon CloudWatch Logs.</p>"
@@ -1001,9 +1091,17 @@
           "shape":"ProjectSource",
           "documentation":"<p>Information about the build input source code for this build project.</p>"
         },
+        "secondarySources":{
+          "shape":"ProjectSources",
+          "documentation":"<p> An array of <code>ProjectSource</code> objects. </p>"
+        },
         "artifacts":{
           "shape":"ProjectArtifacts",
           "documentation":"<p>Information about the build output artifacts for the build project.</p>"
+        },
+        "secondaryArtifacts":{
+          "shape":"ProjectArtifactsList",
+          "documentation":"<p> An array of <code>ProjectArtifacts</code> objects. </p>"
         },
         "cache":{
           "shape":"ProjectCache",
@@ -1048,6 +1146,10 @@
         "badge":{
           "shape":"ProjectBadge",
           "documentation":"<p>Information about the build badge for the build project.</p>"
+        },
+        "logsConfig":{
+          "shape":"LogsConfig",
+          "documentation":"<p> Information about logs for the build project. A project can create Amazon CloudWatch Logs, logs in an S3 bucket, or both. </p>"
         }
       },
       "documentation":"<p>Information about a build project.</p>"
@@ -1087,9 +1189,19 @@
         "encryptionDisabled":{
           "shape":"WrapperBoolean",
           "documentation":"<p> Set to true if you do not want your output artifacts encrypted. This option is only valid if your artifacts type is Amazon S3. If this is set with another artifacts type, an invalidInputException will be thrown. </p>"
+        },
+        "artifactIdentifier":{
+          "shape":"String",
+          "documentation":"<p> An identifier for this artifact definition. </p>"
         }
       },
       "documentation":"<p>Information about the build output artifacts for the build project.</p>"
+    },
+    "ProjectArtifactsList":{
+      "type":"list",
+      "member":{"shape":"ProjectArtifacts"},
+      "max":12,
+      "min":0
     },
     "ProjectBadge":{
       "type":"structure",
@@ -1172,6 +1284,12 @@
       "max":100,
       "min":1
     },
+    "ProjectSecondarySourceVersions":{
+      "type":"list",
+      "member":{"shape":"ProjectSourceVersion"},
+      "max":12,
+      "min":0
+    },
     "ProjectSortByType":{
       "type":"string",
       "enum":[
@@ -1186,7 +1304,7 @@
       "members":{
         "type":{
           "shape":"SourceType",
-          "documentation":"<p>The type of repository that contains the source code to be built. Valid values include:</p> <ul> <li> <p> <code>BITBUCKET</code>: The source code is in a Bitbucket repository.</p> </li> <li> <p> <code>CODECOMMIT</code>: The source code is in an AWS CodeCommit repository.</p> </li> <li> <p> <code>CODEPIPELINE</code>: The source code settings are specified in the source action of a pipeline in AWS CodePipeline.</p> </li> <li> <p> <code>GITHUB</code>: The source code is in a GitHub repository.</p> </li> <li> <p> <code>S3</code>: The source code is in an Amazon Simple Storage Service (Amazon S3) input bucket.</p> </li> </ul>"
+          "documentation":"<p>The type of repository that contains the source code to be built. Valid values include:</p> <ul> <li> <p> <code>BITBUCKET</code>: The source code is in a Bitbucket repository.</p> </li> <li> <p> <code>CODECOMMIT</code>: The source code is in an AWS CodeCommit repository.</p> </li> <li> <p> <code>CODEPIPELINE</code>: The source code settings are specified in the source action of a pipeline in AWS CodePipeline.</p> </li> <li> <p> <code>GITHUB</code>: The source code is in a GitHub repository.</p> </li> <li> <p> <code>NO_SOURCE</code>: The project does not have input source code.</p> </li> <li> <p> <code>S3</code>: The source code is in an Amazon Simple Storage Service (Amazon S3) input bucket.</p> </li> </ul>"
         },
         "location":{
           "shape":"String",
@@ -1211,9 +1329,37 @@
         "insecureSsl":{
           "shape":"WrapperBoolean",
           "documentation":"<p>Enable this flag to ignore SSL warnings while connecting to the project source code.</p>"
+        },
+        "sourceIdentifier":{
+          "shape":"String",
+          "documentation":"<p> An identifier for this project source. </p>"
         }
       },
       "documentation":"<p>Information about the build input source code for the build project.</p>"
+    },
+    "ProjectSourceVersion":{
+      "type":"structure",
+      "required":[
+        "sourceIdentifier",
+        "sourceVersion"
+      ],
+      "members":{
+        "sourceIdentifier":{
+          "shape":"String",
+          "documentation":"<p>An identifier for a source in the build project.</p>"
+        },
+        "sourceVersion":{
+          "shape":"String",
+          "documentation":"<p>The source version for the corresponding source identifier. If specified, must be one of:</p> <ul> <li> <p>For AWS CodeCommit: the commit ID to use.</p> </li> <li> <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.</p> </li> <li> <p>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.</p> </li> <li> <p>For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use.</p> </li> </ul>"
+        }
+      },
+      "documentation":"<p>A source identifier and its corresponding version.</p>"
+    },
+    "ProjectSources":{
+      "type":"list",
+      "member":{"shape":"ProjectSource"},
+      "max":12,
+      "min":0
     },
     "Projects":{
       "type":"list",
@@ -1232,6 +1378,21 @@
       },
       "documentation":"<p>The specified AWS resource cannot be found.</p>",
       "exception":true
+    },
+    "S3LogsConfig":{
+      "type":"structure",
+      "required":["status"],
+      "members":{
+        "status":{
+          "shape":"LogsConfigStatusType",
+          "documentation":"<p>The current status of the S3 build logs. Valid values are:</p> <ul> <li> <p> <code>ENABLED</code>: S3 build logs are enabled for this build project.</p> </li> <li> <p> <code>DISABLED</code>: S3 build logs are not enabled for this build project.</p> </li> </ul>"
+        },
+        "location":{
+          "shape":"String",
+          "documentation":"<p> The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is <code>my-bucket</code>, and your path prefix is <code>build-log</code>, then acceptable formats are <code>my-bucket/build-log</code> or <code>arn:aws:s3:::my-bucket/build-log</code>. </p>"
+        }
+      },
+      "documentation":"<p> Information about S3 logs for a build project. </p>"
     },
     "SecurityGroupIds":{
       "type":"list",
@@ -1272,7 +1433,8 @@
         "GITHUB",
         "S3",
         "BITBUCKET",
-        "GITHUB_ENTERPRISE"
+        "GITHUB_ENTERPRISE",
+        "NO_SOURCE"
       ]
     },
     "StartBuildInput":{
@@ -1283,6 +1445,14 @@
           "shape":"NonEmptyString",
           "documentation":"<p>The name of the AWS CodeBuild build project to start running a build.</p>"
         },
+        "secondarySourcesOverride":{
+          "shape":"ProjectSources",
+          "documentation":"<p> An array of <code>ProjectSource</code> objects. </p>"
+        },
+        "secondarySourcesVersionOverride":{
+          "shape":"ProjectSecondarySourceVersions",
+          "documentation":"<p> An array of <code>ProjectSourceVersion</code> objects that specify one or more versions of the project's secondary sources to be used for this build only. </p>"
+        },
         "sourceVersion":{
           "shape":"String",
           "documentation":"<p>A version of the build input to be built, for this build only. If not specified, the latest version will be used. If specified, must be one of:</p> <ul> <li> <p>For AWS CodeCommit: the commit ID to use.</p> </li> <li> <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.</p> </li> <li> <p>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.</p> </li> <li> <p>For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use.</p> </li> </ul>"
@@ -1291,13 +1461,17 @@
           "shape":"ProjectArtifacts",
           "documentation":"<p>Build output artifact settings that override, for this build only, the latest ones already defined in the build project.</p>"
         },
+        "secondaryArtifactsOverride":{
+          "shape":"ProjectArtifactsList",
+          "documentation":"<p> An array of <code>ProjectArtifacts</code> objects. </p>"
+        },
         "environmentVariablesOverride":{
           "shape":"EnvironmentVariables",
           "documentation":"<p>A set of environment variables that overrides, for this build only, the latest ones already defined in the build project.</p>"
         },
         "sourceTypeOverride":{
           "shape":"SourceType",
-          "documentation":"<p>A source input type for this build that overrides the source input defined in the build project</p>"
+          "documentation":"<p>A source input type for this build that overrides the source input defined in the build project.</p>"
         },
         "sourceLocationOverride":{
           "shape":"String",
@@ -1358,6 +1532,10 @@
         "idempotencyToken":{
           "shape":"String",
           "documentation":"<p>A unique, case sensitive identifier you provide to ensure the idempotency of the StartBuild request. The token is included in the StartBuild request and is valid for 12 hours. If you repeat the StartBuild request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error. </p>"
+        },
+        "logsConfigOverride":{
+          "shape":"LogsConfig",
+          "documentation":"<p> Log settings for this build that override the log settings defined in the build project. </p>"
         }
       }
     },
@@ -1448,9 +1626,17 @@
           "shape":"ProjectSource",
           "documentation":"<p>Information to be changed about the build input source code for the build project.</p>"
         },
+        "secondarySources":{
+          "shape":"ProjectSources",
+          "documentation":"<p> An array of <code>ProjectSource</code> objects. </p>"
+        },
         "artifacts":{
           "shape":"ProjectArtifacts",
           "documentation":"<p>Information to be changed about the build output artifacts for the build project.</p>"
+        },
+        "secondaryArtifacts":{
+          "shape":"ProjectArtifactsList",
+          "documentation":"<p> An array of <code>ProjectSource</code> objects. </p>"
         },
         "cache":{
           "shape":"ProjectCache",
@@ -1483,6 +1669,10 @@
         "badgeEnabled":{
           "shape":"WrapperBoolean",
           "documentation":"<p>Set this to true to generate a publicly-accessible URL for your project's build badge.</p>"
+        },
+        "logsConfig":{
+          "shape":"LogsConfig",
+          "documentation":"<p> Information about logs for the build project. A project can create Amazon CloudWatch Logs, logs in an S3 bucket, or both. </p>"
         }
       }
     },

@@ -18,6 +18,8 @@
 #include <aws/ec2/EC2Request.h>
 #include <aws/ec2/model/AutoPlacement.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/ec2/model/TagSpecification.h>
 #include <utility>
 
 namespace Aws
@@ -28,9 +30,6 @@ namespace Model
 {
 
   /**
-   * <p>Contains the parameters for AllocateHosts.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AllocateHostsRequest">AWS
-   * API Reference</a></p>
    */
   class AWS_EC2_API AllocateHostsRequest : public EC2Request
   {
@@ -254,6 +253,42 @@ namespace Model
      */
     inline AllocateHostsRequest& WithQuantity(int value) { SetQuantity(value); return *this;}
 
+
+    /**
+     * <p>The tags to apply to the Dedicated Host during creation.</p>
+     */
+    inline const Aws::Vector<TagSpecification>& GetTagSpecifications() const{ return m_tagSpecifications; }
+
+    /**
+     * <p>The tags to apply to the Dedicated Host during creation.</p>
+     */
+    inline void SetTagSpecifications(const Aws::Vector<TagSpecification>& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications = value; }
+
+    /**
+     * <p>The tags to apply to the Dedicated Host during creation.</p>
+     */
+    inline void SetTagSpecifications(Aws::Vector<TagSpecification>&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications = std::move(value); }
+
+    /**
+     * <p>The tags to apply to the Dedicated Host during creation.</p>
+     */
+    inline AllocateHostsRequest& WithTagSpecifications(const Aws::Vector<TagSpecification>& value) { SetTagSpecifications(value); return *this;}
+
+    /**
+     * <p>The tags to apply to the Dedicated Host during creation.</p>
+     */
+    inline AllocateHostsRequest& WithTagSpecifications(Aws::Vector<TagSpecification>&& value) { SetTagSpecifications(std::move(value)); return *this;}
+
+    /**
+     * <p>The tags to apply to the Dedicated Host during creation.</p>
+     */
+    inline AllocateHostsRequest& AddTagSpecifications(const TagSpecification& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(value); return *this; }
+
+    /**
+     * <p>The tags to apply to the Dedicated Host during creation.</p>
+     */
+    inline AllocateHostsRequest& AddTagSpecifications(TagSpecification&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(std::move(value)); return *this; }
+
   private:
 
     AutoPlacement m_autoPlacement;
@@ -270,6 +305,9 @@ namespace Model
 
     int m_quantity;
     bool m_quantityHasBeenSet;
+
+    Aws::Vector<TagSpecification> m_tagSpecifications;
+    bool m_tagSpecificationsHasBeenSet;
   };
 
 } // namespace Model

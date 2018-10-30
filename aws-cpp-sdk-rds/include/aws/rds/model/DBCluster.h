@@ -41,9 +41,10 @@ namespace Model
 {
 
   /**
-   * <p>Contains the details of an Amazon RDS DB cluster. </p> <p>This data type is
-   * used as a response element in the <a>DescribeDBClusters</a> action.
-   * </p><p><h3>See Also:</h3>   <a
+   * <p>Contains the details of an Amazon Aurora DB cluster. </p> <p>This data type
+   * is used as a response element in the <a>DescribeDBClusters</a>,
+   * <a>StopDBCluster</a>, and <a>StartDBCluster</a> actions. </p><p><h3>See
+   * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DBCluster">AWS API
    * Reference</a></p>
    */
@@ -1470,8 +1471,8 @@ namespace Model
      * <p>A list of log types that this DB cluster is configured to export to
      * CloudWatch Logs.</p> <p>Log types vary by DB engine. For information about the
      * log types for each DB engine, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html">Amazon
-     * RDS Database Log Files</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html">Amazon
+     * RDS Database Log Files</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline const Aws::Vector<Aws::String>& GetEnabledCloudwatchLogsExports() const{ return m_enabledCloudwatchLogsExports; }
 
@@ -1479,8 +1480,8 @@ namespace Model
      * <p>A list of log types that this DB cluster is configured to export to
      * CloudWatch Logs.</p> <p>Log types vary by DB engine. For information about the
      * log types for each DB engine, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html">Amazon
-     * RDS Database Log Files</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html">Amazon
+     * RDS Database Log Files</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline void SetEnabledCloudwatchLogsExports(const Aws::Vector<Aws::String>& value) { m_enabledCloudwatchLogsExportsHasBeenSet = true; m_enabledCloudwatchLogsExports = value; }
 
@@ -1488,8 +1489,8 @@ namespace Model
      * <p>A list of log types that this DB cluster is configured to export to
      * CloudWatch Logs.</p> <p>Log types vary by DB engine. For information about the
      * log types for each DB engine, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html">Amazon
-     * RDS Database Log Files</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html">Amazon
+     * RDS Database Log Files</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline void SetEnabledCloudwatchLogsExports(Aws::Vector<Aws::String>&& value) { m_enabledCloudwatchLogsExportsHasBeenSet = true; m_enabledCloudwatchLogsExports = std::move(value); }
 
@@ -1497,8 +1498,8 @@ namespace Model
      * <p>A list of log types that this DB cluster is configured to export to
      * CloudWatch Logs.</p> <p>Log types vary by DB engine. For information about the
      * log types for each DB engine, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html">Amazon
-     * RDS Database Log Files</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html">Amazon
+     * RDS Database Log Files</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline DBCluster& WithEnabledCloudwatchLogsExports(const Aws::Vector<Aws::String>& value) { SetEnabledCloudwatchLogsExports(value); return *this;}
 
@@ -1506,8 +1507,8 @@ namespace Model
      * <p>A list of log types that this DB cluster is configured to export to
      * CloudWatch Logs.</p> <p>Log types vary by DB engine. For information about the
      * log types for each DB engine, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html">Amazon
-     * RDS Database Log Files</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html">Amazon
+     * RDS Database Log Files</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline DBCluster& WithEnabledCloudwatchLogsExports(Aws::Vector<Aws::String>&& value) { SetEnabledCloudwatchLogsExports(std::move(value)); return *this;}
 
@@ -1515,8 +1516,8 @@ namespace Model
      * <p>A list of log types that this DB cluster is configured to export to
      * CloudWatch Logs.</p> <p>Log types vary by DB engine. For information about the
      * log types for each DB engine, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html">Amazon
-     * RDS Database Log Files</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html">Amazon
+     * RDS Database Log Files</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline DBCluster& AddEnabledCloudwatchLogsExports(const Aws::String& value) { m_enabledCloudwatchLogsExportsHasBeenSet = true; m_enabledCloudwatchLogsExports.push_back(value); return *this; }
 
@@ -1524,8 +1525,8 @@ namespace Model
      * <p>A list of log types that this DB cluster is configured to export to
      * CloudWatch Logs.</p> <p>Log types vary by DB engine. For information about the
      * log types for each DB engine, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html">Amazon
-     * RDS Database Log Files</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html">Amazon
+     * RDS Database Log Files</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline DBCluster& AddEnabledCloudwatchLogsExports(Aws::String&& value) { m_enabledCloudwatchLogsExportsHasBeenSet = true; m_enabledCloudwatchLogsExports.push_back(std::move(value)); return *this; }
 
@@ -1533,8 +1534,8 @@ namespace Model
      * <p>A list of log types that this DB cluster is configured to export to
      * CloudWatch Logs.</p> <p>Log types vary by DB engine. For information about the
      * log types for each DB engine, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html">Amazon
-     * RDS Database Log Files</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html">Amazon
+     * RDS Database Log Files</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline DBCluster& AddEnabledCloudwatchLogsExports(const char* value) { m_enabledCloudwatchLogsExportsHasBeenSet = true; m_enabledCloudwatchLogsExports.push_back(value); return *this; }
 
@@ -1550,44 +1551,44 @@ namespace Model
 
 
     /**
-     * <p>The DB engine mode of the DB cluster, either <code>provisioned</code> or
-     * <code>serverless</code>.</p>
+     * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
+     * <code>serverless</code>, or <code>parallelquery</code>.</p>
      */
     inline const Aws::String& GetEngineMode() const{ return m_engineMode; }
 
     /**
-     * <p>The DB engine mode of the DB cluster, either <code>provisioned</code> or
-     * <code>serverless</code>.</p>
+     * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
+     * <code>serverless</code>, or <code>parallelquery</code>.</p>
      */
     inline void SetEngineMode(const Aws::String& value) { m_engineModeHasBeenSet = true; m_engineMode = value; }
 
     /**
-     * <p>The DB engine mode of the DB cluster, either <code>provisioned</code> or
-     * <code>serverless</code>.</p>
+     * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
+     * <code>serverless</code>, or <code>parallelquery</code>.</p>
      */
     inline void SetEngineMode(Aws::String&& value) { m_engineModeHasBeenSet = true; m_engineMode = std::move(value); }
 
     /**
-     * <p>The DB engine mode of the DB cluster, either <code>provisioned</code> or
-     * <code>serverless</code>.</p>
+     * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
+     * <code>serverless</code>, or <code>parallelquery</code>.</p>
      */
     inline void SetEngineMode(const char* value) { m_engineModeHasBeenSet = true; m_engineMode.assign(value); }
 
     /**
-     * <p>The DB engine mode of the DB cluster, either <code>provisioned</code> or
-     * <code>serverless</code>.</p>
+     * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
+     * <code>serverless</code>, or <code>parallelquery</code>.</p>
      */
     inline DBCluster& WithEngineMode(const Aws::String& value) { SetEngineMode(value); return *this;}
 
     /**
-     * <p>The DB engine mode of the DB cluster, either <code>provisioned</code> or
-     * <code>serverless</code>.</p>
+     * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
+     * <code>serverless</code>, or <code>parallelquery</code>.</p>
      */
     inline DBCluster& WithEngineMode(Aws::String&& value) { SetEngineMode(std::move(value)); return *this;}
 
     /**
-     * <p>The DB engine mode of the DB cluster, either <code>provisioned</code> or
-     * <code>serverless</code>.</p>
+     * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
+     * <code>serverless</code>, or <code>parallelquery</code>.</p>
      */
     inline DBCluster& WithEngineMode(const char* value) { SetEngineMode(value); return *this;}
 
@@ -1606,6 +1607,25 @@ namespace Model
 
     
     inline DBCluster& WithScalingConfigurationInfo(ScalingConfigurationInfo&& value) { SetScalingConfigurationInfo(std::move(value)); return *this;}
+
+
+    /**
+     * <p>Indicates if the DB cluster has deletion protection enabled. The database
+     * can't be deleted when this value is set to true. </p>
+     */
+    inline bool GetDeletionProtection() const{ return m_deletionProtection; }
+
+    /**
+     * <p>Indicates if the DB cluster has deletion protection enabled. The database
+     * can't be deleted when this value is set to true. </p>
+     */
+    inline void SetDeletionProtection(bool value) { m_deletionProtectionHasBeenSet = true; m_deletionProtection = value; }
+
+    /**
+     * <p>Indicates if the DB cluster has deletion protection enabled. The database
+     * can't be deleted when this value is set to true. </p>
+     */
+    inline DBCluster& WithDeletionProtection(bool value) { SetDeletionProtection(value); return *this;}
 
   private:
 
@@ -1734,6 +1754,9 @@ namespace Model
 
     ScalingConfigurationInfo m_scalingConfigurationInfo;
     bool m_scalingConfigurationInfoHasBeenSet;
+
+    bool m_deletionProtection;
+    bool m_deletionProtectionHasBeenSet;
   };
 
 } // namespace Model

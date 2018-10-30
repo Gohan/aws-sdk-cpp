@@ -51,14 +51,14 @@ namespace Model
     /**
      * <p>The identifier or Amazon Resource Name (ARN) for the source DB cluster
      * parameter group. For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an RDS Amazon Resource Name (ARN)</a>. </p> <p>Constraints:</p>
-     * <ul> <li> <p>Must specify a valid DB cluster parameter group.</p> </li> <li>
-     * <p>If the source DB cluster parameter group is in the same AWS Region as the
-     * copy, specify a valid DB parameter group identifier, for example
-     * <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> <li> <p>If the
-     * source DB parameter group is in a different AWS Region than the copy, specify a
-     * valid DB cluster parameter group ARN, for example
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
+     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon Aurora User Guide</i>.
+     * </p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB cluster parameter
+     * group.</p> </li> <li> <p>If the source DB cluster parameter group is in the same
+     * AWS Region as the copy, specify a valid DB parameter group identifier, for
+     * example <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> <li>
+     * <p>If the source DB parameter group is in a different AWS Region than the copy,
+     * specify a valid DB cluster parameter group ARN, for example
      * <code>arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1</code>.</p>
      * </li> </ul>
      */
@@ -67,14 +67,14 @@ namespace Model
     /**
      * <p>The identifier or Amazon Resource Name (ARN) for the source DB cluster
      * parameter group. For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an RDS Amazon Resource Name (ARN)</a>. </p> <p>Constraints:</p>
-     * <ul> <li> <p>Must specify a valid DB cluster parameter group.</p> </li> <li>
-     * <p>If the source DB cluster parameter group is in the same AWS Region as the
-     * copy, specify a valid DB parameter group identifier, for example
-     * <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> <li> <p>If the
-     * source DB parameter group is in a different AWS Region than the copy, specify a
-     * valid DB cluster parameter group ARN, for example
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
+     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon Aurora User Guide</i>.
+     * </p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB cluster parameter
+     * group.</p> </li> <li> <p>If the source DB cluster parameter group is in the same
+     * AWS Region as the copy, specify a valid DB parameter group identifier, for
+     * example <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> <li>
+     * <p>If the source DB parameter group is in a different AWS Region than the copy,
+     * specify a valid DB cluster parameter group ARN, for example
      * <code>arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1</code>.</p>
      * </li> </ul>
      */
@@ -83,14 +83,14 @@ namespace Model
     /**
      * <p>The identifier or Amazon Resource Name (ARN) for the source DB cluster
      * parameter group. For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an RDS Amazon Resource Name (ARN)</a>. </p> <p>Constraints:</p>
-     * <ul> <li> <p>Must specify a valid DB cluster parameter group.</p> </li> <li>
-     * <p>If the source DB cluster parameter group is in the same AWS Region as the
-     * copy, specify a valid DB parameter group identifier, for example
-     * <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> <li> <p>If the
-     * source DB parameter group is in a different AWS Region than the copy, specify a
-     * valid DB cluster parameter group ARN, for example
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
+     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon Aurora User Guide</i>.
+     * </p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB cluster parameter
+     * group.</p> </li> <li> <p>If the source DB cluster parameter group is in the same
+     * AWS Region as the copy, specify a valid DB parameter group identifier, for
+     * example <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> <li>
+     * <p>If the source DB parameter group is in a different AWS Region than the copy,
+     * specify a valid DB cluster parameter group ARN, for example
      * <code>arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1</code>.</p>
      * </li> </ul>
      */
@@ -99,14 +99,14 @@ namespace Model
     /**
      * <p>The identifier or Amazon Resource Name (ARN) for the source DB cluster
      * parameter group. For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an RDS Amazon Resource Name (ARN)</a>. </p> <p>Constraints:</p>
-     * <ul> <li> <p>Must specify a valid DB cluster parameter group.</p> </li> <li>
-     * <p>If the source DB cluster parameter group is in the same AWS Region as the
-     * copy, specify a valid DB parameter group identifier, for example
-     * <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> <li> <p>If the
-     * source DB parameter group is in a different AWS Region than the copy, specify a
-     * valid DB cluster parameter group ARN, for example
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
+     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon Aurora User Guide</i>.
+     * </p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB cluster parameter
+     * group.</p> </li> <li> <p>If the source DB cluster parameter group is in the same
+     * AWS Region as the copy, specify a valid DB parameter group identifier, for
+     * example <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> <li>
+     * <p>If the source DB parameter group is in a different AWS Region than the copy,
+     * specify a valid DB cluster parameter group ARN, for example
      * <code>arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1</code>.</p>
      * </li> </ul>
      */
@@ -115,14 +115,14 @@ namespace Model
     /**
      * <p>The identifier or Amazon Resource Name (ARN) for the source DB cluster
      * parameter group. For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an RDS Amazon Resource Name (ARN)</a>. </p> <p>Constraints:</p>
-     * <ul> <li> <p>Must specify a valid DB cluster parameter group.</p> </li> <li>
-     * <p>If the source DB cluster parameter group is in the same AWS Region as the
-     * copy, specify a valid DB parameter group identifier, for example
-     * <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> <li> <p>If the
-     * source DB parameter group is in a different AWS Region than the copy, specify a
-     * valid DB cluster parameter group ARN, for example
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
+     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon Aurora User Guide</i>.
+     * </p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB cluster parameter
+     * group.</p> </li> <li> <p>If the source DB cluster parameter group is in the same
+     * AWS Region as the copy, specify a valid DB parameter group identifier, for
+     * example <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> <li>
+     * <p>If the source DB parameter group is in a different AWS Region than the copy,
+     * specify a valid DB cluster parameter group ARN, for example
      * <code>arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1</code>.</p>
      * </li> </ul>
      */
@@ -131,14 +131,14 @@ namespace Model
     /**
      * <p>The identifier or Amazon Resource Name (ARN) for the source DB cluster
      * parameter group. For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an RDS Amazon Resource Name (ARN)</a>. </p> <p>Constraints:</p>
-     * <ul> <li> <p>Must specify a valid DB cluster parameter group.</p> </li> <li>
-     * <p>If the source DB cluster parameter group is in the same AWS Region as the
-     * copy, specify a valid DB parameter group identifier, for example
-     * <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> <li> <p>If the
-     * source DB parameter group is in a different AWS Region than the copy, specify a
-     * valid DB cluster parameter group ARN, for example
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
+     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon Aurora User Guide</i>.
+     * </p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB cluster parameter
+     * group.</p> </li> <li> <p>If the source DB cluster parameter group is in the same
+     * AWS Region as the copy, specify a valid DB parameter group identifier, for
+     * example <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> <li>
+     * <p>If the source DB parameter group is in a different AWS Region than the copy,
+     * specify a valid DB cluster parameter group ARN, for example
      * <code>arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1</code>.</p>
      * </li> </ul>
      */
@@ -147,14 +147,14 @@ namespace Model
     /**
      * <p>The identifier or Amazon Resource Name (ARN) for the source DB cluster
      * parameter group. For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an RDS Amazon Resource Name (ARN)</a>. </p> <p>Constraints:</p>
-     * <ul> <li> <p>Must specify a valid DB cluster parameter group.</p> </li> <li>
-     * <p>If the source DB cluster parameter group is in the same AWS Region as the
-     * copy, specify a valid DB parameter group identifier, for example
-     * <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> <li> <p>If the
-     * source DB parameter group is in a different AWS Region than the copy, specify a
-     * valid DB cluster parameter group ARN, for example
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
+     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon Aurora User Guide</i>.
+     * </p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB cluster parameter
+     * group.</p> </li> <li> <p>If the source DB cluster parameter group is in the same
+     * AWS Region as the copy, specify a valid DB parameter group identifier, for
+     * example <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> <li>
+     * <p>If the source DB parameter group is in a different AWS Region than the copy,
+     * specify a valid DB cluster parameter group ARN, for example
      * <code>arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1</code>.</p>
      * </li> </ul>
      */
@@ -163,70 +163,70 @@ namespace Model
 
     /**
      * <p>The identifier for the copied DB cluster parameter group.</p>
-     * <p>Constraints:</p> <ul> <li> <p>Cannot be null, empty, or blank</p> </li> <li>
+     * <p>Constraints:</p> <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li>
      * <p>Must contain from 1 to 255 letters, numbers, or hyphens</p> </li> <li>
-     * <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen
-     * or contain two consecutive hyphens</p> </li> </ul> <p>Example:
+     * <p>First character must be a letter</p> </li> <li> <p>Can't end with a hyphen or
+     * contain two consecutive hyphens</p> </li> </ul> <p>Example:
      * <code>my-cluster-param-group1</code> </p>
      */
     inline const Aws::String& GetTargetDBClusterParameterGroupIdentifier() const{ return m_targetDBClusterParameterGroupIdentifier; }
 
     /**
      * <p>The identifier for the copied DB cluster parameter group.</p>
-     * <p>Constraints:</p> <ul> <li> <p>Cannot be null, empty, or blank</p> </li> <li>
+     * <p>Constraints:</p> <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li>
      * <p>Must contain from 1 to 255 letters, numbers, or hyphens</p> </li> <li>
-     * <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen
-     * or contain two consecutive hyphens</p> </li> </ul> <p>Example:
+     * <p>First character must be a letter</p> </li> <li> <p>Can't end with a hyphen or
+     * contain two consecutive hyphens</p> </li> </ul> <p>Example:
      * <code>my-cluster-param-group1</code> </p>
      */
     inline void SetTargetDBClusterParameterGroupIdentifier(const Aws::String& value) { m_targetDBClusterParameterGroupIdentifierHasBeenSet = true; m_targetDBClusterParameterGroupIdentifier = value; }
 
     /**
      * <p>The identifier for the copied DB cluster parameter group.</p>
-     * <p>Constraints:</p> <ul> <li> <p>Cannot be null, empty, or blank</p> </li> <li>
+     * <p>Constraints:</p> <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li>
      * <p>Must contain from 1 to 255 letters, numbers, or hyphens</p> </li> <li>
-     * <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen
-     * or contain two consecutive hyphens</p> </li> </ul> <p>Example:
+     * <p>First character must be a letter</p> </li> <li> <p>Can't end with a hyphen or
+     * contain two consecutive hyphens</p> </li> </ul> <p>Example:
      * <code>my-cluster-param-group1</code> </p>
      */
     inline void SetTargetDBClusterParameterGroupIdentifier(Aws::String&& value) { m_targetDBClusterParameterGroupIdentifierHasBeenSet = true; m_targetDBClusterParameterGroupIdentifier = std::move(value); }
 
     /**
      * <p>The identifier for the copied DB cluster parameter group.</p>
-     * <p>Constraints:</p> <ul> <li> <p>Cannot be null, empty, or blank</p> </li> <li>
+     * <p>Constraints:</p> <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li>
      * <p>Must contain from 1 to 255 letters, numbers, or hyphens</p> </li> <li>
-     * <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen
-     * or contain two consecutive hyphens</p> </li> </ul> <p>Example:
+     * <p>First character must be a letter</p> </li> <li> <p>Can't end with a hyphen or
+     * contain two consecutive hyphens</p> </li> </ul> <p>Example:
      * <code>my-cluster-param-group1</code> </p>
      */
     inline void SetTargetDBClusterParameterGroupIdentifier(const char* value) { m_targetDBClusterParameterGroupIdentifierHasBeenSet = true; m_targetDBClusterParameterGroupIdentifier.assign(value); }
 
     /**
      * <p>The identifier for the copied DB cluster parameter group.</p>
-     * <p>Constraints:</p> <ul> <li> <p>Cannot be null, empty, or blank</p> </li> <li>
+     * <p>Constraints:</p> <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li>
      * <p>Must contain from 1 to 255 letters, numbers, or hyphens</p> </li> <li>
-     * <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen
-     * or contain two consecutive hyphens</p> </li> </ul> <p>Example:
+     * <p>First character must be a letter</p> </li> <li> <p>Can't end with a hyphen or
+     * contain two consecutive hyphens</p> </li> </ul> <p>Example:
      * <code>my-cluster-param-group1</code> </p>
      */
     inline CopyDBClusterParameterGroupRequest& WithTargetDBClusterParameterGroupIdentifier(const Aws::String& value) { SetTargetDBClusterParameterGroupIdentifier(value); return *this;}
 
     /**
      * <p>The identifier for the copied DB cluster parameter group.</p>
-     * <p>Constraints:</p> <ul> <li> <p>Cannot be null, empty, or blank</p> </li> <li>
+     * <p>Constraints:</p> <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li>
      * <p>Must contain from 1 to 255 letters, numbers, or hyphens</p> </li> <li>
-     * <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen
-     * or contain two consecutive hyphens</p> </li> </ul> <p>Example:
+     * <p>First character must be a letter</p> </li> <li> <p>Can't end with a hyphen or
+     * contain two consecutive hyphens</p> </li> </ul> <p>Example:
      * <code>my-cluster-param-group1</code> </p>
      */
     inline CopyDBClusterParameterGroupRequest& WithTargetDBClusterParameterGroupIdentifier(Aws::String&& value) { SetTargetDBClusterParameterGroupIdentifier(std::move(value)); return *this;}
 
     /**
      * <p>The identifier for the copied DB cluster parameter group.</p>
-     * <p>Constraints:</p> <ul> <li> <p>Cannot be null, empty, or blank</p> </li> <li>
+     * <p>Constraints:</p> <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li>
      * <p>Must contain from 1 to 255 letters, numbers, or hyphens</p> </li> <li>
-     * <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen
-     * or contain two consecutive hyphens</p> </li> </ul> <p>Example:
+     * <p>First character must be a letter</p> </li> <li> <p>Can't end with a hyphen or
+     * contain two consecutive hyphens</p> </li> </ul> <p>Example:
      * <code>my-cluster-param-group1</code> </p>
      */
     inline CopyDBClusterParameterGroupRequest& WithTargetDBClusterParameterGroupIdentifier(const char* value) { SetTargetDBClusterParameterGroupIdentifier(value); return *this;}

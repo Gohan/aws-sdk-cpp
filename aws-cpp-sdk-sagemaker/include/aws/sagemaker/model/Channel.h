@@ -19,6 +19,7 @@
 #include <aws/sagemaker/model/DataSource.h>
 #include <aws/sagemaker/model/CompressionType.h>
 #include <aws/sagemaker/model/RecordWrapper.h>
+#include <aws/sagemaker/model/TrainingInputMode.h>
 #include <utility>
 
 namespace Aws
@@ -191,7 +192,7 @@ namespace Model
      * wraps each individual S3 object in a RecordIO record. If the input data is
      * already in RecordIO format, you don't need to set this attribute. For more
      * information, see <a
-     * href="https://mxnet.incubator.apache.org/how_to/recordio.html?highlight=im2rec">Create
+     * href="https://mxnet.incubator.apache.org/architecture/note_data_loading.html#data-format">Create
      * a Dataset Using RecordIO</a>. </p> <p>In FILE mode, leave this field unset or
      * set it to None.</p> <p/>
      */
@@ -203,7 +204,7 @@ namespace Model
      * wraps each individual S3 object in a RecordIO record. If the input data is
      * already in RecordIO format, you don't need to set this attribute. For more
      * information, see <a
-     * href="https://mxnet.incubator.apache.org/how_to/recordio.html?highlight=im2rec">Create
+     * href="https://mxnet.incubator.apache.org/architecture/note_data_loading.html#data-format">Create
      * a Dataset Using RecordIO</a>. </p> <p>In FILE mode, leave this field unset or
      * set it to None.</p> <p/>
      */
@@ -215,7 +216,7 @@ namespace Model
      * wraps each individual S3 object in a RecordIO record. If the input data is
      * already in RecordIO format, you don't need to set this attribute. For more
      * information, see <a
-     * href="https://mxnet.incubator.apache.org/how_to/recordio.html?highlight=im2rec">Create
+     * href="https://mxnet.incubator.apache.org/architecture/note_data_loading.html#data-format">Create
      * a Dataset Using RecordIO</a>. </p> <p>In FILE mode, leave this field unset or
      * set it to None.</p> <p/>
      */
@@ -227,7 +228,7 @@ namespace Model
      * wraps each individual S3 object in a RecordIO record. If the input data is
      * already in RecordIO format, you don't need to set this attribute. For more
      * information, see <a
-     * href="https://mxnet.incubator.apache.org/how_to/recordio.html?highlight=im2rec">Create
+     * href="https://mxnet.incubator.apache.org/architecture/note_data_loading.html#data-format">Create
      * a Dataset Using RecordIO</a>. </p> <p>In FILE mode, leave this field unset or
      * set it to None.</p> <p/>
      */
@@ -239,11 +240,27 @@ namespace Model
      * wraps each individual S3 object in a RecordIO record. If the input data is
      * already in RecordIO format, you don't need to set this attribute. For more
      * information, see <a
-     * href="https://mxnet.incubator.apache.org/how_to/recordio.html?highlight=im2rec">Create
+     * href="https://mxnet.incubator.apache.org/architecture/note_data_loading.html#data-format">Create
      * a Dataset Using RecordIO</a>. </p> <p>In FILE mode, leave this field unset or
      * set it to None.</p> <p/>
      */
     inline Channel& WithRecordWrapperType(RecordWrapper&& value) { SetRecordWrapperType(std::move(value)); return *this;}
+
+
+    
+    inline const TrainingInputMode& GetInputMode() const{ return m_inputMode; }
+
+    
+    inline void SetInputMode(const TrainingInputMode& value) { m_inputModeHasBeenSet = true; m_inputMode = value; }
+
+    
+    inline void SetInputMode(TrainingInputMode&& value) { m_inputModeHasBeenSet = true; m_inputMode = std::move(value); }
+
+    
+    inline Channel& WithInputMode(const TrainingInputMode& value) { SetInputMode(value); return *this;}
+
+    
+    inline Channel& WithInputMode(TrainingInputMode&& value) { SetInputMode(std::move(value)); return *this;}
 
   private:
 
@@ -261,6 +278,9 @@ namespace Model
 
     RecordWrapper m_recordWrapperType;
     bool m_recordWrapperTypeHasBeenSet;
+
+    TrainingInputMode m_inputMode;
+    bool m_inputModeHasBeenSet;
   };
 
 } // namespace Model

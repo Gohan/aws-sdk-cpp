@@ -55,9 +55,9 @@ namespace Model
      * <p> The identifier or ARN for the source DB parameter group. For information
      * about creating an ARN, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an RDS Amazon Resource Name (ARN)</a>. </p> <p>Constraints:</p>
-     * <ul> <li> <p>Must specify a valid DB parameter group.</p> </li> <li> <p>Must
-     * specify a valid DB parameter group identifier, for example
+     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. </p>
+     * <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB parameter group.</p>
+     * </li> <li> <p>Must specify a valid DB parameter group identifier, for example
      * <code>my-db-param-group</code>, or a valid ARN.</p> </li> </ul>
      */
     inline const Aws::String& GetSourceDBParameterGroupIdentifier() const{ return m_sourceDBParameterGroupIdentifier; }
@@ -66,9 +66,9 @@ namespace Model
      * <p> The identifier or ARN for the source DB parameter group. For information
      * about creating an ARN, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an RDS Amazon Resource Name (ARN)</a>. </p> <p>Constraints:</p>
-     * <ul> <li> <p>Must specify a valid DB parameter group.</p> </li> <li> <p>Must
-     * specify a valid DB parameter group identifier, for example
+     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. </p>
+     * <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB parameter group.</p>
+     * </li> <li> <p>Must specify a valid DB parameter group identifier, for example
      * <code>my-db-param-group</code>, or a valid ARN.</p> </li> </ul>
      */
     inline void SetSourceDBParameterGroupIdentifier(const Aws::String& value) { m_sourceDBParameterGroupIdentifierHasBeenSet = true; m_sourceDBParameterGroupIdentifier = value; }
@@ -77,9 +77,9 @@ namespace Model
      * <p> The identifier or ARN for the source DB parameter group. For information
      * about creating an ARN, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an RDS Amazon Resource Name (ARN)</a>. </p> <p>Constraints:</p>
-     * <ul> <li> <p>Must specify a valid DB parameter group.</p> </li> <li> <p>Must
-     * specify a valid DB parameter group identifier, for example
+     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. </p>
+     * <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB parameter group.</p>
+     * </li> <li> <p>Must specify a valid DB parameter group identifier, for example
      * <code>my-db-param-group</code>, or a valid ARN.</p> </li> </ul>
      */
     inline void SetSourceDBParameterGroupIdentifier(Aws::String&& value) { m_sourceDBParameterGroupIdentifierHasBeenSet = true; m_sourceDBParameterGroupIdentifier = std::move(value); }
@@ -88,9 +88,9 @@ namespace Model
      * <p> The identifier or ARN for the source DB parameter group. For information
      * about creating an ARN, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an RDS Amazon Resource Name (ARN)</a>. </p> <p>Constraints:</p>
-     * <ul> <li> <p>Must specify a valid DB parameter group.</p> </li> <li> <p>Must
-     * specify a valid DB parameter group identifier, for example
+     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. </p>
+     * <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB parameter group.</p>
+     * </li> <li> <p>Must specify a valid DB parameter group identifier, for example
      * <code>my-db-param-group</code>, or a valid ARN.</p> </li> </ul>
      */
     inline void SetSourceDBParameterGroupIdentifier(const char* value) { m_sourceDBParameterGroupIdentifierHasBeenSet = true; m_sourceDBParameterGroupIdentifier.assign(value); }
@@ -99,9 +99,9 @@ namespace Model
      * <p> The identifier or ARN for the source DB parameter group. For information
      * about creating an ARN, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an RDS Amazon Resource Name (ARN)</a>. </p> <p>Constraints:</p>
-     * <ul> <li> <p>Must specify a valid DB parameter group.</p> </li> <li> <p>Must
-     * specify a valid DB parameter group identifier, for example
+     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. </p>
+     * <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB parameter group.</p>
+     * </li> <li> <p>Must specify a valid DB parameter group identifier, for example
      * <code>my-db-param-group</code>, or a valid ARN.</p> </li> </ul>
      */
     inline CopyDBParameterGroupRequest& WithSourceDBParameterGroupIdentifier(const Aws::String& value) { SetSourceDBParameterGroupIdentifier(value); return *this;}
@@ -110,9 +110,9 @@ namespace Model
      * <p> The identifier or ARN for the source DB parameter group. For information
      * about creating an ARN, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an RDS Amazon Resource Name (ARN)</a>. </p> <p>Constraints:</p>
-     * <ul> <li> <p>Must specify a valid DB parameter group.</p> </li> <li> <p>Must
-     * specify a valid DB parameter group identifier, for example
+     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. </p>
+     * <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB parameter group.</p>
+     * </li> <li> <p>Must specify a valid DB parameter group identifier, for example
      * <code>my-db-param-group</code>, or a valid ARN.</p> </li> </ul>
      */
     inline CopyDBParameterGroupRequest& WithSourceDBParameterGroupIdentifier(Aws::String&& value) { SetSourceDBParameterGroupIdentifier(std::move(value)); return *this;}
@@ -121,9 +121,9 @@ namespace Model
      * <p> The identifier or ARN for the source DB parameter group. For information
      * about creating an ARN, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an RDS Amazon Resource Name (ARN)</a>. </p> <p>Constraints:</p>
-     * <ul> <li> <p>Must specify a valid DB parameter group.</p> </li> <li> <p>Must
-     * specify a valid DB parameter group identifier, for example
+     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. </p>
+     * <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB parameter group.</p>
+     * </li> <li> <p>Must specify a valid DB parameter group identifier, for example
      * <code>my-db-param-group</code>, or a valid ARN.</p> </li> </ul>
      */
     inline CopyDBParameterGroupRequest& WithSourceDBParameterGroupIdentifier(const char* value) { SetSourceDBParameterGroupIdentifier(value); return *this;}
@@ -131,63 +131,63 @@ namespace Model
 
     /**
      * <p>The identifier for the copied DB parameter group.</p> <p>Constraints:</p>
-     * <ul> <li> <p>Cannot be null, empty, or blank</p> </li> <li> <p>Must contain from
+     * <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from
      * 1 to 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be
-     * a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * a letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-db-parameter-group</code> </p>
      */
     inline const Aws::String& GetTargetDBParameterGroupIdentifier() const{ return m_targetDBParameterGroupIdentifier; }
 
     /**
      * <p>The identifier for the copied DB parameter group.</p> <p>Constraints:</p>
-     * <ul> <li> <p>Cannot be null, empty, or blank</p> </li> <li> <p>Must contain from
+     * <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from
      * 1 to 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be
-     * a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * a letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-db-parameter-group</code> </p>
      */
     inline void SetTargetDBParameterGroupIdentifier(const Aws::String& value) { m_targetDBParameterGroupIdentifierHasBeenSet = true; m_targetDBParameterGroupIdentifier = value; }
 
     /**
      * <p>The identifier for the copied DB parameter group.</p> <p>Constraints:</p>
-     * <ul> <li> <p>Cannot be null, empty, or blank</p> </li> <li> <p>Must contain from
+     * <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from
      * 1 to 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be
-     * a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * a letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-db-parameter-group</code> </p>
      */
     inline void SetTargetDBParameterGroupIdentifier(Aws::String&& value) { m_targetDBParameterGroupIdentifierHasBeenSet = true; m_targetDBParameterGroupIdentifier = std::move(value); }
 
     /**
      * <p>The identifier for the copied DB parameter group.</p> <p>Constraints:</p>
-     * <ul> <li> <p>Cannot be null, empty, or blank</p> </li> <li> <p>Must contain from
+     * <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from
      * 1 to 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be
-     * a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * a letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-db-parameter-group</code> </p>
      */
     inline void SetTargetDBParameterGroupIdentifier(const char* value) { m_targetDBParameterGroupIdentifierHasBeenSet = true; m_targetDBParameterGroupIdentifier.assign(value); }
 
     /**
      * <p>The identifier for the copied DB parameter group.</p> <p>Constraints:</p>
-     * <ul> <li> <p>Cannot be null, empty, or blank</p> </li> <li> <p>Must contain from
+     * <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from
      * 1 to 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be
-     * a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * a letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-db-parameter-group</code> </p>
      */
     inline CopyDBParameterGroupRequest& WithTargetDBParameterGroupIdentifier(const Aws::String& value) { SetTargetDBParameterGroupIdentifier(value); return *this;}
 
     /**
      * <p>The identifier for the copied DB parameter group.</p> <p>Constraints:</p>
-     * <ul> <li> <p>Cannot be null, empty, or blank</p> </li> <li> <p>Must contain from
+     * <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from
      * 1 to 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be
-     * a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * a letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-db-parameter-group</code> </p>
      */
     inline CopyDBParameterGroupRequest& WithTargetDBParameterGroupIdentifier(Aws::String&& value) { SetTargetDBParameterGroupIdentifier(std::move(value)); return *this;}
 
     /**
      * <p>The identifier for the copied DB parameter group.</p> <p>Constraints:</p>
-     * <ul> <li> <p>Cannot be null, empty, or blank</p> </li> <li> <p>Must contain from
+     * <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from
      * 1 to 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be
-     * a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * a letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-db-parameter-group</code> </p>
      */
     inline CopyDBParameterGroupRequest& WithTargetDBParameterGroupIdentifier(const char* value) { SetTargetDBParameterGroupIdentifier(value); return *this;}

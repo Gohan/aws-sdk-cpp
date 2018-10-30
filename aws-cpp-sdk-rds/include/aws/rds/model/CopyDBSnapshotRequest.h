@@ -187,63 +187,63 @@ namespace Model
 
     /**
      * <p>The identifier for the copy of the snapshot. </p> <p>Constraints:</p> <ul>
-     * <li> <p>Cannot be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to
+     * <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to
      * 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a
-     * letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-db-snapshot</code> </p>
      */
     inline const Aws::String& GetTargetDBSnapshotIdentifier() const{ return m_targetDBSnapshotIdentifier; }
 
     /**
      * <p>The identifier for the copy of the snapshot. </p> <p>Constraints:</p> <ul>
-     * <li> <p>Cannot be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to
+     * <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to
      * 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a
-     * letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-db-snapshot</code> </p>
      */
     inline void SetTargetDBSnapshotIdentifier(const Aws::String& value) { m_targetDBSnapshotIdentifierHasBeenSet = true; m_targetDBSnapshotIdentifier = value; }
 
     /**
      * <p>The identifier for the copy of the snapshot. </p> <p>Constraints:</p> <ul>
-     * <li> <p>Cannot be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to
+     * <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to
      * 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a
-     * letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-db-snapshot</code> </p>
      */
     inline void SetTargetDBSnapshotIdentifier(Aws::String&& value) { m_targetDBSnapshotIdentifierHasBeenSet = true; m_targetDBSnapshotIdentifier = std::move(value); }
 
     /**
      * <p>The identifier for the copy of the snapshot. </p> <p>Constraints:</p> <ul>
-     * <li> <p>Cannot be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to
+     * <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to
      * 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a
-     * letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-db-snapshot</code> </p>
      */
     inline void SetTargetDBSnapshotIdentifier(const char* value) { m_targetDBSnapshotIdentifierHasBeenSet = true; m_targetDBSnapshotIdentifier.assign(value); }
 
     /**
      * <p>The identifier for the copy of the snapshot. </p> <p>Constraints:</p> <ul>
-     * <li> <p>Cannot be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to
+     * <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to
      * 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a
-     * letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-db-snapshot</code> </p>
      */
     inline CopyDBSnapshotRequest& WithTargetDBSnapshotIdentifier(const Aws::String& value) { SetTargetDBSnapshotIdentifier(value); return *this;}
 
     /**
      * <p>The identifier for the copy of the snapshot. </p> <p>Constraints:</p> <ul>
-     * <li> <p>Cannot be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to
+     * <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to
      * 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a
-     * letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-db-snapshot</code> </p>
      */
     inline CopyDBSnapshotRequest& WithTargetDBSnapshotIdentifier(Aws::String&& value) { SetTargetDBSnapshotIdentifier(std::move(value)); return *this;}
 
     /**
      * <p>The identifier for the copy of the snapshot. </p> <p>Constraints:</p> <ul>
-     * <li> <p>Cannot be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to
+     * <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to
      * 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a
-     * letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
      * hyphens</p> </li> </ul> <p>Example: <code>my-db-snapshot</code> </p>
      */
     inline CopyDBSnapshotRequest& WithTargetDBSnapshotIdentifier(const char* value) { SetTargetDBSnapshotIdentifier(value); return *this;}
@@ -692,7 +692,7 @@ namespace Model
      * you must specify this option when copying across AWS Regions. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options">Option
-     * Group Considerations</a>. </p>
+     * Group Considerations</a> in the <i>Amazon RDS User Guide.</i> </p>
      */
     inline const Aws::String& GetOptionGroupName() const{ return m_optionGroupName; }
 
@@ -704,7 +704,7 @@ namespace Model
      * you must specify this option when copying across AWS Regions. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options">Option
-     * Group Considerations</a>. </p>
+     * Group Considerations</a> in the <i>Amazon RDS User Guide.</i> </p>
      */
     inline void SetOptionGroupName(const Aws::String& value) { m_optionGroupNameHasBeenSet = true; m_optionGroupName = value; }
 
@@ -716,7 +716,7 @@ namespace Model
      * you must specify this option when copying across AWS Regions. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options">Option
-     * Group Considerations</a>. </p>
+     * Group Considerations</a> in the <i>Amazon RDS User Guide.</i> </p>
      */
     inline void SetOptionGroupName(Aws::String&& value) { m_optionGroupNameHasBeenSet = true; m_optionGroupName = std::move(value); }
 
@@ -728,7 +728,7 @@ namespace Model
      * you must specify this option when copying across AWS Regions. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options">Option
-     * Group Considerations</a>. </p>
+     * Group Considerations</a> in the <i>Amazon RDS User Guide.</i> </p>
      */
     inline void SetOptionGroupName(const char* value) { m_optionGroupNameHasBeenSet = true; m_optionGroupName.assign(value); }
 
@@ -740,7 +740,7 @@ namespace Model
      * you must specify this option when copying across AWS Regions. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options">Option
-     * Group Considerations</a>. </p>
+     * Group Considerations</a> in the <i>Amazon RDS User Guide.</i> </p>
      */
     inline CopyDBSnapshotRequest& WithOptionGroupName(const Aws::String& value) { SetOptionGroupName(value); return *this;}
 
@@ -752,7 +752,7 @@ namespace Model
      * you must specify this option when copying across AWS Regions. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options">Option
-     * Group Considerations</a>. </p>
+     * Group Considerations</a> in the <i>Amazon RDS User Guide.</i> </p>
      */
     inline CopyDBSnapshotRequest& WithOptionGroupName(Aws::String&& value) { SetOptionGroupName(std::move(value)); return *this;}
 
@@ -764,7 +764,7 @@ namespace Model
      * you must specify this option when copying across AWS Regions. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options">Option
-     * Group Considerations</a>. </p>
+     * Group Considerations</a> in the <i>Amazon RDS User Guide.</i> </p>
      */
     inline CopyDBSnapshotRequest& WithOptionGroupName(const char* value) { SetOptionGroupName(value); return *this;}
 

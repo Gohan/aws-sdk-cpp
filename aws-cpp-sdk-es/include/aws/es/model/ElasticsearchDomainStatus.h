@@ -23,6 +23,8 @@
 #include <aws/es/model/VPCDerivedInfo.h>
 #include <aws/es/model/CognitoOptions.h>
 #include <aws/es/model/EncryptionAtRestOptions.h>
+#include <aws/es/model/NodeToNodeEncryptionOptions.h>
+#include <aws/es/model/ServiceSoftwareOptions.h>
 #include <aws/es/model/LogType.h>
 #include <aws/es/model/LogPublishingOption.h>
 #include <utility>
@@ -680,6 +682,32 @@ namespace Model
 
 
     /**
+     * <p>Specifies the status of the <code>NodeToNodeEncryptionOptions</code>.</p>
+     */
+    inline const NodeToNodeEncryptionOptions& GetNodeToNodeEncryptionOptions() const{ return m_nodeToNodeEncryptionOptions; }
+
+    /**
+     * <p>Specifies the status of the <code>NodeToNodeEncryptionOptions</code>.</p>
+     */
+    inline void SetNodeToNodeEncryptionOptions(const NodeToNodeEncryptionOptions& value) { m_nodeToNodeEncryptionOptionsHasBeenSet = true; m_nodeToNodeEncryptionOptions = value; }
+
+    /**
+     * <p>Specifies the status of the <code>NodeToNodeEncryptionOptions</code>.</p>
+     */
+    inline void SetNodeToNodeEncryptionOptions(NodeToNodeEncryptionOptions&& value) { m_nodeToNodeEncryptionOptionsHasBeenSet = true; m_nodeToNodeEncryptionOptions = std::move(value); }
+
+    /**
+     * <p>Specifies the status of the <code>NodeToNodeEncryptionOptions</code>.</p>
+     */
+    inline ElasticsearchDomainStatus& WithNodeToNodeEncryptionOptions(const NodeToNodeEncryptionOptions& value) { SetNodeToNodeEncryptionOptions(value); return *this;}
+
+    /**
+     * <p>Specifies the status of the <code>NodeToNodeEncryptionOptions</code>.</p>
+     */
+    inline ElasticsearchDomainStatus& WithNodeToNodeEncryptionOptions(NodeToNodeEncryptionOptions&& value) { SetNodeToNodeEncryptionOptions(std::move(value)); return *this;}
+
+
+    /**
      * <p>Specifies the status of the <code>AdvancedOptions</code></p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetAdvancedOptions() const{ return m_advancedOptions; }
@@ -785,6 +813,32 @@ namespace Model
      */
     inline ElasticsearchDomainStatus& AddLogPublishingOptions(LogType&& key, LogPublishingOption&& value) { m_logPublishingOptionsHasBeenSet = true; m_logPublishingOptions.emplace(std::move(key), std::move(value)); return *this; }
 
+
+    /**
+     * <p>The current status of the Elasticsearch domain's service software.</p>
+     */
+    inline const ServiceSoftwareOptions& GetServiceSoftwareOptions() const{ return m_serviceSoftwareOptions; }
+
+    /**
+     * <p>The current status of the Elasticsearch domain's service software.</p>
+     */
+    inline void SetServiceSoftwareOptions(const ServiceSoftwareOptions& value) { m_serviceSoftwareOptionsHasBeenSet = true; m_serviceSoftwareOptions = value; }
+
+    /**
+     * <p>The current status of the Elasticsearch domain's service software.</p>
+     */
+    inline void SetServiceSoftwareOptions(ServiceSoftwareOptions&& value) { m_serviceSoftwareOptionsHasBeenSet = true; m_serviceSoftwareOptions = std::move(value); }
+
+    /**
+     * <p>The current status of the Elasticsearch domain's service software.</p>
+     */
+    inline ElasticsearchDomainStatus& WithServiceSoftwareOptions(const ServiceSoftwareOptions& value) { SetServiceSoftwareOptions(value); return *this;}
+
+    /**
+     * <p>The current status of the Elasticsearch domain's service software.</p>
+     */
+    inline ElasticsearchDomainStatus& WithServiceSoftwareOptions(ServiceSoftwareOptions&& value) { SetServiceSoftwareOptions(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_domainId;
@@ -838,11 +892,17 @@ namespace Model
     EncryptionAtRestOptions m_encryptionAtRestOptions;
     bool m_encryptionAtRestOptionsHasBeenSet;
 
+    NodeToNodeEncryptionOptions m_nodeToNodeEncryptionOptions;
+    bool m_nodeToNodeEncryptionOptionsHasBeenSet;
+
     Aws::Map<Aws::String, Aws::String> m_advancedOptions;
     bool m_advancedOptionsHasBeenSet;
 
     Aws::Map<LogType, LogPublishingOption> m_logPublishingOptions;
     bool m_logPublishingOptionsHasBeenSet;
+
+    ServiceSoftwareOptions m_serviceSoftwareOptions;
+    bool m_serviceSoftwareOptionsHasBeenSet;
   };
 
 } // namespace Model

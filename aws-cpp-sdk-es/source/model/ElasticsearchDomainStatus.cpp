@@ -50,8 +50,10 @@ ElasticsearchDomainStatus::ElasticsearchDomainStatus() :
     m_vPCOptionsHasBeenSet(false),
     m_cognitoOptionsHasBeenSet(false),
     m_encryptionAtRestOptionsHasBeenSet(false),
+    m_nodeToNodeEncryptionOptionsHasBeenSet(false),
     m_advancedOptionsHasBeenSet(false),
-    m_logPublishingOptionsHasBeenSet(false)
+    m_logPublishingOptionsHasBeenSet(false),
+    m_serviceSoftwareOptionsHasBeenSet(false)
 {
 }
 
@@ -77,8 +79,10 @@ ElasticsearchDomainStatus::ElasticsearchDomainStatus(JsonView jsonValue) :
     m_vPCOptionsHasBeenSet(false),
     m_cognitoOptionsHasBeenSet(false),
     m_encryptionAtRestOptionsHasBeenSet(false),
+    m_nodeToNodeEncryptionOptionsHasBeenSet(false),
     m_advancedOptionsHasBeenSet(false),
-    m_logPublishingOptionsHasBeenSet(false)
+    m_logPublishingOptionsHasBeenSet(false),
+    m_serviceSoftwareOptionsHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -207,6 +211,13 @@ ElasticsearchDomainStatus& ElasticsearchDomainStatus::operator =(JsonView jsonVa
     m_encryptionAtRestOptionsHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("NodeToNodeEncryptionOptions"))
+  {
+    m_nodeToNodeEncryptionOptions = jsonValue.GetObject("NodeToNodeEncryptionOptions");
+
+    m_nodeToNodeEncryptionOptionsHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("AdvancedOptions"))
   {
     Aws::Map<Aws::String, JsonView> advancedOptionsJsonMap = jsonValue.GetObject("AdvancedOptions").GetAllObjects();
@@ -225,6 +236,13 @@ ElasticsearchDomainStatus& ElasticsearchDomainStatus::operator =(JsonView jsonVa
       m_logPublishingOptions[LogTypeMapper::GetLogTypeForName(logPublishingOptionsItem.first)] = logPublishingOptionsItem.second.AsObject();
     }
     m_logPublishingOptionsHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("ServiceSoftwareOptions"))
+  {
+    m_serviceSoftwareOptions = jsonValue.GetObject("ServiceSoftwareOptions");
+
+    m_serviceSoftwareOptionsHasBeenSet = true;
   }
 
   return *this;
@@ -341,6 +359,12 @@ JsonValue ElasticsearchDomainStatus::Jsonize() const
 
   }
 
+  if(m_nodeToNodeEncryptionOptionsHasBeenSet)
+  {
+   payload.WithObject("NodeToNodeEncryptionOptions", m_nodeToNodeEncryptionOptions.Jsonize());
+
+  }
+
   if(m_advancedOptionsHasBeenSet)
   {
    JsonValue advancedOptionsJsonMap;
@@ -360,6 +384,12 @@ JsonValue ElasticsearchDomainStatus::Jsonize() const
      logPublishingOptionsJsonMap.WithObject(LogTypeMapper::GetNameForLogType(logPublishingOptionsItem.first), logPublishingOptionsItem.second.Jsonize());
    }
    payload.WithObject("LogPublishingOptions", std::move(logPublishingOptionsJsonMap));
+
+  }
+
+  if(m_serviceSoftwareOptionsHasBeenSet)
+  {
+   payload.WithObject("ServiceSoftwareOptions", m_serviceSoftwareOptions.Jsonize());
 
   }
 

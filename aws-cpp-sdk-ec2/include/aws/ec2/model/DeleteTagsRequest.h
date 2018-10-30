@@ -29,9 +29,6 @@ namespace Model
 {
 
   /**
-   * <p>Contains the parameters for DeleteTags.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteTagsRequest">AWS
-   * API Reference</a></p>
    */
   class AWS_EC2_API DeleteTagsRequest : public EC2Request
   {
@@ -77,42 +74,42 @@ namespace Model
 
 
     /**
-     * <p>The IDs of one or more resources.</p>
+     * <p>The IDs of one or more resources, separated by spaces.</p>
      */
     inline const Aws::Vector<Aws::String>& GetResources() const{ return m_resources; }
 
     /**
-     * <p>The IDs of one or more resources.</p>
+     * <p>The IDs of one or more resources, separated by spaces.</p>
      */
     inline void SetResources(const Aws::Vector<Aws::String>& value) { m_resourcesHasBeenSet = true; m_resources = value; }
 
     /**
-     * <p>The IDs of one or more resources.</p>
+     * <p>The IDs of one or more resources, separated by spaces.</p>
      */
     inline void SetResources(Aws::Vector<Aws::String>&& value) { m_resourcesHasBeenSet = true; m_resources = std::move(value); }
 
     /**
-     * <p>The IDs of one or more resources.</p>
+     * <p>The IDs of one or more resources, separated by spaces.</p>
      */
     inline DeleteTagsRequest& WithResources(const Aws::Vector<Aws::String>& value) { SetResources(value); return *this;}
 
     /**
-     * <p>The IDs of one or more resources.</p>
+     * <p>The IDs of one or more resources, separated by spaces.</p>
      */
     inline DeleteTagsRequest& WithResources(Aws::Vector<Aws::String>&& value) { SetResources(std::move(value)); return *this;}
 
     /**
-     * <p>The IDs of one or more resources.</p>
+     * <p>The IDs of one or more resources, separated by spaces.</p>
      */
     inline DeleteTagsRequest& AddResources(const Aws::String& value) { m_resourcesHasBeenSet = true; m_resources.push_back(value); return *this; }
 
     /**
-     * <p>The IDs of one or more resources.</p>
+     * <p>The IDs of one or more resources, separated by spaces.</p>
      */
     inline DeleteTagsRequest& AddResources(Aws::String&& value) { m_resourcesHasBeenSet = true; m_resources.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>The IDs of one or more resources.</p>
+     * <p>The IDs of one or more resources, separated by spaces.</p>
      */
     inline DeleteTagsRequest& AddResources(const char* value) { m_resourcesHasBeenSet = true; m_resources.push_back(value); return *this; }
 

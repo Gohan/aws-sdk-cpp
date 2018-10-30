@@ -53,7 +53,10 @@ RestoreDBInstanceFromDBSnapshotRequest::RestoreDBInstanceFromDBSnapshotRequest()
     m_enableCloudwatchLogsExportsHasBeenSet(false),
     m_processorFeaturesHasBeenSet(false),
     m_useDefaultProcessorFeatures(false),
-    m_useDefaultProcessorFeaturesHasBeenSet(false)
+    m_useDefaultProcessorFeaturesHasBeenSet(false),
+    m_dBParameterGroupNameHasBeenSet(false),
+    m_deletionProtection(false),
+    m_deletionProtectionHasBeenSet(false)
 {
 }
 
@@ -200,6 +203,16 @@ Aws::String RestoreDBInstanceFromDBSnapshotRequest::SerializePayload() const
   if(m_useDefaultProcessorFeaturesHasBeenSet)
   {
     ss << "UseDefaultProcessorFeatures=" << std::boolalpha << m_useDefaultProcessorFeatures << "&";
+  }
+
+  if(m_dBParameterGroupNameHasBeenSet)
+  {
+    ss << "DBParameterGroupName=" << StringUtils::URLEncode(m_dBParameterGroupName.c_str()) << "&";
+  }
+
+  if(m_deletionProtectionHasBeenSet)
+  {
+    ss << "DeletionProtection=" << std::boolalpha << m_deletionProtection << "&";
   }
 
   ss << "Version=2014-10-31";

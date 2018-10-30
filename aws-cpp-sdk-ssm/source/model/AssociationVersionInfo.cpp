@@ -38,7 +38,11 @@ AssociationVersionInfo::AssociationVersionInfo() :
     m_targetsHasBeenSet(false),
     m_scheduleExpressionHasBeenSet(false),
     m_outputLocationHasBeenSet(false),
-    m_associationNameHasBeenSet(false)
+    m_associationNameHasBeenSet(false),
+    m_maxErrorsHasBeenSet(false),
+    m_maxConcurrencyHasBeenSet(false),
+    m_complianceSeverity(AssociationComplianceSeverity::NOT_SET),
+    m_complianceSeverityHasBeenSet(false)
 {
 }
 
@@ -52,7 +56,11 @@ AssociationVersionInfo::AssociationVersionInfo(JsonView jsonValue) :
     m_targetsHasBeenSet(false),
     m_scheduleExpressionHasBeenSet(false),
     m_outputLocationHasBeenSet(false),
-    m_associationNameHasBeenSet(false)
+    m_associationNameHasBeenSet(false),
+    m_maxErrorsHasBeenSet(false),
+    m_maxConcurrencyHasBeenSet(false),
+    m_complianceSeverity(AssociationComplianceSeverity::NOT_SET),
+    m_complianceSeverityHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -142,6 +150,27 @@ AssociationVersionInfo& AssociationVersionInfo::operator =(JsonView jsonValue)
     m_associationNameHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("MaxErrors"))
+  {
+    m_maxErrors = jsonValue.GetString("MaxErrors");
+
+    m_maxErrorsHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("MaxConcurrency"))
+  {
+    m_maxConcurrency = jsonValue.GetString("MaxConcurrency");
+
+    m_maxConcurrencyHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("ComplianceSeverity"))
+  {
+    m_complianceSeverity = AssociationComplianceSeverityMapper::GetAssociationComplianceSeverityForName(jsonValue.GetString("ComplianceSeverity"));
+
+    m_complianceSeverityHasBeenSet = true;
+  }
+
   return *this;
 }
 
@@ -221,6 +250,23 @@ JsonValue AssociationVersionInfo::Jsonize() const
   {
    payload.WithString("AssociationName", m_associationName);
 
+  }
+
+  if(m_maxErrorsHasBeenSet)
+  {
+   payload.WithString("MaxErrors", m_maxErrors);
+
+  }
+
+  if(m_maxConcurrencyHasBeenSet)
+  {
+   payload.WithString("MaxConcurrency", m_maxConcurrency);
+
+  }
+
+  if(m_complianceSeverityHasBeenSet)
+  {
+   payload.WithString("ComplianceSeverity", AssociationComplianceSeverityMapper::GetNameForAssociationComplianceSeverity(m_complianceSeverity));
   }
 
   return payload;

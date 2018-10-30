@@ -60,9 +60,9 @@ namespace Model
      * snapshot identifier.</p> </li> <li> <p>If the source snapshot is in a different
      * AWS Region than the copy, specify a valid DB cluster snapshot ARN. For more
      * information, go to <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
-     * Copying a DB Snapshot or DB Cluster Snapshot</a>.</p> </li> </ul> <p>Example:
-     * <code>my-cluster-snapshot1</code> </p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions">
+     * Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
+     * </p> </li> </ul> <p>Example: <code>my-cluster-snapshot1</code> </p>
      */
     inline const Aws::String& GetSourceDBClusterSnapshotIdentifier() const{ return m_sourceDBClusterSnapshotIdentifier; }
 
@@ -75,9 +75,9 @@ namespace Model
      * snapshot identifier.</p> </li> <li> <p>If the source snapshot is in a different
      * AWS Region than the copy, specify a valid DB cluster snapshot ARN. For more
      * information, go to <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
-     * Copying a DB Snapshot or DB Cluster Snapshot</a>.</p> </li> </ul> <p>Example:
-     * <code>my-cluster-snapshot1</code> </p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions">
+     * Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
+     * </p> </li> </ul> <p>Example: <code>my-cluster-snapshot1</code> </p>
      */
     inline void SetSourceDBClusterSnapshotIdentifier(const Aws::String& value) { m_sourceDBClusterSnapshotIdentifierHasBeenSet = true; m_sourceDBClusterSnapshotIdentifier = value; }
 
@@ -90,9 +90,9 @@ namespace Model
      * snapshot identifier.</p> </li> <li> <p>If the source snapshot is in a different
      * AWS Region than the copy, specify a valid DB cluster snapshot ARN. For more
      * information, go to <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
-     * Copying a DB Snapshot or DB Cluster Snapshot</a>.</p> </li> </ul> <p>Example:
-     * <code>my-cluster-snapshot1</code> </p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions">
+     * Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
+     * </p> </li> </ul> <p>Example: <code>my-cluster-snapshot1</code> </p>
      */
     inline void SetSourceDBClusterSnapshotIdentifier(Aws::String&& value) { m_sourceDBClusterSnapshotIdentifierHasBeenSet = true; m_sourceDBClusterSnapshotIdentifier = std::move(value); }
 
@@ -105,9 +105,9 @@ namespace Model
      * snapshot identifier.</p> </li> <li> <p>If the source snapshot is in a different
      * AWS Region than the copy, specify a valid DB cluster snapshot ARN. For more
      * information, go to <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
-     * Copying a DB Snapshot or DB Cluster Snapshot</a>.</p> </li> </ul> <p>Example:
-     * <code>my-cluster-snapshot1</code> </p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions">
+     * Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
+     * </p> </li> </ul> <p>Example: <code>my-cluster-snapshot1</code> </p>
      */
     inline void SetSourceDBClusterSnapshotIdentifier(const char* value) { m_sourceDBClusterSnapshotIdentifierHasBeenSet = true; m_sourceDBClusterSnapshotIdentifier.assign(value); }
 
@@ -120,9 +120,9 @@ namespace Model
      * snapshot identifier.</p> </li> <li> <p>If the source snapshot is in a different
      * AWS Region than the copy, specify a valid DB cluster snapshot ARN. For more
      * information, go to <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
-     * Copying a DB Snapshot or DB Cluster Snapshot</a>.</p> </li> </ul> <p>Example:
-     * <code>my-cluster-snapshot1</code> </p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions">
+     * Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
+     * </p> </li> </ul> <p>Example: <code>my-cluster-snapshot1</code> </p>
      */
     inline CopyDBClusterSnapshotRequest& WithSourceDBClusterSnapshotIdentifier(const Aws::String& value) { SetSourceDBClusterSnapshotIdentifier(value); return *this;}
 
@@ -135,9 +135,9 @@ namespace Model
      * snapshot identifier.</p> </li> <li> <p>If the source snapshot is in a different
      * AWS Region than the copy, specify a valid DB cluster snapshot ARN. For more
      * information, go to <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
-     * Copying a DB Snapshot or DB Cluster Snapshot</a>.</p> </li> </ul> <p>Example:
-     * <code>my-cluster-snapshot1</code> </p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions">
+     * Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
+     * </p> </li> </ul> <p>Example: <code>my-cluster-snapshot1</code> </p>
      */
     inline CopyDBClusterSnapshotRequest& WithSourceDBClusterSnapshotIdentifier(Aws::String&& value) { SetSourceDBClusterSnapshotIdentifier(std::move(value)); return *this;}
 
@@ -150,9 +150,9 @@ namespace Model
      * snapshot identifier.</p> </li> <li> <p>If the source snapshot is in a different
      * AWS Region than the copy, specify a valid DB cluster snapshot ARN. For more
      * information, go to <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
-     * Copying a DB Snapshot or DB Cluster Snapshot</a>.</p> </li> </ul> <p>Example:
-     * <code>my-cluster-snapshot1</code> </p>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions">
+     * Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
+     * </p> </li> </ul> <p>Example: <code>my-cluster-snapshot1</code> </p>
      */
     inline CopyDBClusterSnapshotRequest& WithSourceDBClusterSnapshotIdentifier(const char* value) { SetSourceDBClusterSnapshotIdentifier(value); return *this;}
 
@@ -161,7 +161,7 @@ namespace Model
      * <p>The identifier of the new DB cluster snapshot to create from the source DB
      * cluster snapshot. This parameter is not case-sensitive.</p> <p>Constraints:</p>
      * <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li>
-     * <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a
+     * <li> <p>First character must be a letter.</p> </li> <li> <p>Can't end with a
      * hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>my-cluster-snapshot2</code> </p>
      */
@@ -171,7 +171,7 @@ namespace Model
      * <p>The identifier of the new DB cluster snapshot to create from the source DB
      * cluster snapshot. This parameter is not case-sensitive.</p> <p>Constraints:</p>
      * <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li>
-     * <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a
+     * <li> <p>First character must be a letter.</p> </li> <li> <p>Can't end with a
      * hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>my-cluster-snapshot2</code> </p>
      */
@@ -181,7 +181,7 @@ namespace Model
      * <p>The identifier of the new DB cluster snapshot to create from the source DB
      * cluster snapshot. This parameter is not case-sensitive.</p> <p>Constraints:</p>
      * <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li>
-     * <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a
+     * <li> <p>First character must be a letter.</p> </li> <li> <p>Can't end with a
      * hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>my-cluster-snapshot2</code> </p>
      */
@@ -191,7 +191,7 @@ namespace Model
      * <p>The identifier of the new DB cluster snapshot to create from the source DB
      * cluster snapshot. This parameter is not case-sensitive.</p> <p>Constraints:</p>
      * <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li>
-     * <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a
+     * <li> <p>First character must be a letter.</p> </li> <li> <p>Can't end with a
      * hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>my-cluster-snapshot2</code> </p>
      */
@@ -201,7 +201,7 @@ namespace Model
      * <p>The identifier of the new DB cluster snapshot to create from the source DB
      * cluster snapshot. This parameter is not case-sensitive.</p> <p>Constraints:</p>
      * <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li>
-     * <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a
+     * <li> <p>First character must be a letter.</p> </li> <li> <p>Can't end with a
      * hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>my-cluster-snapshot2</code> </p>
      */
@@ -211,7 +211,7 @@ namespace Model
      * <p>The identifier of the new DB cluster snapshot to create from the source DB
      * cluster snapshot. This parameter is not case-sensitive.</p> <p>Constraints:</p>
      * <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li>
-     * <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a
+     * <li> <p>First character must be a letter.</p> </li> <li> <p>Can't end with a
      * hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>my-cluster-snapshot2</code> </p>
      */
@@ -221,7 +221,7 @@ namespace Model
      * <p>The identifier of the new DB cluster snapshot to create from the source DB
      * cluster snapshot. This parameter is not case-sensitive.</p> <p>Constraints:</p>
      * <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li>
-     * <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a
+     * <li> <p>First character must be a letter.</p> </li> <li> <p>Can't end with a
      * hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example:
      * <code>my-cluster-snapshot2</code> </p>
      */

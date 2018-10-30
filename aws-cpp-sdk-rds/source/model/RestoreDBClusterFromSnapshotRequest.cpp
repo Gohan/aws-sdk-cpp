@@ -40,7 +40,10 @@ RestoreDBClusterFromSnapshotRequest::RestoreDBClusterFromSnapshotRequest() :
     m_backtrackWindowHasBeenSet(false),
     m_enableCloudwatchLogsExportsHasBeenSet(false),
     m_engineModeHasBeenSet(false),
-    m_scalingConfigurationHasBeenSet(false)
+    m_scalingConfigurationHasBeenSet(false),
+    m_dBClusterParameterGroupNameHasBeenSet(false),
+    m_deletionProtection(false),
+    m_deletionProtectionHasBeenSet(false)
 {
 }
 
@@ -154,6 +157,16 @@ Aws::String RestoreDBClusterFromSnapshotRequest::SerializePayload() const
   if(m_scalingConfigurationHasBeenSet)
   {
     m_scalingConfiguration.OutputToStream(ss, "ScalingConfiguration");
+  }
+
+  if(m_dBClusterParameterGroupNameHasBeenSet)
+  {
+    ss << "DBClusterParameterGroupName=" << StringUtils::URLEncode(m_dBClusterParameterGroupName.c_str()) << "&";
+  }
+
+  if(m_deletionProtectionHasBeenSet)
+  {
+    ss << "DeletionProtection=" << std::boolalpha << m_deletionProtection << "&";
   }
 
   ss << "Version=2014-10-31";

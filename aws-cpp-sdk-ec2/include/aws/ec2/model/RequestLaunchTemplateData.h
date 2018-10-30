@@ -26,6 +26,7 @@
 #include <aws/ec2/model/LaunchTemplateInstanceMarketOptionsRequest.h>
 #include <aws/ec2/model/CreditSpecificationRequest.h>
 #include <aws/ec2/model/LaunchTemplateCpuOptionsRequest.h>
+#include <aws/ec2/model/LaunchTemplateCapacityReservationSpecificationRequest.h>
 #include <aws/ec2/model/LaunchTemplateBlockDeviceMappingRequest.h>
 #include <aws/ec2/model/LaunchTemplateInstanceNetworkInterfaceSpecificationRequest.h>
 #include <aws/ec2/model/LaunchTemplateTagSpecificationRequest.h>
@@ -896,31 +897,31 @@ namespace Model
 
 
     /**
-     * <p>The credit option for CPU usage of the instance. Valid for T2 instances
+     * <p>The credit option for CPU usage of the instance. Valid for T2 or T3 instances
      * only.</p>
      */
     inline const CreditSpecificationRequest& GetCreditSpecification() const{ return m_creditSpecification; }
 
     /**
-     * <p>The credit option for CPU usage of the instance. Valid for T2 instances
+     * <p>The credit option for CPU usage of the instance. Valid for T2 or T3 instances
      * only.</p>
      */
     inline void SetCreditSpecification(const CreditSpecificationRequest& value) { m_creditSpecificationHasBeenSet = true; m_creditSpecification = value; }
 
     /**
-     * <p>The credit option for CPU usage of the instance. Valid for T2 instances
+     * <p>The credit option for CPU usage of the instance. Valid for T2 or T3 instances
      * only.</p>
      */
     inline void SetCreditSpecification(CreditSpecificationRequest&& value) { m_creditSpecificationHasBeenSet = true; m_creditSpecification = std::move(value); }
 
     /**
-     * <p>The credit option for CPU usage of the instance. Valid for T2 instances
+     * <p>The credit option for CPU usage of the instance. Valid for T2 or T3 instances
      * only.</p>
      */
     inline RequestLaunchTemplateData& WithCreditSpecification(const CreditSpecificationRequest& value) { SetCreditSpecification(value); return *this;}
 
     /**
-     * <p>The credit option for CPU usage of the instance. Valid for T2 instances
+     * <p>The credit option for CPU usage of the instance. Valid for T2 or T3 instances
      * only.</p>
      */
     inline RequestLaunchTemplateData& WithCreditSpecification(CreditSpecificationRequest&& value) { SetCreditSpecification(std::move(value)); return *this;}
@@ -960,6 +961,32 @@ namespace Model
      * CPU Options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
     inline RequestLaunchTemplateData& WithCpuOptions(LaunchTemplateCpuOptionsRequest&& value) { SetCpuOptions(std::move(value)); return *this;}
+
+
+    /**
+     * <p>Information about the Capacity Reservation targeting option.</p>
+     */
+    inline const LaunchTemplateCapacityReservationSpecificationRequest& GetCapacityReservationSpecification() const{ return m_capacityReservationSpecification; }
+
+    /**
+     * <p>Information about the Capacity Reservation targeting option.</p>
+     */
+    inline void SetCapacityReservationSpecification(const LaunchTemplateCapacityReservationSpecificationRequest& value) { m_capacityReservationSpecificationHasBeenSet = true; m_capacityReservationSpecification = value; }
+
+    /**
+     * <p>Information about the Capacity Reservation targeting option.</p>
+     */
+    inline void SetCapacityReservationSpecification(LaunchTemplateCapacityReservationSpecificationRequest&& value) { m_capacityReservationSpecificationHasBeenSet = true; m_capacityReservationSpecification = std::move(value); }
+
+    /**
+     * <p>Information about the Capacity Reservation targeting option.</p>
+     */
+    inline RequestLaunchTemplateData& WithCapacityReservationSpecification(const LaunchTemplateCapacityReservationSpecificationRequest& value) { SetCapacityReservationSpecification(value); return *this;}
+
+    /**
+     * <p>Information about the Capacity Reservation targeting option.</p>
+     */
+    inline RequestLaunchTemplateData& WithCapacityReservationSpecification(LaunchTemplateCapacityReservationSpecificationRequest&& value) { SetCapacityReservationSpecification(std::move(value)); return *this;}
 
   private:
 
@@ -1025,6 +1052,9 @@ namespace Model
 
     LaunchTemplateCpuOptionsRequest m_cpuOptions;
     bool m_cpuOptionsHasBeenSet;
+
+    LaunchTemplateCapacityReservationSpecificationRequest m_capacityReservationSpecification;
+    bool m_capacityReservationSpecificationHasBeenSet;
   };
 
 } // namespace Model

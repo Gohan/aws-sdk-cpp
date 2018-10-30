@@ -26,7 +26,10 @@ CreateProjectRequest::CreateProjectRequest() :
     m_nameHasBeenSet(false),
     m_idHasBeenSet(false),
     m_descriptionHasBeenSet(false),
-    m_clientRequestTokenHasBeenSet(false)
+    m_clientRequestTokenHasBeenSet(false),
+    m_sourceCodeHasBeenSet(false),
+    m_toolchainHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -55,6 +58,34 @@ Aws::String CreateProjectRequest::SerializePayload() const
   if(m_clientRequestTokenHasBeenSet)
   {
    payload.WithString("clientRequestToken", m_clientRequestToken);
+
+  }
+
+  if(m_sourceCodeHasBeenSet)
+  {
+   Array<JsonValue> sourceCodeJsonList(m_sourceCode.size());
+   for(unsigned sourceCodeIndex = 0; sourceCodeIndex < sourceCodeJsonList.GetLength(); ++sourceCodeIndex)
+   {
+     sourceCodeJsonList[sourceCodeIndex].AsObject(m_sourceCode[sourceCodeIndex].Jsonize());
+   }
+   payload.WithArray("sourceCode", std::move(sourceCodeJsonList));
+
+  }
+
+  if(m_toolchainHasBeenSet)
+  {
+   payload.WithObject("toolchain", m_toolchain.Jsonize());
+
+  }
+
+  if(m_tagsHasBeenSet)
+  {
+   JsonValue tagsJsonMap;
+   for(auto& tagsItem : m_tags)
+   {
+     tagsJsonMap.WithString(tagsItem.first, tagsItem.second);
+   }
+   payload.WithObject("tags", std::move(tagsJsonMap));
 
   }
 

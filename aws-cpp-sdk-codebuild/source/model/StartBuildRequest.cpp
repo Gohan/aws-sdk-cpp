@@ -24,8 +24,11 @@ using namespace Aws::Utils;
 
 StartBuildRequest::StartBuildRequest() : 
     m_projectNameHasBeenSet(false),
+    m_secondarySourcesOverrideHasBeenSet(false),
+    m_secondarySourcesVersionOverrideHasBeenSet(false),
     m_sourceVersionHasBeenSet(false),
     m_artifactsOverrideHasBeenSet(false),
+    m_secondaryArtifactsOverrideHasBeenSet(false),
     m_environmentVariablesOverrideHasBeenSet(false),
     m_sourceTypeOverride(SourceType::NOT_SET),
     m_sourceTypeOverrideHasBeenSet(false),
@@ -50,7 +53,8 @@ StartBuildRequest::StartBuildRequest() :
     m_privilegedModeOverrideHasBeenSet(false),
     m_timeoutInMinutesOverride(0),
     m_timeoutInMinutesOverrideHasBeenSet(false),
-    m_idempotencyTokenHasBeenSet(false)
+    m_idempotencyTokenHasBeenSet(false),
+    m_logsConfigOverrideHasBeenSet(false)
 {
 }
 
@@ -64,6 +68,28 @@ Aws::String StartBuildRequest::SerializePayload() const
 
   }
 
+  if(m_secondarySourcesOverrideHasBeenSet)
+  {
+   Array<JsonValue> secondarySourcesOverrideJsonList(m_secondarySourcesOverride.size());
+   for(unsigned secondarySourcesOverrideIndex = 0; secondarySourcesOverrideIndex < secondarySourcesOverrideJsonList.GetLength(); ++secondarySourcesOverrideIndex)
+   {
+     secondarySourcesOverrideJsonList[secondarySourcesOverrideIndex].AsObject(m_secondarySourcesOverride[secondarySourcesOverrideIndex].Jsonize());
+   }
+   payload.WithArray("secondarySourcesOverride", std::move(secondarySourcesOverrideJsonList));
+
+  }
+
+  if(m_secondarySourcesVersionOverrideHasBeenSet)
+  {
+   Array<JsonValue> secondarySourcesVersionOverrideJsonList(m_secondarySourcesVersionOverride.size());
+   for(unsigned secondarySourcesVersionOverrideIndex = 0; secondarySourcesVersionOverrideIndex < secondarySourcesVersionOverrideJsonList.GetLength(); ++secondarySourcesVersionOverrideIndex)
+   {
+     secondarySourcesVersionOverrideJsonList[secondarySourcesVersionOverrideIndex].AsObject(m_secondarySourcesVersionOverride[secondarySourcesVersionOverrideIndex].Jsonize());
+   }
+   payload.WithArray("secondarySourcesVersionOverride", std::move(secondarySourcesVersionOverrideJsonList));
+
+  }
+
   if(m_sourceVersionHasBeenSet)
   {
    payload.WithString("sourceVersion", m_sourceVersion);
@@ -73,6 +99,17 @@ Aws::String StartBuildRequest::SerializePayload() const
   if(m_artifactsOverrideHasBeenSet)
   {
    payload.WithObject("artifactsOverride", m_artifactsOverride.Jsonize());
+
+  }
+
+  if(m_secondaryArtifactsOverrideHasBeenSet)
+  {
+   Array<JsonValue> secondaryArtifactsOverrideJsonList(m_secondaryArtifactsOverride.size());
+   for(unsigned secondaryArtifactsOverrideIndex = 0; secondaryArtifactsOverrideIndex < secondaryArtifactsOverrideJsonList.GetLength(); ++secondaryArtifactsOverrideIndex)
+   {
+     secondaryArtifactsOverrideJsonList[secondaryArtifactsOverrideIndex].AsObject(m_secondaryArtifactsOverride[secondaryArtifactsOverrideIndex].Jsonize());
+   }
+   payload.WithArray("secondaryArtifactsOverride", std::move(secondaryArtifactsOverrideJsonList));
 
   }
 
@@ -177,6 +214,12 @@ Aws::String StartBuildRequest::SerializePayload() const
   if(m_idempotencyTokenHasBeenSet)
   {
    payload.WithString("idempotencyToken", m_idempotencyToken);
+
+  }
+
+  if(m_logsConfigOverrideHasBeenSet)
+  {
+   payload.WithObject("logsConfigOverride", m_logsConfigOverride.Jsonize());
 
   }
 
