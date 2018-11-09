@@ -243,6 +243,20 @@ bool WinHttpSyncHttpClient::DoSendRequest(const HttpRequest& request, void* hHtt
         oss->seekg(0, std::ios::beg);
     }
 
+    if (!m_verifySSL)
+    {
+        // ignore ssl errors
+        DWORD dwFlags =
+            SECURITY_FLAG_IGNORE_UNKNOWN_CA |
+            SECURITY_FLAG_IGNORE_CERT_WRONG_USAGE |
+            SECURITY_FLAG_IGNORE_CERT_CN_INVALID |
+            SECURITY_FLAG_IGNORE_CERT_DATE_INVALID;
+        if (!WinHttpSetOption(hHttpRequest, WINHTTP_OPTION_SECURITY_FLAGS, &dwFlags, sizeof(dwFlags)))
+        {
+            AWS_LOGSTREAM_FATAL(GetLogTag(), "Failed setting WINHTTP_OPTION_SECURITY_FLAGS with error code: " << GetLastError());
+        }
+    }
+
     if (size == 0) {
         return (WinHttpSendRequest(hHttpRequest, NULL, NULL, 0, 0, 0, NULL) != 0);
     }
